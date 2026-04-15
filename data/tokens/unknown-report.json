@@ -1,0 +1,734 @@
+{
+  "generatedAt": "2026-04-15T12:17:11.615Z",
+  "unknownCount": 48,
+  "urgentReviewCount": 0,
+  "reviewCount": 0,
+  "watchCount": 48,
+  "items": [
+    {
+      "symbol": "2Z",
+      "name": "DoubleZero",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "AIXBT",
+      "name": "aixbt by Virtuals",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "base"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "ASTER",
+      "name": "Aster",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "bsc"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "AVNT",
+      "name": "Avantis",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "base"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "BAT",
+      "name": "Basic Attention Token",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "BIT",
+      "name": "BitDAO",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "BLUR",
+      "name": "Blur",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "BP",
+      "name": "Backpack",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "CHZ",
+      "name": "Chilliz",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "COAI",
+      "name": "ChainOpera AI",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "bsc"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "COLLAT",
+      "name": "Collaterize",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "EIGEN",
+      "name": "EigenCloud",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "FOX",
+      "name": "ShapeShift",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "GMT",
+      "name": "GMT",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "GRASS",
+      "name": "Grass",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "GRIFFAIN",
+      "name": "Griffain",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "GRT",
+      "name": "The Graph",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "HEX",
+      "name": "HEX",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "HWHYPE",
+      "name": "Hyperwave HYPE",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "hyperevm"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "JASMY",
+      "name": "JasmyCoin",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "KAITO",
+      "name": "Kaito",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "base"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "KET",
+      "name": "Ket",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "avax"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "LIT",
+      "name": "Lighter",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "LRC",
+      "name": "Loopring",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "LYNK",
+      "name": "Lynk",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "MAGIC",
+      "name": "MAGIC",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "arbitrum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "MET",
+      "name": "Meteora",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "MPLX",
+      "name": "Metaplex",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "OM",
+      "name": "Mantra",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "PAXG",
+      "name": "Paxos Gold",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "QNT",
+      "name": "Quant",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "RAIN",
+      "name": "Rain",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "arbitrum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "RIVER",
+      "name": "River",
+      "priority": "low",
+      "networkCount": 2,
+      "networks": [
+        "base",
+        "bsc"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "RLB",
+      "name": "Rollbit",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "RNDR",
+      "name": "Render",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SAI",
+      "name": "Legacy SideShift Token",
+      "priority": "low",
+      "networkCount": 2,
+      "networks": [
+        "ethereum",
+        "liquid"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SKR",
+      "name": "Seeker",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SKY",
+      "name": "Sky",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SNX",
+      "name": "Synthetix",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SWARMS",
+      "name": "Swarms",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "SWEAT",
+      "name": "Sweat Economy",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "VERSE",
+      "name": "Verse",
+      "priority": "low",
+      "networkCount": 2,
+      "networks": [
+        "ethereum",
+        "polygon"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "VIRTUAL",
+      "name": "Virtuals Protocol",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "base"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "VVV",
+      "name": "Venice Token",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "base"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "rule",
+      "classificationReason": "no_safe_rule_match",
+      "prioritySource": "rule",
+      "priorityReason": "fallback_low_priority",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "WLD",
+      "name": "Worldcoin",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "ethereum"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "WLFI",
+      "name": "World Liberty Financial",
+      "priority": "low",
+      "networkCount": 2,
+      "networks": [
+        "ethereum",
+        "solana"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "XAI",
+      "name": "SideShift Token",
+      "priority": "low",
+      "networkCount": 2,
+      "networks": [
+        "ethereum",
+        "internal"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    },
+    {
+      "symbol": "XPL",
+      "name": "Plasma",
+      "priority": "low",
+      "networkCount": 1,
+      "networks": [
+        "plasma"
+      ],
+      "hasMemoRoutes": false,
+      "classificationSource": "manual_override",
+      "classificationReason": "manual_category_override",
+      "prioritySource": "manual_override",
+      "priorityReason": "manual_priority_override",
+      "reviewTier": "watch"
+    }
+  ]
+}

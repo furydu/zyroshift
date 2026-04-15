@@ -1,0 +1,4129 @@
+{
+  "assets": [
+    {
+      "coin": "1INCH",
+      "name": "1Inch Token",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x111111111117dc0aa78b770fa6a738034120c302",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "2Z",
+      "name": "DoubleZero",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "J6pQQ3FAcJQeWPPGppWRb4nM8jU3wLyYbRrLh7feMfvd",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "AAVE",
+      "name": "AAVE",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ADA",
+      "name": "ADA",
+      "networks": [
+        {
+          "id": "cardano",
+          "label": "Cardano",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "AERO",
+      "name": "Aerodrome Finance",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "AIXBT",
+      "name": "aixbt by Virtuals",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4f9fd6be4a90f2620860d680c0d4d5fb53d1a825",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ALGO",
+      "name": "Algorand",
+      "networks": [
+        {
+          "id": "algorand",
+          "label": "Algorand",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "AMP",
+      "name": "Amp",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xff20817765cb7f73d4bde2e66e067e58d11095c2",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "APE",
+      "name": "ApeCoin",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4d224452801ACEd8B2F0aebE155379bb5D594381",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "APT",
+      "name": "Aptos",
+      "networks": [
+        {
+          "id": "aptos",
+          "label": "Aptos",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "APU",
+      "name": "Apu Apustaja",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x594DaaD7D77592a2b97b725A7AD59D7E188b5bFa",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ARB",
+      "name": "ARB",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ASTER",
+      "name": "Aster",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x000ae314e2a2172a039b26378814c252734f556a",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ATOM",
+      "name": "Cosmos",
+      "networks": [
+        {
+          "id": "cosmos",
+          "label": "Cosmos",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "AVAX",
+      "name": "Avalanche",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "AVNT",
+      "name": "Avantis",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x696f9436b67233384889472cd7cd58a6fb5df4f1",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "AXS",
+      "name": "Axie Infinity",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BAT",
+      "name": "Basic Attention Token",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BCH",
+      "name": "Bitcoin Cash",
+      "networks": [
+        {
+          "id": "bitcoincash",
+          "label": "Bitcoin Cash",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "BERA",
+      "name": "Berachain",
+      "networks": [
+        {
+          "id": "berachain",
+          "label": "Berachain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "BIT",
+      "name": "BitDAO",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BITCOIN",
+      "name": "HarryPotterObamaSonic10Inu",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x72e4f9f808c49a2a61de9c5896298920dc4eeea9",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "BLUR",
+      "name": "Blur",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x5283d291dbcf85356a21ba090e6db59121208b44",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BNB",
+      "name": "Binance Coin",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "BOME",
+      "name": "Book of MEME",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "ukHH6c7mMyiWCf1b9pnWe25TSpkDDt3H5pQZgZ74J82",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "BONE",
+      "name": "BONE",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x9813037ee2218799597d83D4a5B6F3b6778218d9",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BONK",
+      "name": "Bonk",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "decimals": 5
+        }
+      ]
+    },
+    {
+      "coin": "BP",
+      "name": "Backpack",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "BRETT",
+      "name": "BRETT",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x532f27101965dd16442e59d40670faf5ebb142e4",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BRLA",
+      "name": "Digital BRLA",
+      "networks": [
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xE6A537a407488807F0bbeb0038B79004f19DDDFb",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "BSOL",
+      "name": "BlazeStake staked SOL",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "bSo13r4TkiE4KumL71LsHTPpL2euBYLFx6h9HP3piy1",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "BTC",
+      "name": "Bitcoin",
+      "networks": [
+        {
+          "id": "bitcoin",
+          "label": "Bitcoin",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "liquid",
+          "label": "Liquid",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "6f0279e9ed041c3d710a9f57d0c02928416460c4b722ae3457a11eec381c526d",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "BTC.b",
+      "name": "BTC.b",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x152b9d0fdc40c096757f570a51e494bd4b943e50",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "CAKE",
+      "name": "Pancake Swap",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "cbBTC",
+      "name": "Coinbase Wrapped BTC",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "decimals": 8
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
+          "decimals": 8
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "cbETH",
+      "name": "Coinbase Wrapped Staked ETH",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "CHZ",
+      "name": "Chilliz",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x3506424f91fd33084466f402d5d97f05f8e3b4af",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "COAI",
+      "name": "ChainOpera AI",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0a8d6c86e1bce73fe4d0bd531e1a567306836ea5",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "COLLAT",
+      "name": "Collaterize",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "C7heQqfNzdMbUFQwcHkL9FvdwsFsDRBnfwZDDyWYCLTZ",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "COMP",
+      "name": "Compound",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc00e94cb662c3520282e6f5717214004a7f26888",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "CORE",
+      "name": "Core",
+      "networks": [
+        {
+          "id": "core",
+          "label": "Core",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "CRO",
+      "name": "Cronos",
+      "networks": [
+        {
+          "id": "cronos",
+          "label": "Cronos",
+          "hasMemo": false,
+          "depositEnabled": false,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "CRV",
+      "name": "Curve DAO",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd533a949740bb3306d119cc777fa900ba034cd52",
+          "decimals": 18
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "DAI",
+      "name": "Dai",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+          "decimals": 18
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x50c5725949a6f0c72e6c4a641f24049a917db0cb",
+          "decimals": 18
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+          "decimals": 18
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6b175474e89094c44da98b954eedeac495271d0f",
+          "decimals": 18
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+          "decimals": 18
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "DASH",
+      "name": "Dash",
+      "networks": [
+        {
+          "id": "dash",
+          "label": "Dash",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "DOGE",
+      "name": "Dogecoin",
+      "networks": [
+        {
+          "id": "doge",
+          "label": "Dogecoin",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "DRIFT",
+      "name": "Drift Protocol",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "DriFtupJYLTosbwoN8koMbEYSx54aFAVLddWsbksjwg7",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "EIGEN",
+      "name": "EigenCloud",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xec53bf9167f50cdeb3ae105f56099aaab9061f83",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ENA",
+      "name": "Ethena",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x57e114b691db790c35207b2e685d4a43181e6061",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ETH",
+      "name": "Ethereum",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "zksyncera",
+          "label": "Zksyncera",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "scroll",
+          "label": "Scroll",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "blast",
+          "label": "Blast",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "ETHFI",
+      "name": "Ether.fi",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xfe0c30065b384f05761f15d0cc899d4f9f9cc0eb",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "EURC",
+      "name": "Euro Coin",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42",
+          "decimals": 6
+        },
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc891eb4cbdeff6e073e859e987815ed1505c2acd",
+          "decimals": 6
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "HzwqbKZw8HxMN6bF2yFZNrht3c2iXXzpKcFu7uBEDKtr",
+          "decimals": 6
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x1abaea1f7c830bd89acc67ec4af516284b1bc33c",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "FARTCOIN",
+      "name": "Fartcoin",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "FET",
+      "name": "Artificial Superintelligence Alliance",
+      "networks": [
+        {
+          "id": "fetch",
+          "label": "Fetch",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "FLUID",
+      "name": "Fluid",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6f40d4a6237c257fff2db00fa0510deeecd303eb",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "FOX",
+      "name": "ShapeShift",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc770eefad204b5180df6a14ee197d99d808ee52d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "FRAX",
+      "name": "Frax",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x853d955acef822db058eb8505911ed77f175b99e",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "FWOG",
+      "name": "Fwog",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "FXS",
+      "name": "Frax Shares",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "GALA",
+      "name": "Gala Games",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd1d2eb1b1e90b638588728b4130137d262c87cae",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "GHO",
+      "name": "GHO",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "GIGA",
+      "name": "Gigachad",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9",
+          "decimals": 5
+        }
+      ]
+    },
+    {
+      "coin": "GMT",
+      "name": "GMT",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "7i5KKsX2weiTkry7jA4ZwSuXGhs5eJBEjY8vVxR4pfRx",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "GMX",
+      "name": "GMX",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
+          "decimals": 18
+        },
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x62edc0692bd897d2295872a9ffcac5425011c661",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "GNS",
+      "name": "Gains Network",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x18c11fd286c5ec11c3b683caa813b77f5163a122",
+          "decimals": 18
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xe5417af564e4bfda1c483642db72007871397896",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "GRASS",
+      "name": "Grass",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "GRIFFAIN",
+      "name": "Griffain",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "GRT",
+      "name": "The Graph",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc944E90C64B2c07662A292be6244BDf05Cda44a7",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "HBAR",
+      "name": "Hedera",
+      "networks": [
+        {
+          "id": "hedera",
+          "label": "Hedera",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "HEX",
+      "name": "HEX",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "HNT",
+      "name": "Helium",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "hntyVP6YFm1Hg25TN9WGLqM12b8TQmcknKrdu1oxWux",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "HWHYPE",
+      "name": "Hyperwave HYPE",
+      "networks": [
+        {
+          "id": "hyperevm",
+          "label": "Hyperevm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x4de03ca1f02591b717495cfa19913ad56a2f5858",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "HYPE",
+      "name": "Hyperliquid",
+      "networks": [
+        {
+          "id": "hyperevm",
+          "label": "Hyperevm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "ICP",
+      "name": "Internet Computer",
+      "networks": [
+        {
+          "id": "icp",
+          "label": "Icp",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "ILV",
+      "name": "Illuvium",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x767fe9edc9e0df98e07454847909b5e959d7ca0e",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "IMX",
+      "name": "Immutable X",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "INJ",
+      "name": "Injective",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xe28b3b32b6c345a34ff64674606124dd5aceca30",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "JASMY",
+      "name": "JasmyCoin",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x7420b4b9a0110cdc71fb720908340c03f9bc03ec",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "JITOSOL",
+      "name": "Jito staked SOL",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "JOE",
+      "name": "Trader Joe",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "JTO",
+      "name": "Jito",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "JUP",
+      "name": "Jupiter",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "JUPUSD",
+      "name": "JupUSD",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "JuprjznTrTSp2UFa3ZBUFgwdAmtZCq4MQCwysN55USD",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "KAITO",
+      "name": "Kaito",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x98d0baa52b2d063e780de12f615f963fe8537553",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "KET",
+      "name": "Ket",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xffff003a6bad9b743d658048742935fffe2b6ed7",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "KMNO",
+      "name": "Kamino",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "LDO",
+      "name": "Lido",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "LINEA",
+      "name": "Linea",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x1789e0043623282d5dcc7f213d703c6d8bafbb04",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "LINK",
+      "name": "Chainlink",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "LIT",
+      "name": "Lighter",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x232ce3bd40fcd6f80f3d55a522d03f25df784ee2",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "LRC",
+      "name": "Loopring",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "LTC",
+      "name": "Litecoin",
+      "networks": [
+        {
+          "id": "litecoin",
+          "label": "Litecoin",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "LYNK",
+      "name": "Lynk",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "HZG1RVn4zcRM7zEFEVGYPGoPzPAWAj2AAdvQivfmLYNK",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "M",
+      "name": "MemeCore",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x22b1458e780f8fa71e2f84502cee8b5a3cc731fa",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MAGIC",
+      "name": "MAGIC",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x539bde0d7dbd336b79148aa742883198bbf60342",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MANA",
+      "name": "Decentraland",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MET",
+      "name": "Meteora",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "META",
+      "name": "MetaDAO",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "METAwkXcqyXKy1AtsSgJ8JiUHwGCafnZL38n3vYmeta",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "mETH",
+      "name": "Mantle Staked Ether",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd5f7838f5c461feff7fe49ea5ebaf7728bb0adfa",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "METIS",
+      "name": "Metis",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x9e32b13ce7f2e80a01932b42553652e053d6ed8e",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MEW",
+      "name": "cat in a dogs world",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5",
+          "decimals": 5
+        }
+      ]
+    },
+    {
+      "coin": "MIM",
+      "name": "Magic Internet Money",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x130966628846bfd36ff31a822705796e8cb8c18d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MNT",
+      "name": "Mantle",
+      "networks": [
+        {
+          "id": "mantle",
+          "label": "Mantle",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "MOG",
+      "name": "Mog Coin",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xaaee1a9723aadb7afa2810263653a34ba2c21c7a",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MON",
+      "name": "Monad",
+      "networks": [
+        {
+          "id": "monad",
+          "label": "Monad",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "MOODENG",
+      "name": "Moo Deng",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "MORPHO",
+      "name": "Morpho",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbaa5cc21fd487b8fcc2f632f3f4e8d37262a0842",
+          "decimals": 18
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x58d97b57bb95320f9a05dc918aef65434969c2b2",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "MPLX",
+      "name": "Metaplex",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "METAewgxyPbgwsseH8T16a39CQ5VyVxZi9zXiDPY18m",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "MSOL",
+      "name": "Marinade staked SOL",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "MYX",
+      "name": "MYX Finance",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd82544bf0dfe8385ef8fa34d67e6e4940cc63e16",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "NEAR",
+      "name": "NEAR",
+      "networks": [
+        {
+          "id": "near",
+          "label": "Near",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "NEIRO",
+      "name": "Neiro",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "OM",
+      "name": "Mantra",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x3593d125a4f7849a1b059e64f4517a86dd60c95d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ONDO",
+      "name": "Ondo",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "OP",
+      "name": "Optimism",
+      "networks": [
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4200000000000000000000000000000000000042",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ORCA",
+      "name": "Orca",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "PAXG",
+      "name": "Paxos Gold",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "PENDLE",
+      "name": "Pendle",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x808507121b80c02388fad14726482e061b8da827",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "PENGU",
+      "name": "Pudgy Penguins",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "PEPE",
+      "name": "Pepe",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6982508145454Ce325dDbE47a25d4ec3d2311933",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "POL",
+      "name": "Polygon Ecosystem Token",
+      "networks": [
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "POPCAT",
+      "name": "Popcat",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "PRIME",
+      "name": "Echelon Prime",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb23d80f5fefcddaa212212f028021b41ded428cf",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "PUMP",
+      "name": "Pump.fun",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "PYUSD",
+      "name": "PayPal USD",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "QNT",
+      "name": "Quant",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4a220e6096b25eadb88358cb44068a3248254675",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RAIN",
+      "name": "Rain",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x25118290e6a5f4139381d072181157035864099d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RAY",
+      "name": "Raydium",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "RBTC",
+      "name": "Rootstock BTC",
+      "networks": [
+        {
+          "id": "rootstock",
+          "label": "Rootstock",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "rETH",
+      "name": "Rocket Pool ETH",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xae78736cd615f374d3085123a210448e74fc6393",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RIVER",
+      "name": "River",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xda7ad9dea9397cffddae2f8a052b82f1484252b3",
+          "decimals": 18
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xda7ad9dea9397cffddae2f8a052b82f1484252b3",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RLB",
+      "name": "Rollbit",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RNDR",
+      "name": "Render",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "ROBO",
+      "name": "Fabric Protocol",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x475cbf5919608e0c6Af00e7bf87FaB83bF3Ef6e2",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "RON",
+      "name": "Ronin Network",
+      "networks": [
+        {
+          "id": "ronin",
+          "label": "Ronin",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "RPL",
+      "name": "Rocketpool",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "S",
+      "name": "Sonic",
+      "networks": [
+        {
+          "id": "sonic",
+          "label": "Sonic",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "SAI",
+      "name": "Legacy SideShift Token",
+      "networks": [
+        {
+          "id": "liquid",
+          "label": "Liquid",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "d9f6bb516c9f3ab16bed3f3662ae018573ee6b00130f2347a4b735d8e7c4c396",
+          "decimals": 8
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xf5b403abd806eff15b339909943e2c22ecbac54c",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SAND",
+      "name": "The Sandbox",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SAVAX",
+      "name": "Staked Avax",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SEI",
+      "name": "Sei",
+      "networks": [
+        {
+          "id": "seievm",
+          "label": "Seievm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "SHIB",
+      "name": "SHIBA INU",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SIREN",
+      "name": "Siren",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x997A58129890bBdA032231A52eD1ddC845fc18e1",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SKR",
+      "name": "Seeker",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "SKY",
+      "name": "Sky",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x56072c95faa701256059aa122697b133aded9279",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SNX",
+      "name": "Synthetix",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SOL",
+      "name": "Solana",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "SPX",
+      "name": "SPX6900",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c",
+          "decimals": 8
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "J3NKxxXZcnNiMjKw9hYb2K4LUxgwB6t1FtPtQVsv3KFr",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "stETH",
+      "name": "Lido Staked Ether",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "STONKS",
+      "name": "Stonks",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "6NcdiK8B5KK2DzKvzvCfqi8EHaEqu48fyEzC8Mm9pump",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "STRK",
+      "name": "Starknet",
+      "networks": [
+        {
+          "id": "starknet",
+          "label": "Starknet",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "STX",
+      "name": "Stacks",
+      "networks": [
+        {
+          "id": "stacks",
+          "label": "Stacks",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "SUI",
+      "name": "Sui",
+      "networks": [
+        {
+          "id": "sui",
+          "label": "Sui",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "SUSDS",
+      "name": "sUSDS",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SUSHI",
+      "name": "Sushi",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SWARMS",
+      "name": "Swarms",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "74SBV4zDXxTRgv1pEMoECskKBkZHc2yGPnc7GYVepump",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "SWEAT",
+      "name": "Sweat Economy",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb4b9dc1c77bdbb135ea907fd5a08094d98883a35",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SYN",
+      "name": "Synapse",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "SYRUP",
+      "name": "Maple Finance",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x643c4e15d7d62ad0abec4a9bd4b001aa3ef52d66",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "TAO",
+      "name": "Bittensor",
+      "networks": [
+        {
+          "id": "bittensor",
+          "label": "Bittensor",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "TBTC",
+      "name": "TBTC",
+      "networks": [
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40",
+          "decimals": 18
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40",
+          "decimals": 18
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "6DNSN2BJsaPFdFFc1zP37kkeNe4Usc1Sqkzr9C9vPWcU",
+          "decimals": 8
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x18084fba666a33d37592fa2633fd49a74dd93a88",
+          "decimals": 18
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x236aa50979d5f3de3bd1eeb40e81137f22ab794b",
+          "decimals": 18
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x236aa50979d5f3de3bd1eeb40e81137f22ab794b",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "TIA",
+      "name": "Celestia",
+      "networks": [
+        {
+          "id": "celestia",
+          "label": "Celestia",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "TNSR",
+      "name": "Tensor",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "TNSRxcUxoT9xBG3de7PiJyTDYu7kskLqcpddxnEJAS6",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "TON",
+      "name": "Toncoin",
+      "networks": [
+        {
+          "id": "ton",
+          "label": "TON",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "TOSHI",
+      "name": "Toshi",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "TRUMP",
+      "name": "MAGA",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "TRX",
+      "name": "Tron",
+      "networks": [
+        {
+          "id": "tron",
+          "label": "Tron",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "TURBO",
+      "name": "Turbo",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xa35923162c49cf95e6bf26623385eb431ad920d3",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "TUSD",
+      "name": "TrueUSD",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0000000000085d4780B73119b644AE5ecd22b376",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "UNI",
+      "name": "Uniswap",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "USD1",
+      "name": "USD1",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+          "decimals": 18
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d",
+          "decimals": 18
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USDbC",
+      "name": "USDbC",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USDC",
+      "name": "USDC",
+      "networks": [
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359",
+          "decimals": 6
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "decimals": 6
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+          "decimals": 6
+        },
+        {
+          "id": "sonic",
+          "label": "Sonic",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x29219dd400f2bf60e5a23d13be72b486d4038894",
+          "decimals": 6
+        },
+        {
+          "id": "stellar",
+          "label": "Stellar",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+          "decimals": 7
+        },
+        {
+          "id": "sui",
+          "label": "Sui",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xdba34672e30cb065b1f93e3ab55318768fd6fef66c15942c9f7cb846e2f900e7::usdc::USDC",
+          "decimals": 6
+        },
+        {
+          "id": "algorand",
+          "label": "Algorand",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "31566704",
+          "decimals": 6
+        },
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+          "decimals": 6
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "decimals": 6
+        },
+        {
+          "id": "aptos",
+          "label": "Aptos",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbae207659db88bea0cbead6da0ed00aac12edcdda169e591cd41c94180b46f3b",
+          "decimals": 6
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          "decimals": 6
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "decimals": 6
+        },
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+          "decimals": 18
+        },
+        {
+          "id": "hyperevm",
+          "label": "Hyperevm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb88339cb7199b77e23db6e890353e22632ba630f",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USDE",
+      "name": "Ethena USDe",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "USDG",
+      "name": "Global Dollar",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USDP",
+      "name": "Pax Dollar",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "USDS",
+      "name": "USDS",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "USDT",
+      "name": "Tether",
+      "networks": [
+        {
+          "id": "liquid",
+          "label": "Liquid",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "ce091c998b83c78bb71a632313ba3760f1763d9cfcffae02258ffa9865a37bd2",
+          "decimals": 8
+        },
+        {
+          "id": "ton",
+          "label": "TON",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs",
+          "decimals": 6
+        },
+        {
+          "id": "tron",
+          "label": "Tron",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+          "decimals": 6
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",
+          "decimals": 6
+        },
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+          "decimals": 6
+        },
+        {
+          "id": "aptos",
+          "label": "Aptos",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x357b0b74bc833e95a115ad22604854d6b0fca151cecd94111770e5d6ffc9dc2b",
+          "decimals": 6
+        },
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x55d398326f99059fF775485246999027B3197955",
+          "decimals": 18
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "decimals": 6
+        },
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USDT0",
+      "name": "USDT0",
+      "networks": [
+        {
+          "id": "plasma",
+          "label": "Plasma",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
+          "decimals": 6
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+          "decimals": 6
+        },
+        {
+          "id": "hyperevm",
+          "label": "Hyperevm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
+          "decimals": 6
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USELESS",
+      "name": "USELESS",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "USR",
+      "name": "Resolv USR",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x66a1e37c9b0eaddca17d3662d6c05f4decf3e110",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "VERSE",
+      "name": "Verse",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": false,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x249ca82617ec3dfb2589c4c17ab7ec9765350a18",
+          "decimals": 18
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xc708d6f2153933daa50b2d0758955be0a93a8fec",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "VIRTUAL",
+      "name": "Virtuals Protocol",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "VVV",
+      "name": "Venice Token",
+      "networks": [
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WAVAX",
+      "name": "Wrapped Avax",
+      "networks": [
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WBETH",
+      "name": "Wrapped Beacon ETH",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xa2e3356610840701bdf5611a53974510ae27e2e1",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WBNB",
+      "name": "Wrapped BNB",
+      "networks": [
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WBTC",
+      "name": "WBTC",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "decimals": 8
+        },
+        {
+          "id": "bsc",
+          "label": "BNB Smart Chain",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+          "decimals": 8
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+          "decimals": 8
+        },
+        {
+          "id": "optimism",
+          "label": "Optimism",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x68f180fcce6836688e9084f035309e29bf0a2095",
+          "decimals": 8
+        },
+        {
+          "id": "avax",
+          "label": "Avalanche",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x50b7545627a5162f82a992c33b87adc75187b218",
+          "decimals": 8
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+          "decimals": 8
+        }
+      ]
+    },
+    {
+      "coin": "WEETH",
+      "name": "Wrapped eETH",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WEN",
+      "name": "WEN",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "WENWENvqqNya429ubCdR81ZmD69brwQaaBYY6p3LCpk",
+          "decimals": 5
+        }
+      ]
+    },
+    {
+      "coin": "WETH",
+      "name": "Wrapped Ether",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "decimals": 18
+        },
+        {
+          "id": "base",
+          "label": "Base",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4200000000000000000000000000000000000006",
+          "decimals": 18
+        },
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WHYPE",
+      "name": "Wrapped HYPE",
+      "networks": [
+        {
+          "id": "hyperevm",
+          "label": "Hyperevm",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x5555555555555555555555555555555555555555",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WIF",
+      "name": "dogwifhat",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "coin": "WLD",
+      "name": "Worldcoin",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x163f8c2467924be0ae7b5347228cabf260318753",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WLFI",
+      "name": "World Liberty Financial",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g",
+          "decimals": 6
+        },
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WOO",
+      "name": "WOO Network",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "WPOL",
+      "name": "Wrapped POL",
+      "networks": [
+        {
+          "id": "polygon",
+          "label": "Polygon",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "wSOL",
+      "name": "Wrapped SOL",
+      "networks": [
+        {
+          "id": "solana",
+          "label": "Solana",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "So11111111111111111111111111111111111111112",
+          "decimals": 9
+        }
+      ]
+    },
+    {
+      "coin": "XAI",
+      "name": "SideShift Token",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": false,
+          "contractAddress": "0x35e78b3982e87ecfd5b3f3265b601c046cdbe232",
+          "decimals": 18
+        },
+        {
+          "id": "internal",
+          "label": "Internal",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "XEC",
+      "name": "eCash",
+      "networks": [
+        {
+          "id": "xec",
+          "label": "Xec",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "XLM",
+      "name": "Stellar Lumens",
+      "networks": [
+        {
+          "id": "stellar",
+          "label": "Stellar",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "XPL",
+      "name": "Plasma",
+      "networks": [
+        {
+          "id": "plasma",
+          "label": "Plasma",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "XRP",
+      "name": "XRP",
+      "networks": [
+        {
+          "id": "ripple",
+          "label": "Ripple",
+          "hasMemo": true,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true
+        }
+      ]
+    },
+    {
+      "coin": "YFI",
+      "name": "yearn.finance",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+          "decimals": 18
+        }
+      ]
+    },
+    {
+      "coin": "ZRO",
+      "name": "LayerZero",
+      "networks": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+          "decimals": 18
+        },
+        {
+          "id": "arbitrum",
+          "label": "Arbitrum",
+          "hasMemo": false,
+          "depositEnabled": true,
+          "settleEnabled": true,
+          "supportsVariable": true,
+          "supportsFixed": true,
+          "contractAddress": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+          "decimals": 18
+        }
+      ]
+    }
+  ],
+  "permission": {
+    "createShift": true
+  },
+  "mockMode": false
+}

@@ -1,0 +1,687 @@
+{
+  "generatedAt": "2026-04-15T12:17:11.616Z",
+  "tokenCount": 205,
+  "categoryCounts": {
+    "defi": 35,
+    "other": 48,
+    "layer1": 44,
+    "gaming": 10,
+    "meme": 29,
+    "layer2": 10,
+    "exchange": 4,
+    "stable": 20,
+    "btc": 5
+  },
+  "priorityCounts": {
+    "medium": 100,
+    "low": 83,
+    "high": 22
+  },
+  "classificationSourceCounts": {
+    "manual_override": 106,
+    "rule": 99
+  },
+  "prioritySourceCounts": {
+    "manual_override": 106,
+    "rule": 99
+  },
+  "unknownCount": 48,
+  "urgentUnknownCount": 0,
+  "otherSymbols": [
+    {
+      "symbol": "2Z",
+      "name": "DoubleZero",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "AIXBT",
+      "name": "aixbt by Virtuals",
+      "priority": "low",
+      "networks": [
+        "base"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "ASTER",
+      "name": "Aster",
+      "priority": "low",
+      "networks": [
+        "bsc"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "AVNT",
+      "name": "Avantis",
+      "priority": "low",
+      "networks": [
+        "base"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "BAT",
+      "name": "Basic Attention Token",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "BIT",
+      "name": "BitDAO",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "BLUR",
+      "name": "Blur",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "BP",
+      "name": "Backpack",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "CHZ",
+      "name": "Chilliz",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "COAI",
+      "name": "ChainOpera AI",
+      "priority": "low",
+      "networks": [
+        "bsc"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "COLLAT",
+      "name": "Collaterize",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "EIGEN",
+      "name": "EigenCloud",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "FOX",
+      "name": "ShapeShift",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "GMT",
+      "name": "GMT",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "GRASS",
+      "name": "Grass",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "GRIFFAIN",
+      "name": "Griffain",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "GRT",
+      "name": "The Graph",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "HEX",
+      "name": "HEX",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "HWHYPE",
+      "name": "Hyperwave HYPE",
+      "priority": "low",
+      "networks": [
+        "hyperevm"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "JASMY",
+      "name": "JasmyCoin",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "KAITO",
+      "name": "Kaito",
+      "priority": "low",
+      "networks": [
+        "base"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "KET",
+      "name": "Ket",
+      "priority": "low",
+      "networks": [
+        "avax"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "LIT",
+      "name": "Lighter",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "LRC",
+      "name": "Loopring",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "LYNK",
+      "name": "Lynk",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "MAGIC",
+      "name": "MAGIC",
+      "priority": "low",
+      "networks": [
+        "arbitrum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "MET",
+      "name": "Meteora",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "MPLX",
+      "name": "Metaplex",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "OM",
+      "name": "Mantra",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "PAXG",
+      "name": "Paxos Gold",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "QNT",
+      "name": "Quant",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "RAIN",
+      "name": "Rain",
+      "priority": "low",
+      "networks": [
+        "arbitrum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "RIVER",
+      "name": "River",
+      "priority": "low",
+      "networks": [
+        "base",
+        "bsc"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "RLB",
+      "name": "Rollbit",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "RNDR",
+      "name": "Render",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "SAI",
+      "name": "Legacy SideShift Token",
+      "priority": "low",
+      "networks": [
+        "ethereum",
+        "liquid"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "SKR",
+      "name": "Seeker",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "SKY",
+      "name": "Sky",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "SNX",
+      "name": "Synthetix",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "SWARMS",
+      "name": "Swarms",
+      "priority": "low",
+      "networks": [
+        "solana"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "SWEAT",
+      "name": "Sweat Economy",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "VERSE",
+      "name": "Verse",
+      "priority": "low",
+      "networks": [
+        "ethereum",
+        "polygon"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "VIRTUAL",
+      "name": "Virtuals Protocol",
+      "priority": "low",
+      "networks": [
+        "base"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "VVV",
+      "name": "Venice Token",
+      "priority": "low",
+      "networks": [
+        "base"
+      ],
+      "classificationReason": "no_safe_rule_match",
+      "priorityReason": "fallback_low_priority"
+    },
+    {
+      "symbol": "WLD",
+      "name": "Worldcoin",
+      "priority": "low",
+      "networks": [
+        "ethereum"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "WLFI",
+      "name": "World Liberty Financial",
+      "priority": "low",
+      "networks": [
+        "ethereum",
+        "solana"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "XAI",
+      "name": "SideShift Token",
+      "priority": "low",
+      "networks": [
+        "ethereum",
+        "internal"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    },
+    {
+      "symbol": "XPL",
+      "name": "Plasma",
+      "priority": "low",
+      "networks": [
+        "plasma"
+      ],
+      "classificationReason": "manual_category_override",
+      "priorityReason": "manual_priority_override"
+    }
+  ],
+  "highPrioritySymbols": [
+    "ADA",
+    "ARB",
+    "AVAX",
+    "BCH",
+    "BNB",
+    "BTC",
+    "BTC.B",
+    "CBBTC",
+    "DOGE",
+    "ETH",
+    "LTC",
+    "OP",
+    "PEPE",
+    "SHIB",
+    "SOL",
+    "SUI",
+    "TBTC",
+    "TON",
+    "TRX",
+    "USDC",
+    "USDT",
+    "XRP"
+  ],
+  "memoRouteSymbols": [
+    "ALGO",
+    "ATOM",
+    "FET",
+    "HBAR",
+    "STX",
+    "TIA",
+    "TON",
+    "USDC",
+    "USDT",
+    "XLM",
+    "XRP"
+  ],
+  "networkRichTokens": [
+    {
+      "symbol": "USDC",
+      "networkCount": 14,
+      "networks": [
+        "algorand",
+        "aptos",
+        "arbitrum",
+        "avax",
+        "base",
+        "bsc",
+        "ethereum",
+        "hyperevm",
+        "optimism",
+        "polygon",
+        "solana",
+        "sonic",
+        "stellar",
+        "sui"
+      ]
+    },
+    {
+      "symbol": "USDT",
+      "networkCount": 9,
+      "networks": [
+        "aptos",
+        "avax",
+        "bsc",
+        "ethereum",
+        "liquid",
+        "optimism",
+        "solana",
+        "ton",
+        "tron"
+      ]
+    },
+    {
+      "symbol": "ETH",
+      "networkCount": 7,
+      "networks": [
+        "arbitrum",
+        "base",
+        "blast",
+        "ethereum",
+        "optimism",
+        "scroll",
+        "zksyncera"
+      ]
+    },
+    {
+      "symbol": "DAI",
+      "networkCount": 6,
+      "networks": [
+        "arbitrum",
+        "avax",
+        "base",
+        "ethereum",
+        "optimism",
+        "polygon"
+      ]
+    },
+    {
+      "symbol": "TBTC",
+      "networkCount": 6,
+      "networks": [
+        "arbitrum",
+        "base",
+        "ethereum",
+        "optimism",
+        "polygon",
+        "solana"
+      ]
+    },
+    {
+      "symbol": "WBTC",
+      "networkCount": 6,
+      "networks": [
+        "arbitrum",
+        "avax",
+        "bsc",
+        "ethereum",
+        "optimism",
+        "polygon"
+      ]
+    },
+    {
+      "symbol": "EURC",
+      "networkCount": 4,
+      "networks": [
+        "avax",
+        "base",
+        "ethereum",
+        "solana"
+      ]
+    },
+    {
+      "symbol": "USDT0",
+      "networkCount": 4,
+      "networks": [
+        "arbitrum",
+        "hyperevm",
+        "plasma",
+        "polygon"
+      ]
+    },
+    {
+      "symbol": "CBBTC",
+      "networkCount": 3,
+      "networks": [
+        "base",
+        "ethereum",
+        "solana"
+      ]
+    },
+    {
+      "symbol": "USD1",
+      "networkCount": 3,
+      "networks": [
+        "bsc",
+        "ethereum",
+        "solana"
+      ]
+    },
+    {
+      "symbol": "WETH",
+      "networkCount": 3,
+      "networks": [
+        "base",
+        "ethereum",
+        "polygon"
+      ]
+    }
+  ]
+}
