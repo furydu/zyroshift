@@ -43,17 +43,16 @@ export function AssetSelectorHero({
             <div className="theme-card flex h-full w-full items-center justify-center rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
               <CryptoIcon
                 alt={`${asset?.coin || "generic"} coin icon`}
+                key={`coin-${asset?.coin || "generic"}`}
                 size={78}
-                sources={getCoinIconSources(
-                  asset?.coin || "generic",
-                  network?.id || undefined,
-                )}
+                sources={getCoinIconSources(asset?.coin || "generic")}
               />
             </div>
 
             <div className="theme-card-elevated absolute bottom-0 right-0 flex h-10 w-10 items-center justify-center rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.14)]">
               <CryptoIcon
                 alt={`${network?.label || "network"} icon`}
+                key={`network-${network?.id || asset?.coin || "generic"}`}
                 size={24}
                 sources={getNetworkIconSources(network?.id || asset?.coin || "generic")}
               />
@@ -93,6 +92,7 @@ export function AssetSelectorHero({
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-black/10">
                   <CryptoIcon
                     alt={`${networkLabel || "network"} icon`}
+                    key={`pill-network-${network?.id || asset?.coin || "generic"}`}
                     size={16}
                     sources={getNetworkIconSources(network?.id || asset?.coin || "generic")}
                   />

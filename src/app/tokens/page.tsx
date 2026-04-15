@@ -1,3 +1,4 @@
+import { NetworkNameWithIcon } from "@/components/hubs/NetworkNameWithIcon";
 import { TokenNameWithIcon } from "@/components/hubs/TokenNameWithIcon";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -15,6 +16,33 @@ export const metadata: Metadata = {
 };
 
 function renderTokenDirectoryMeta(meta?: string) {
+  if (!meta) {
+    return null;
+  }
+
+  const [primary, secondary] = meta
+    .split(/(?:Â·|·|\|)/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (!secondary) {
+    return (
+      <span className="theme-text-soft ml-auto shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.18em]">
+        {meta}
+      </span>
+    );
+  }
+
+  return (
+    <span className="theme-text-soft ml-auto shrink-0 text-right font-mono text-[10px] uppercase tracking-[0.18em] leading-[1.25]">
+      <span className="block">{primary}</span>
+      <span className="mt-0.5 block">| {secondary}</span>
+    </span>
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function renderBrokenTokenDirectoryMeta(meta?: string) {
   if (!meta) {
     return null;
   }
@@ -266,9 +294,17 @@ export default function TokensDirectoryPage() {
                 className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="theme-text-main text-lg font-semibold">
-                    {item.title}
-                  </p>
+                  {item.networkId ? (
+                    <NetworkNameWithIcon
+                      label={item.title}
+                      networkId={item.networkId}
+                      className="shrink-0"
+                    />
+                  ) : (
+                    <p className="theme-text-main text-lg font-semibold">
+                      {item.title}
+                    </p>
+                  )}
                   {item.meta ? (
                     <span className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]">
                       {item.meta}

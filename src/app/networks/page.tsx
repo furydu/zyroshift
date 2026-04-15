@@ -1,3 +1,4 @@
+import { NetworkNameWithIcon } from "@/components/hubs/NetworkNameWithIcon";
 import { TokenNameWithIcon } from "@/components/hubs/TokenNameWithIcon";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -8,11 +9,50 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Explore Network Hubs | ZyroShift",
   description:
-    "Compare supported swap networks across compatibility-first, lower-cost, and native-settlement rails on ZyroShift.",
+    "Compare supported swap networks by wallet fit, transfer cost, and native settlement on ZyroShift.",
   alternates: {
     canonical: "https://zyroshift.com/networks",
   },
 };
+
+const NETWORK_EXAMPLE_IDS: Record<string, string> = {
+  Bitcoin: "bitcoin",
+  Cardano: "cardano",
+  Ethereum: "ethereum",
+  "BNB Chain": "bsc",
+  Base: "base",
+  Tron: "tron",
+  Solana: "solana",
+  TON: "ton",
+  Liquid: "liquid",
+  Litecoin: "litecoin",
+};
+
+function renderNetworkDirectoryMeta(meta?: string) {
+  if (!meta) {
+    return null;
+  }
+
+  const [primary, secondary] = meta
+    .split(/(?:Â·|·|\|)/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (!secondary) {
+    return (
+      <p className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em] leading-[1.5]">
+        {meta}
+      </p>
+    );
+  }
+
+  return (
+    <p className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em] leading-[1.5]">
+      <span className="block">{primary}</span>
+      <span className="block">{secondary}</span>
+    </p>
+  );
+}
 
 export default function NetworksDirectoryPage() {
   const data = getNetworkDirectoryData();
@@ -93,10 +133,12 @@ export default function NetworksDirectoryPage() {
         <section className="theme-panel mt-6 rounded-[28px] px-5 py-5 md:px-6">
           <div className="max-w-3xl">
             <p className="theme-accent-cyan font-mono text-[11px] uppercase tracking-[0.28em]">
-              Network families
+              Explore network types
             </p>
             <p className="theme-text-muted mt-3 text-sm leading-7 md:text-[15px]">
-              These groupings help you choose a rail before you pick a pair. The important question is often infrastructure first: compatibility, cost, or native settlement.
+              Start with the kind of network you need before you choose one exact
+              pair. Some routes prioritize wallet compatibility, others lower
+              transfer cost, native settlement, or ecosystem-native wallets.
             </p>
           </div>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -117,9 +159,42 @@ export default function NetworksDirectoryPage() {
                 <p className="theme-text-muted mt-3 text-sm leading-6">
                   {card.description}
                 </p>
-                <p className="theme-text-soft mt-3 font-mono text-[10px] uppercase tracking-[0.18em]">
-                  Examples: {card.examples.join(" / ")}
-                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2.5">
+                  <span className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]">
+                    Examples:
+                  </span>
+                  {card.examples.map((example) => {
+                    const networkId = NETWORK_EXAMPLE_IDS[example];
+
+                    if (!networkId) {
+                      return (
+                        <span
+                          key={`${card.id}-${example}`}
+                          className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]"
+                        >
+                          {example}
+                        </span>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={`${card.id}-${example}`}
+                        href={`/networks/${networkId}`}
+                        className="theme-card inline-flex rounded-full px-2.5 py-1.5 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
+                      >
+                        <NetworkNameWithIcon
+                          label={example}
+                          networkId={networkId}
+                          iconBoxClassName="h-5 w-5"
+                          iconSize={14}
+                          textClassName="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]"
+                          className="gap-1.5"
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
               </Link>
             ))}
           </div>
@@ -128,7 +203,7 @@ export default function NetworksDirectoryPage() {
         <section className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
           <div className="theme-panel rounded-[28px] px-5 py-5 md:px-6">
             <p className="theme-accent-amber font-mono text-[11px] uppercase tracking-[0.28em]">
-              Featured network hubs
+              Featured networks
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
               {data.featuredNetworks.map((item) => (
@@ -137,15 +212,20 @@ export default function NetworksDirectoryPage() {
                   href={item.href}
                   className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="theme-text-main text-lg font-semibold">
-                      {item.title}
-                    </p>
-                    {item.meta ? (
-                      <span className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]">
-                        {item.meta}
-                      </span>
-                    ) : null}
+                  <div className="space-y-3">
+                    {item.networkId ? (
+                      <NetworkNameWithIcon
+                        label={item.title}
+                        networkId={item.networkId}
+                        className="min-w-0"
+                        textClassName="theme-text-main min-w-0 text-lg font-semibold"
+                      />
+                    ) : (
+                      <p className="theme-text-main text-lg font-semibold">
+                        {item.title}
+                      </p>
+                    )}
+                    {renderNetworkDirectoryMeta(item.meta)}
                   </div>
                   <p className="theme-text-muted mt-3 text-sm leading-6">
                     {item.summary}
@@ -199,15 +279,20 @@ export default function NetworksDirectoryPage() {
                   href={item.href}
                   className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="theme-text-main text-lg font-semibold">
-                      {item.title}
-                    </p>
-                    {item.meta ? (
-                      <span className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.18em]">
-                        {item.meta}
-                      </span>
-                    ) : null}
+                  <div className="space-y-3">
+                    {item.networkId ? (
+                      <NetworkNameWithIcon
+                        label={item.title}
+                        networkId={item.networkId}
+                        className="min-w-0"
+                        textClassName="theme-text-main min-w-0 text-lg font-semibold"
+                      />
+                    ) : (
+                      <p className="theme-text-main text-lg font-semibold">
+                        {item.title}
+                      </p>
+                    )}
+                    {renderNetworkDirectoryMeta(item.meta)}
                   </div>
                   <p className="theme-text-muted mt-3 text-sm leading-6">
                     {item.summary}

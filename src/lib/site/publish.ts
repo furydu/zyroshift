@@ -20,6 +20,8 @@ const PHASE_ONE_STATIC_ROUTES: PublishStaticRoute[] = [
   { path: "/networks", changeFrequency: "weekly", priority: 0.9 },
   { path: "/how-it-works", changeFrequency: "weekly", priority: 0.82 },
   { path: "/track-order", changeFrequency: "weekly", priority: 0.72 },
+  { path: "/terms", changeFrequency: "yearly", priority: 0.46 },
+  { path: "/privacy", changeFrequency: "yearly", priority: 0.46 },
 ];
 
 function buildEntry(
@@ -93,4 +95,3 @@ export function getPhaseOnePublishSummary() {
     },
   };
 }
-

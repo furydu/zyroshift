@@ -1,3 +1,4 @@
+import { BrandWordmark } from "@/components/layout/BrandWordmark";
 import { getPairLaunchSpecs } from "@/lib/pairs";
 import Link from "next/link";
 
@@ -8,9 +9,12 @@ export function SiteFooter() {
     <footer className="theme-panel mt-6 rounded-[30px] px-5 py-5 md:px-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.66fr)_minmax(0,0.72fr)_minmax(0,0.72fr)] lg:gap-5">
         <div className="max-w-[340px]">
-          <p className="theme-text-main font-mono text-[11px] uppercase tracking-[0.32em]">
-            ZyroShift
-          </p>
+          <div>
+            <BrandWordmark
+              iconClassName="h-4 w-4 shrink-0"
+              textClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.32em]"
+            />
+          </div>
           <p className="theme-text-muted mt-3 text-sm leading-6">
             Non-custodial crypto swap flows with live quotes, network-aware
             routing, and a dedicated status page from deposit to settlement.
@@ -45,6 +49,18 @@ export function SiteFooter() {
               className="theme-text-muted text-sm transition hover:text-[var(--foreground)]"
             >
               Popular Routes
+            </Link>
+            <Link
+              href="/terms"
+              className="theme-text-muted text-sm transition hover:text-[var(--foreground)]"
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              href="/privacy"
+              className="theme-text-muted text-sm transition hover:text-[var(--foreground)]"
+            >
+              Privacy Policy
             </Link>
           </div>
         </div>
@@ -117,6 +133,21 @@ export function SiteFooter() {
           provider support and selected networks. Always verify the exact
           deposit instructions on the shift page before sending funds.
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
+          <span className="theme-text-soft">ZyroShift © 2026</span>
+          <Link
+            href="/terms"
+            className="theme-text-soft transition hover:text-[var(--foreground)]"
+          >
+            Terms & Conditions
+          </Link>
+          <Link
+            href="/privacy"
+            className="theme-text-soft transition hover:text-[var(--foreground)]"
+          >
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

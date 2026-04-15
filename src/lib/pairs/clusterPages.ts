@@ -665,9 +665,9 @@ const TEMPLATE_FAMILY_TO_CLUSTER: Partial<
 function getStateLabel(state: PairIndexState) {
   switch (state) {
     case "index":
-      return "Launch-ready";
+      return "Featured now";
     case "noindex":
-      return "Render-only";
+      return "Mapped next";
     default:
       return "Skip";
   }
@@ -963,8 +963,8 @@ export function getPairClusterPageData(id: PairClusterPageId): PairClusterPageDa
     decisionCards: definition.decisionCards,
     stats: [
       { label: "Total routes", value: String(cluster.totalRoutes) },
-      { label: "Launch-ready", value: String(cluster.countsByState.index) },
-      { label: "Render-only", value: String(cluster.countsByState.noindex) },
+      { label: "Featured now", value: String(cluster.countsByState.index) },
+      { label: "Mapped next", value: String(cluster.countsByState.noindex) },
       { label: "Curated seeds", value: String(cluster.curatedRoutes) },
     ],
     routeSectionHeading: definition.routeSectionHeading,

@@ -189,6 +189,10 @@ function getNetworkRank(symbol: string, networkId: string) {
   return 999;
 }
 
+export function hasSpecificAssetNetworkPreference(symbol: string) {
+  return Boolean(TOKEN_NETWORK_PREFERENCE[normalizeSymbol(symbol)]?.length);
+}
+
 export function getAssetBySymbol(symbol: string): SwapAssetOption | null {
   return ASSET_MAP.get(normalizeSymbol(symbol)) || null;
 }

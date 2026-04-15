@@ -380,8 +380,8 @@ export function PairClusterPage({ data }: { data: PairClusterPageData }) {
                 <p className="theme-text-main text-base font-semibold">{item.title}</p>
                 <p className="theme-text-muted mt-2 text-sm leading-6">{item.summary}</p>
                 <p className="theme-text-soft mt-3 font-mono text-[10px] uppercase tracking-[0.18em]">
-                  {item.totalRoutes} routes · {item.indexRoutes} launch-ready ·{" "}
-                  {item.noindexRoutes} render-only
+                  {item.totalRoutes} total routes | {item.indexRoutes} featured now |{" "}
+                  {item.noindexRoutes} more in this family
                 </p>
               </Link>
             ))}

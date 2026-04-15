@@ -1,3 +1,5 @@
+import { NetworkNameWithIcon } from "@/components/hubs/NetworkNameWithIcon";
+import { RouteLabelWithIcons } from "@/components/hubs/RouteLabelWithIcons";
 import { TokenNameWithIcon } from "@/components/hubs/TokenNameWithIcon";
 import { CryptoIcon } from "@/components/swap/CryptoIcon";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -58,8 +60,20 @@ export default async function NetworkHubPage({
     { label: "Supported assets", value: String(hub.assetCount) },
     { label: "Assets you can send", value: String(hub.depositAssetCount) },
     { label: "Assets you can receive", value: String(hub.settleAssetCount) },
-    { label: "Popular routes", value: String(hub.routeCount) },
+    { label: "Live routes", value: String(hub.routeCount) },
     ...hub.quickFacts,
+  ];
+  const summaryRows = [
+    summaryCards.slice(0, 2),
+    summaryCards.slice(2, 4),
+    summaryCards.slice(4, 6),
+    summaryCards.slice(6, 8),
+  ];
+  const summaryRowWidths = [
+    "max-w-[1080px]",
+    "max-w-[1040px]",
+    "max-w-[1000px]",
+    "max-w-[960px]",
   ];
   const networkHeroMeta =
     hub.quickFacts.find((item) => item.label === "Best for")?.value ||
@@ -70,7 +84,7 @@ export default async function NetworkHubPage({
       <div className="mx-auto w-full max-w-[1440px] px-4 py-6 md:px-6 lg:px-8">
         <SiteHeader
           activeKey="networks"
-          ctaHref="/swap"
+          ctaHref={hub.swapHref}
           breadcrumbs={[
             { label: "Networks", href: "/networks" },
             { label: hub.networkLabel },
@@ -98,12 +112,12 @@ export default async function NetworkHubPage({
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              <Link
-                href="/swap"
-                className="theme-accent-cta inline-flex min-h-[50px] items-center justify-center rounded-full px-6 text-xs font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
-              >
-                Start swap
+              <div className="flex items-center justify-center">
+                <Link
+                  href={hub.swapHref}
+                  className="theme-accent-cta inline-flex min-h-[50px] items-center justify-center rounded-full px-6 text-xs font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
+                >
+                  Start swap
               </Link>
             </div>
 
@@ -120,42 +134,41 @@ export default async function NetworkHubPage({
           </div>
 
           <div className="mt-6 space-y-3">
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {summaryCards.slice(0, 6).map((item) => (
-                <div
-                  key={`${item.label}-${item.value}`}
-                  className="theme-card rounded-[18px] px-4 py-3"
-                >
-                  <p className="text-sm leading-6 md:text-[15px]">
-                    <span className="theme-text-soft font-mono uppercase tracking-[0.18em]">
-                      {item.label}
-                    </span>
-                    <span className="theme-text-soft font-mono">: </span>
-                    <span className="theme-text-main font-semibold">
-                      {item.value}
-                    </span>
-                  </p>
+            {summaryRows.map((row, index) => (
+              <div
+                key={`summary-row-${index}`}
+                className={`mx-auto w-full ${summaryRowWidths[index] ?? "max-w-[960px]"}`}
+              >
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {row.map((item) => (
+                    <div
+                      key={`${item.label}-${item.value}`}
+                      className="theme-card flex min-h-[68px] items-center justify-center rounded-[18px] px-4 py-3 text-center"
+                    >
+                      <p className="text-center text-sm leading-6 md:text-[15px]">
+                        <span className="theme-text-soft font-mono uppercase tracking-[0.18em]">
+                          {item.label}
+                        </span>
+                        <span className="theme-text-soft font-mono">: </span>
+                        <span className="theme-text-main font-semibold">
+                          {item.value}
+                        </span>
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
 
-            <div className="mx-auto grid max-w-[980px] gap-3 sm:grid-cols-2">
-              {summaryCards.slice(6).map((item) => (
-                <div
-                  key={`${item.label}-${item.value}`}
-                  className="theme-card rounded-[18px] px-4 py-3"
-                >
-                  <p className="text-sm leading-6 md:text-[15px]">
-                    <span className="theme-text-soft font-mono uppercase tracking-[0.18em]">
-                      {item.label}
-                    </span>
-                    <span className="theme-text-soft font-mono">: </span>
-                    <span className="theme-text-main font-semibold">
-                      {item.value}
-                    </span>
-                  </p>
-                </div>
-              ))}
+            <div className="theme-card mx-auto flex max-w-[920px] items-center justify-center rounded-[18px] px-4 py-3 text-center">
+              <p className="theme-text-muted text-center text-sm leading-6 md:text-[15px]">
+                <span className="theme-text-soft font-mono uppercase tracking-[0.18em]">
+                  Route timing:
+                </span>{" "}
+                ZyroShift shows the live estimate inside the swap flow, because
+                completion time changes with the exact pair, market path, and
+                destination confirmations.
+              </p>
             </div>
           </div>
         </section>
@@ -270,9 +283,19 @@ export default async function NetworkHubPage({
                   <span className="theme-chip inline-flex rounded-full px-3 py-2 text-[11px]">
                     {route.intentLabel}
                   </span>
-                  <p className="theme-text-main flex-1 text-center font-mono text-[11px] uppercase tracking-[0.24em]">
-                    {route.label}
-                  </p>
+                  <div className="flex flex-1 justify-center">
+                    <RouteLabelWithIcons
+                      arrowClassName="theme-text-soft font-mono text-[11px] uppercase tracking-[0.24em]"
+                      className="justify-center gap-1.5"
+                      endpointTextClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]"
+                      fromLabel={route.fromLabel}
+                      fromNetworkId={route.fromNetworkId}
+                      fromToken={route.fromToken}
+                      toLabel={route.toLabel}
+                      toNetworkId={route.toNetworkId}
+                      toToken={route.toToken}
+                    />
+                  </div>
                 </div>
                 <p className="theme-text-muted mt-2 text-sm leading-6">
                   {route.summary}
@@ -297,9 +320,19 @@ export default async function NetworkHubPage({
                   <span className="theme-chip inline-flex rounded-full px-3 py-2 text-[11px]">
                     {route.intentLabel}
                   </span>
-                  <p className="theme-text-main flex-1 text-center font-mono text-[11px] uppercase tracking-[0.24em]">
-                    {route.label}
-                  </p>
+                  <div className="flex flex-1 justify-center">
+                    <RouteLabelWithIcons
+                      arrowClassName="theme-text-soft font-mono text-[11px] uppercase tracking-[0.24em]"
+                      className="justify-center gap-1.5"
+                      endpointTextClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]"
+                      fromLabel={route.fromLabel}
+                      fromNetworkId={route.fromNetworkId}
+                      fromToken={route.fromToken}
+                      toLabel={route.toLabel}
+                      toNetworkId={route.toNetworkId}
+                      toToken={route.toToken}
+                    />
+                  </div>
                 </div>
                 <p className="theme-text-muted mt-2 text-sm leading-6">
                   {route.summary}
@@ -366,9 +399,10 @@ export default async function NetworkHubPage({
                   href={comparison.href}
                   className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
                 >
-                  <p className="theme-text-main text-lg font-semibold">
-                    {comparison.label}
-                  </p>
+                  <NetworkNameWithIcon
+                    label={comparison.label}
+                    networkId={comparison.network}
+                  />
                   <p className="theme-text-muted mt-2 text-sm leading-6">
                     {comparison.summary}
                   </p>
@@ -412,9 +446,11 @@ export default async function NetworkHubPage({
                     href={comparison.href}
                     className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
                   >
-                    <p className="theme-text-main text-base font-semibold">
-                      {comparison.label}
-                    </p>
+                    <NetworkNameWithIcon
+                      label={comparison.label}
+                      networkId={comparison.network}
+                      textClassName="theme-text-main text-base font-semibold"
+                    />
                     <p className="theme-text-muted mt-1 text-sm leading-6">
                       {comparison.summary}
                     </p>
@@ -432,12 +468,12 @@ export default async function NetworkHubPage({
           <p className="theme-text-muted mx-auto mt-3 max-w-2xl text-sm leading-7 md:text-[15px]">
             Open the live builder, choose the asset that matches your wallet, and keep the selected network explicit before you create the shift.
           </p>
-          <div className="mt-5">
-            <Link
-              href="/swap"
-              className="theme-accent-cta inline-flex min-h-[48px] items-center justify-center rounded-full px-6 text-sm font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
-            >
-              Start swap
+            <div className="mt-5">
+              <Link
+                href={hub.swapHref}
+                className="theme-accent-cta inline-flex min-h-[48px] items-center justify-center rounded-full px-6 text-sm font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
+              >
+                Start swap
             </Link>
           </div>
         </section>

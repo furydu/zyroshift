@@ -731,20 +731,20 @@ export function SwapExperience({
       }`}
     >
       {!embedded ? (
-        <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-          <div>
+        <div className="mb-4 flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col items-center text-center">
             <p className="theme-accent-cyan font-mono text-xs uppercase tracking-[0.35em]">
               Live Swap Builder
             </p>
-            <h1 className="theme-text-main mt-2 max-w-5xl text-[clamp(2.15rem,4vw,3.75rem)] font-semibold leading-[1.02] tracking-tight">
+            <h1 className="theme-text-main mt-2 max-w-5xl text-center text-[clamp(2.15rem,4vw,3.75rem)] font-semibold leading-[1.02] tracking-tight">
               Swap crypto across 200+ tokens and 40+ networks, sent directly to your wallet.
             </h1>
-            <p className="theme-text-muted mt-2 max-w-4xl text-[15px] leading-7">
+            <p className="theme-text-muted mt-2 max-w-4xl text-center text-[15px] leading-7">
               Choose your pair first. Deposit instructions and live status appear after you create the shift.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             {showThemeToggle ? <ThemeToggle /> : null}
             <span
               className={`rounded-full px-4 py-2 font-mono text-xs uppercase tracking-[0.24em] ${

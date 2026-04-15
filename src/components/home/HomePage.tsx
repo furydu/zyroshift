@@ -33,17 +33,14 @@ const COVERAGE_SNAPSHOT = [
   {
     value: "205",
     label: "supported assets",
-    body: "Current live provider coverage across major crypto routes.",
   },
   {
     value: "47",
     label: "active networks",
-    body: "Includes Bitcoin, Ethereum, Tron, Solana, BNB Chain, Base, and more.",
   },
   {
     value: "271",
     label: "coin-network routes",
-    body: "Directional combinations ready to power the first scale set of pair pages.",
   },
 ];
 
@@ -230,77 +227,49 @@ export function HomePage() {
         <section className="theme-panel relative overflow-hidden rounded-[34px] px-5 py-6 md:px-7 md:py-7 lg:px-8 lg:py-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_30%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.12),transparent_26%)]" />
 
-          <div className="relative grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] xl:items-start">
-            <div className="max-w-4xl">
+          <div className="relative grid gap-5 xl:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] xl:items-start">
+            <div className="mx-auto max-w-4xl text-center">
               <p className="theme-accent-cyan font-mono text-xs uppercase tracking-[0.34em]">
                 Non-custodial crypto swap
               </p>
               <h1 className="theme-text-main mt-3 max-w-5xl text-[clamp(2.55rem,5vw,5rem)] font-semibold leading-[0.92] tracking-tight">
                 Instant crypto swaps with live routes and dedicated tracking.
               </h1>
-              <p className="theme-text-muted mt-3 max-w-3xl text-[15px] leading-7 md:text-[16px]">
+              <p className="theme-text-muted mx-auto mt-3 max-w-3xl text-[15px] leading-7 md:text-[16px]">
                 Swap across supported tokens and networks with variable-rate and
                 fixed-quote flows, then follow the shift from deposit to
                 settlement on its own status page.
               </p>
-
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <a
-                  href="#swap-builder"
-                  className="inline-flex items-center rounded-full bg-[linear-gradient(135deg,#1ed9ff,#55b7ff)] px-5 py-3 font-mono text-[11px] uppercase tracking-[0.28em] text-[#04121b] transition hover:-translate-y-0.5"
-                >
-                  Start Swap
-                </a>
-                <a
-                  href="#popular-routes"
-                  className="theme-outline-button inline-flex items-center rounded-full px-5 py-3 font-mono text-[11px] uppercase tracking-[0.28em] transition hover:-translate-y-0.5"
-                >
-                  Explore Routes
-                </a>
-              </div>
-
-              <div className="mt-5 flex flex-wrap gap-2.5">
-                <span className="theme-chip rounded-full px-3 py-2 font-mono text-[11px] uppercase tracking-[0.22em]">
-                  Variable rate
-                </span>
-                <span className="theme-chip rounded-full px-3 py-2 font-mono text-[11px] uppercase tracking-[0.22em]">
-                  Fixed quote
-                </span>
-                <span className="theme-chip rounded-full px-3 py-2 font-mono text-[11px] uppercase tracking-[0.22em]">
-                  Live status page
-                </span>
-              </div>
             </div>
 
             <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
               {COVERAGE_SNAPSHOT.map((item) => (
                 <div
                   key={item.label}
-                  className="theme-card rounded-[22px] px-4 py-4"
+                  className="theme-card rounded-[22px] px-4 py-3"
                 >
-                  <p className="theme-text-main text-[2rem] font-semibold leading-none">
-                    {item.value}
-                  </p>
-                  <p className="theme-accent-amber mt-2 font-mono text-[11px] uppercase tracking-[0.26em]">
-                    {item.label}
-                  </p>
-                  <p className="theme-text-muted mt-2 text-sm leading-6">
-                    {item.body}
-                  </p>
+                  <div className="flex flex-col items-center justify-center text-center">
+                    <span className="theme-text-main text-[2rem] font-semibold leading-none">
+                      {item.value}
+                    </span>
+                    <span className="theme-accent-amber mt-2 font-mono text-[11px] uppercase tracking-[0.26em]">
+                      {item.label}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div id="swap-builder" className="relative mt-6">
+          <div id="swap-builder" className="relative mt-4">
             <SwapExperience embedded />
           </div>
         </section>
 
         <section className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
           <div className="theme-panel rounded-[30px] px-5 py-5 md:px-6">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div className="max-w-2xl">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="max-w-3xl">
                 <p className="theme-accent-cyan font-mono text-[11px] uppercase tracking-[0.28em]">
                   Why ZyroShift
                 </p>
@@ -309,7 +278,7 @@ export function HomePage() {
                   tokens, and networks.
                 </h2>
               </div>
-              <p className="theme-text-muted max-w-xl text-sm leading-6">
+              <p className="theme-text-muted max-w-3xl text-sm leading-6">
                 The homepage leads with the live swap builder, while the rest of
                 the site expands into structured pair pages, token hubs, and
                 network context behind the main conversion flow.

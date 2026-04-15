@@ -22,8 +22,19 @@ const themeInitScript = `
 `;
 
 export const metadata: Metadata = {
-  title: "Crypto Swap MVP",
-  description: "Server-proxied swap flow prototype powered by SideShift.",
+  title: {
+    default: "ZyroShift",
+    template: "%s | ZyroShift",
+  },
+  description:
+    "Non-custodial crypto swap routes with direct-to-wallet settlement, live quotes, and dedicated tracking on ZyroShift.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "192x192", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

@@ -1,3 +1,5 @@
+import { NetworkNameWithIcon } from "@/components/hubs/NetworkNameWithIcon";
+import { RouteLabelWithIcons } from "@/components/hubs/RouteLabelWithIcons";
 import { TokenNameWithIcon } from "@/components/hubs/TokenNameWithIcon";
 import { CryptoIcon } from "@/components/swap/CryptoIcon";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -27,15 +29,15 @@ function getTokenRoleLabel(category: string) {
     case "layer1":
       return "Ecosystem entry asset";
     case "layer2":
-      return "Lower-cost ecosystem asset";
+      return "Lower-cost chain asset";
     case "defi":
       return "DeFi and app asset";
     case "meme":
       return "High-volatility route asset";
     case "exchange":
-      return "Exchange ecosystem asset";
+      return "Exchange-linked asset";
     case "gaming":
-      return "Gaming ecosystem asset";
+      return "Gaming-linked asset";
     default:
       return "Multi-route crypto asset";
   }
@@ -91,7 +93,7 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
       <div className="mx-auto w-full max-w-[1440px] px-4 py-6 md:px-6 lg:px-8">
         <SiteHeader
           activeKey="tokens"
-          ctaHref="/swap"
+          ctaHref={hub.swapHref}
           breadcrumbs={[
             { label: "Tokens", href: "/tokens" },
             { label: hub.tokenLabel },
@@ -121,7 +123,7 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
 
             <div className="flex items-center justify-center">
               <Link
-                href="/swap"
+                href={hub.swapHref}
                 className="theme-accent-cta inline-flex min-h-[50px] items-center justify-center rounded-full px-6 text-xs font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
               >
                 Swap {hub.tokenLabel}
@@ -134,6 +136,9 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
                   {hub.tokenName}
                 </p>
                 <p className="theme-text-soft mt-2 font-mono text-[11px] uppercase tracking-[0.22em]">
+                  {hub.tokenLabel} | {getTokenCategoryLabel(hub.category)}
+                </p>
+                <p className="sr-only">
                   {hub.tokenLabel} · {getTokenCategoryLabel(hub.category)}
                 </p>
               </div>
@@ -216,7 +221,7 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
                 href={network.href}
                 className="theme-card rounded-[20px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
               >
-                <p className="theme-text-main text-lg font-semibold">{network.label}</p>
+                <NetworkNameWithIcon label={network.label} networkId={network.id} />
                 <p className="theme-text-muted mt-2 text-sm leading-6">
                   {network.useCase}
                 </p>
@@ -267,9 +272,17 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
                         <span className="theme-chip mb-3 inline-flex rounded-full px-3 py-2 text-[11px]">
                           {route.intentLabel}
                         </span>
-                        <p className="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]">
-                          {route.label}
-                        </p>
+                        <RouteLabelWithIcons
+                          arrowClassName="theme-text-soft font-mono text-[11px] uppercase tracking-[0.24em]"
+                          className="gap-1.5"
+                          endpointTextClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]"
+                          fromLabel={route.fromLabel}
+                          fromNetworkId={route.fromNetworkId}
+                          fromToken={route.fromToken}
+                          toLabel={route.toLabel}
+                          toNetworkId={route.toNetworkId}
+                          toToken={route.toToken}
+                        />
                         <p className="theme-text-muted mt-2 text-sm leading-6">
                           {route.summary}
                         </p>
@@ -302,9 +315,17 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
                         <span className="theme-chip mb-3 inline-flex rounded-full px-3 py-2 text-[11px]">
                           {route.intentLabel}
                         </span>
-                        <p className="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]">
-                          {route.label}
-                        </p>
+                        <RouteLabelWithIcons
+                          arrowClassName="theme-text-soft font-mono text-[11px] uppercase tracking-[0.24em]"
+                          className="gap-1.5"
+                          endpointTextClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]"
+                          fromLabel={route.fromLabel}
+                          fromNetworkId={route.fromNetworkId}
+                          fromToken={route.fromToken}
+                          toLabel={route.toLabel}
+                          toNetworkId={route.toNetworkId}
+                          toToken={route.toToken}
+                        />
                         <p className="theme-text-muted mt-2 text-sm leading-6">
                           {route.summary}
                         </p>
@@ -370,9 +391,17 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
                   href={route.href}
                   className="theme-card block rounded-[18px] px-4 py-4 transition hover:-translate-y-0.5 hover:border-[var(--border-strong)]"
                 >
-                  <p className="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]">
-                    {route.label}
-                  </p>
+                  <RouteLabelWithIcons
+                    arrowClassName="theme-text-soft font-mono text-[11px] uppercase tracking-[0.24em]"
+                    className="gap-1.5"
+                    endpointTextClassName="theme-text-main font-mono text-[11px] uppercase tracking-[0.24em]"
+                    fromLabel={route.fromLabel}
+                    fromNetworkId={route.fromNetworkId}
+                    fromToken={route.fromToken}
+                    toLabel={route.toLabel}
+                    toNetworkId={route.toNetworkId}
+                    toToken={route.toToken}
+                  />
                   <p className="theme-text-muted mt-2 text-sm leading-6">
                     {route.summary}
                   </p>
@@ -412,7 +441,7 @@ export default async function TokenHubPage({ params }: TokenHubPageProps) {
           </p>
           <div className="mt-5">
             <Link
-              href="/swap"
+              href={hub.swapHref}
               className="theme-accent-cta inline-flex min-h-[48px] items-center justify-center rounded-full px-6 text-sm font-semibold uppercase tracking-[0.22em] transition hover:-translate-y-0.5"
             >
               Swap {hub.tokenLabel} now

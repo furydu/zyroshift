@@ -1,6 +1,8 @@
-import {
+﻿import {
+  getAssetBySymbol,
   getAllAssets,
   getCanonicalNetworkSlug,
+  hasSpecificAssetNetworkPreference,
   normalizeAssetNetworkSlug,
   pickPreferredAssetNetwork,
 } from "@/lib/pairs/assets";
@@ -35,6 +37,12 @@ type TokenHubRouteCard = {
   intentLabel: string;
   href: string;
   indexable: boolean;
+  fromToken: string;
+  fromLabel: string;
+  fromNetworkId: string;
+  toToken: string;
+  toLabel: string;
+  toNetworkId: string;
 };
 
 type TokenHubRouteGroup = {
@@ -64,6 +72,12 @@ type NetworkQuickFact = {
   value: string;
 };
 
+type NetworkCoverageSummary = {
+  assetCount: number;
+  depositAssetCount: number;
+  settleAssetCount: number;
+};
+
 type NetworkHubAssetCard = {
   symbol: string;
   name: string;
@@ -88,6 +102,7 @@ type TokenHubData = {
   token: string;
   tokenLabel: string;
   tokenName: string;
+  swapHref: string;
   category: TokenCategory;
   priority: TokenPriority;
   heroTitle: string;
@@ -119,6 +134,7 @@ type TokenHubData = {
 type NetworkHubData = {
   network: string;
   networkLabel: string;
+  swapHref: string;
   heroTitle: string;
   heroDescription: string;
   assetCount: number;
@@ -157,6 +173,7 @@ type DirectoryLinkCard = {
   href: string;
   summary: string;
   meta?: string;
+  networkId?: string;
 };
 
 type DirectoryCategoryCard = {
@@ -230,17 +247,17 @@ const HUB_ANCHOR_SYMBOLS = [
 ] as const;
 
 const HUB_INTENT_LABELS: Record<PairIntentType, string> = {
-  btc_to_stable: "BTC to stable",
-  btc_to_alt: "BTC to alt",
-  btc_to_meme: "BTC to meme",
-  stable_to_btc: "Stable to BTC",
-  stable_to_alt: "Stable to ecosystem assets",
-  alt_to_btc: "Alt to BTC",
-  alt_to_stable: "Alt to stable",
-  alt_to_alt: "Alt to alt",
-  meme_to_stable: "Meme to stable",
-  meme_to_btc: "Meme to BTC",
-  other: "Other routes",
+  btc_to_stable: "Bitcoin into stablecoins",
+  btc_to_alt: "Bitcoin into other ecosystems",
+  btc_to_meme: "Bitcoin into meme assets",
+  stable_to_btc: "Stablecoins into Bitcoin",
+  stable_to_alt: "Stablecoins into other ecosystems",
+  alt_to_btc: "Altcoins into Bitcoin",
+  alt_to_stable: "Altcoins into stablecoins",
+  alt_to_alt: "Between ecosystem assets",
+  meme_to_stable: "Meme assets into stablecoins",
+  meme_to_btc: "Meme assets into Bitcoin",
+  other: "Other supported route types",
 };
 
 const TOKEN_CATEGORY_META: Record<
@@ -327,6 +344,79 @@ const FEATURED_TOKEN_ORDER = [
 
 function normalizeId(value: string) {
   return value.trim().toLowerCase();
+}
+
+function getPreferredSwapSourceSymbols(networkId: string) {
+  switch (normalizeId(networkId)) {
+    case "bitcoin":
+      return ["BTC", "USDT", "USDC"];
+    case "ethereum":
+      return ["ETH", "USDT", "USDC"];
+    case "tron":
+      return ["TRX", "USDT", "USDC"];
+    case "bsc":
+      return ["BNB", "USDT", "USDC"];
+    case "solana":
+      return ["SOL", "USDT", "USDC"];
+    case "base":
+    case "arbitrum":
+    case "optimism":
+      return ["ETH", "USDC", "USDT"];
+    case "polygon":
+      return ["POL", "MATIC", "USDC", "USDT"];
+    case "avax":
+      return ["AVAX", "USDT", "USDC"];
+    case "ton":
+      return ["TON", "USDT"];
+    case "ripple":
+      return ["XRP", "USDT"];
+    case "cardano":
+      return ["ADA", "USDT"];
+    case "litecoin":
+      return ["LTC", "USDT"];
+    case "doge":
+      return ["DOGE", "USDT"];
+    case "liquid":
+      return ["BTC", "USDT"];
+    default:
+      return [];
+  }
+}
+
+function getNetworkSwapHref(networkId: string, topAssets: TokenCatalogEntry[]) {
+  const candidates = [
+    ...getPreferredSwapSourceSymbols(networkId),
+    ...topAssets.map((entry) => entry.symbol),
+  ];
+  const seen = new Set<string>();
+
+  for (const symbol of candidates) {
+    const normalizedSymbol = symbol.trim().toUpperCase();
+    if (!normalizedSymbol || seen.has(normalizedSymbol)) {
+      continue;
+    }
+
+    seen.add(normalizedSymbol);
+
+    const asset = getAssetBySymbol(normalizedSymbol);
+    if (!asset) {
+      continue;
+    }
+
+    const preferredNetwork = pickPreferredAssetNetwork(asset, networkId, "deposit");
+    if (!preferredNetwork) {
+      continue;
+    }
+
+    const params = new URLSearchParams({
+      fromCoin: asset.coin,
+      fromNetwork: preferredNetwork.id,
+    });
+
+    return `/swap?${params.toString()}`;
+  }
+
+  return "/swap";
 }
 
 function buildAssetMap() {
@@ -588,6 +678,29 @@ function getTokenHeroTitle(entry: TokenCatalogEntry) {
   return `Explore ${entry.symbol} swap routes`;
 }
 
+function getTokenSwapHref(entry: TokenCatalogEntry) {
+  const asset = getAssetBySymbol(entry.symbol);
+  if (!asset) {
+    return `/swap?fromCoin=${encodeURIComponent(entry.symbol)}`;
+  }
+
+  const params = new URLSearchParams({
+    fromCoin: asset.coin,
+  });
+
+  const shouldPinNetwork =
+    asset.networks.length === 1 || hasSpecificAssetNetworkPreference(asset.coin);
+  const preferredNetwork = shouldPinNetwork
+    ? pickPreferredAssetNetwork(asset, undefined, "deposit")
+    : null;
+
+  if (preferredNetwork?.id) {
+    params.set("fromNetwork", preferredNetwork.id);
+  }
+
+  return `/swap?${params.toString()}`;
+}
+
 function getTokenHeroDescription(entry: TokenCatalogEntry) {
   if (entry.category === "stable") {
     return `Convert ${entry.symbol} into BTC, ETH, and other assets using non-custodial, network-aware routes that start from the network you choose first.`;
@@ -767,6 +880,12 @@ function buildTokenHubRouteCard(
     intentLabel: HUB_INTENT_LABELS[route.pairIntentType],
     href: `/swap/${route.slug}`,
     indexable: Boolean(route.indexable),
+    fromToken: route.builderPreset.fromCoin,
+    fromLabel: route.fromLabel,
+    fromNetworkId: route.builderPreset.fromNetwork,
+    toToken: route.builderPreset.toCoin,
+    toLabel: route.toLabel,
+    toNetworkId: route.builderPreset.toNetwork,
   };
 }
 
@@ -800,42 +919,42 @@ function getRouteGroupMeta(
   if (entry.category === "stable") {
     if (groupKey === "stable_to_btc") {
       return {
-        title: `${entry.symbol} to BTC`,
-        description: `Routes that use ${entry.symbol} as the funding asset when the destination is native Bitcoin.`,
+        title: `Move ${entry.symbol} into Bitcoin`,
+        description: `Use ${entry.symbol} as the starting asset when the real goal is a Bitcoin landing, not another stop in the middle.`,
       };
     }
 
     if (groupKey === "stable_to_alt") {
       return {
-        title: `${entry.symbol} to ecosystem assets`,
-        description: `Routes that deploy ${entry.symbol} into another chain or app ecosystem without leaving the non-custodial flow.`,
+        title: `Use ${entry.symbol} to enter another ecosystem`,
+        description: `These routes start from ${entry.symbol} and finish in another chain's native asset or wallet environment without leaving the non-custodial flow.`,
       };
     }
 
     if (groupKey === "btc_to_stable") {
       return {
-        title: `BTC to ${entry.symbol}`,
-        description: `Routes that land Bitcoin value back into ${entry.symbol} on the selected destination network.`,
+        title: `Move Bitcoin into ${entry.symbol}`,
+        description: `These routes use ${entry.symbol} as the stable landing asset after value leaves Bitcoin.`,
       };
     }
 
     return {
-      title: `Assets to ${entry.symbol}`,
-      description: `Routes that use ${entry.symbol} as the stable destination after leaving a more volatile asset.`,
+      title: `Land in ${entry.symbol}`,
+      description: `These routes end in ${entry.symbol} after leaving a more volatile asset or another network environment.`,
     };
   }
 
   if (direction === "send" && groupKey === "btc_to_stable") {
     return {
-      title: `${entry.symbol} to stable assets`,
-      description: `Routes that reduce volatility by moving ${entry.symbol} into a stable landing asset.`,
+      title: `Move ${entry.symbol} into stablecoins`,
+      description: `These routes reduce volatility by moving ${entry.symbol} into a stable landing asset.`,
     };
   }
 
   if (direction === "send" && groupKey === "btc_to_alt") {
     return {
-      title: `${entry.symbol} to other ecosystems`,
-      description: `Routes that use ${entry.symbol} as the source asset when the destination needs native settlement elsewhere.`,
+      title: `Use ${entry.symbol} in another ecosystem`,
+      description: `These routes start from ${entry.symbol} and end where another chain or app ecosystem needs native settlement.`,
     };
   }
 
@@ -1165,6 +1284,7 @@ export function getTokenHubData(token: string): TokenHubData | null {
     token: normalizeId(entry.symbol),
     tokenLabel: entry.symbol,
     tokenName: entry.name,
+    swapHref: getTokenSwapHref(entry),
     category: entry.category,
     priority: entry.priority,
     heroTitle: getTokenHeroTitle(entry),
@@ -1333,51 +1453,77 @@ function getNetworkUseGuidance(networkId: string, networkLabel: string) {
   }
 }
 
+function getCoverageMixValue({
+  assetCount,
+  depositAssetCount,
+  settleAssetCount,
+}: NetworkCoverageSummary) {
+  if (
+    assetCount > 0 &&
+    depositAssetCount === assetCount &&
+    settleAssetCount === assetCount
+  ) {
+    return "Full send + receive coverage";
+  }
+
+  if (depositAssetCount === settleAssetCount) {
+    return "Balanced send + receive coverage";
+  }
+
+  if (depositAssetCount > settleAssetCount) {
+    return "Send-heavy network coverage";
+  }
+
+  return "Receive-heavy network coverage";
+}
+
 function getNetworkQuickFacts(
   networkId: string,
-  networkLabel: string,
+  coverage: NetworkCoverageSummary,
 ): NetworkQuickFact[] {
+  const coverageMix = getCoverageMixValue(coverage);
+
   switch (normalizeId(networkId)) {
     case "ethereum":
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Compatibility-first routes" },
-        { label: "Fee", value: "Higher / variable" },
+        { label: "Fee profile", value: "Higher / variable" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "DeFi, ERC20, wallet compatibility" },
       ];
     case "tron":
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Cost-first stable routes" },
-        { label: "Fee", value: "Lower / transfer-first" },
+        { label: "Fee profile", value: "Lower / transfer-first" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "Stablecoin transfers, lower fees" },
       ];
     case "bsc":
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Lower-cost EVM routes" },
-        { label: "Fee", value: "Lower than mainnet" },
+        { label: "Fee profile", value: "Lower than mainnet" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "EVM wallets, lower-cost transfers" },
       ];
     case "solana":
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Fast ecosystem-entry routes" },
-        { label: "Fee", value: "Lower / fast" },
+        { label: "Fee profile", value: "Lower / fast" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "Solana wallets, fast settlement" },
       ];
     case "bitcoin":
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Native BTC settlement" },
-        { label: "Fee", value: "Confirmation-driven" },
+        { label: "Fee profile", value: "Confirmation-driven" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "BTC destination, store-of-value routes" },
       ];
     default:
       return [
-        { label: "Network", value: networkLabel },
         { label: "Best for", value: "Network-aware routes" },
-        { label: "Fee", value: "Route-dependent" },
+        { label: "Fee profile", value: "Route-dependent" },
+        { label: "Coverage mix", value: coverageMix },
         { label: "Use when", value: "Wallet compatibility matters" },
       ];
   }
@@ -1873,6 +2019,12 @@ function buildNetworkRouteCard(
     intentLabel: HUB_INTENT_LABELS[route.pairIntentType],
     href: `/swap/${route.slug}`,
     indexable: Boolean(route.indexable),
+    fromToken: route.builderPreset.fromCoin,
+    fromLabel: route.fromLabel,
+    fromNetworkId: route.builderPreset.fromNetwork,
+    toToken: route.builderPreset.toCoin,
+    toLabel: route.toLabel,
+    toNetworkId: route.builderPreset.toNetwork,
   };
 }
 
@@ -2078,6 +2230,21 @@ export function getNetworkHubData(network: string): NetworkHubData | null {
   const destinationRouteSpecs = routes.filter(
     (route) => normalizeId(route.builderPreset.toNetwork) === normalizedNetwork,
   );
+  const assetCount = networkMeta.assets.length;
+  const depositAssetCount = networkMeta.assets.filter((asset) =>
+    asset.networks.some(
+      (candidate) =>
+        normalizeId(candidate.id) === normalizedNetwork &&
+        candidate.depositEnabled,
+    ),
+  ).length;
+  const settleAssetCount = networkMeta.assets.filter((asset) =>
+    asset.networks.some(
+      (candidate) =>
+        normalizeId(candidate.id) === normalizedNetwork &&
+        candidate.settleEnabled,
+    ),
+  ).length;
   const narrative = getNetworkNarrative(normalizedNetwork, networkMeta.label);
   const useGuidance = getNetworkUseGuidance(normalizedNetwork, networkMeta.label);
   const riskBlock = getNetworkRiskNotes(normalizedNetwork, networkMeta.label);
@@ -2086,32 +2253,25 @@ export function getNetworkHubData(network: string): NetworkHubData | null {
   return {
     network: normalizedNetwork,
     networkLabel: networkMeta.label,
+    swapHref: getNetworkSwapHref(normalizedNetwork, topAssets),
     heroTitle: getNetworkHeroTitle(networkMeta.label),
     heroDescription: getNetworkHeroDescription(
       normalizedNetwork,
       networkMeta.label,
     ),
-    assetCount: networkMeta.assets.length,
-    depositAssetCount: networkMeta.assets.filter((asset) =>
-      asset.networks.some(
-        (candidate) =>
-          normalizeId(candidate.id) === normalizedNetwork &&
-          candidate.depositEnabled,
-      ),
-    ).length,
-    settleAssetCount: networkMeta.assets.filter((asset) =>
-      asset.networks.some(
-        (candidate) =>
-          normalizeId(candidate.id) === normalizedNetwork &&
-          candidate.settleEnabled,
-      ),
-    ).length,
+    assetCount,
+    depositAssetCount,
+    settleAssetCount,
     routeCount: routes.length,
     narrativeHeading: narrative.heading,
     narrativeParagraphs: narrative.paragraphs,
     useGuidanceHeading: useGuidance.heading,
     useGuidancePoints: useGuidance.points,
-    quickFacts: getNetworkQuickFacts(normalizedNetwork, networkMeta.label),
+    quickFacts: getNetworkQuickFacts(normalizedNetwork, {
+      assetCount,
+      depositAssetCount,
+      settleAssetCount,
+    }),
     characteristicsHeading: `How ${networkMeta.label} changes a swap`,
     characteristics: getNetworkCharacteristics(
       normalizedNetwork,
@@ -2161,23 +2321,19 @@ function buildTokenDirectoryCard(entry: TokenCatalogEntry): DirectoryLinkCard {
                 : entry.category === "meme"
                   ? `${entry.name} is used in higher-volatility routes and take-profit style rotations.`
                   : `${entry.name} appears in supported routes where network fit and wallet readiness still matter.`,
-    meta: `${getTokenCategoryLabel(entry.category)} · ${entry.networkCount} network${
+    meta: `${getTokenCategoryLabel(entry.category)} Â· ${entry.networkCount} network${
       entry.networkCount === 1 ? "" : "s"
     }`,
   };
 }
 
 function buildNetworkDirectoryCard(hub: NetworkHubData): DirectoryLinkCard {
-  const quickFact =
-    hub.quickFacts.find((item) => item.label === "Best for")?.value ||
-    hub.quickFacts[0]?.value ||
-    "Supported routes";
-
   return {
     title: hub.networkLabel,
     href: `/networks/${hub.network}`,
     summary: hub.heroDescription,
-    meta: `${quickFact} · ${hub.routeCount} routes`,
+    meta: `${hub.assetCount} assets · ${hub.routeCount} routes`,
+    networkId: hub.network,
   };
 }
 
@@ -2405,7 +2561,7 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
   const familyCards: DirectoryCategoryCard[] = [
     {
       id: "compatibility-first-networks",
-      label: "Compatibility-first networks",
+      label: "Compatibility-focused networks",
       count: allHubs.filter((hub) =>
         ["ethereum", "bsc", "base", "arbitrum", "optimism", "polygon"].includes(
           hub.network,
@@ -2417,7 +2573,7 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
     },
     {
       id: "lower-cost-transfer-rails",
-      label: "Lower-cost transfer rails",
+      label: "Lower-cost transfer networks",
       count: allHubs.filter((hub) =>
         ["tron", "solana", "bsc", "ton", "polygon"].includes(hub.network),
       ).length,
@@ -2427,7 +2583,7 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
     },
     {
       id: "native-settlement-rails",
-      label: "Native settlement rails",
+      label: "Native settlement networks",
       count: allHubs.filter((hub) =>
         ["bitcoin", "liquid", "litecoin", "doge"].includes(hub.network),
       ).length,
@@ -2450,14 +2606,14 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
   const sections: DirectorySection[] = [
     {
       id: "major-network-hubs",
-      title: "Major network hubs",
+      title: "Major networks",
       description:
         "Start here when the route is mostly shaped by wallet compatibility, asset coverage, and route density across the largest supported rails.",
       items: featuredHubs.slice(0, 6).map(buildNetworkDirectoryCard),
     },
     {
       id: "compatibility-first-rails",
-      title: "Compatibility-first rails",
+      title: "Networks for wallet compatibility",
       description:
         "These networks matter when ERC20 settlement, EVM wallet support, or DeFi adjacency decides the route more than raw fee savings.",
       items: allHubs
@@ -2471,7 +2627,7 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
     },
     {
       id: "lower-cost-rails",
-      title: "Lower-cost transfer rails",
+      title: "Networks for lower-cost transfers",
       description:
         "Use these hubs when transfer cost, stablecoin movement, and speed-sensitive funding flows matter first.",
       items: allHubs
@@ -2498,12 +2654,12 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
         value: String(featuredHubs.length),
       },
     ],
-    narrativeHeading: "How network hubs organize swap routes",
+    narrativeHeading: "How networks shape a swap",
     narrativeParagraphs: [
       "A network hub explains how a rail changes cost, wallet expectations, settlement behavior, and route suitability before you ever choose a pair page. That keeps the infrastructure decision visible instead of burying it behind token symbols alone.",
       "Use these hubs when the important question is not only which asset you want, but which network you should trust for funding, ERC20 compatibility, native settlement, or lower-cost stablecoin movement.",
     ],
-    guidanceHeading: "How to choose a network hub",
+    guidanceHeading: "How to choose a network",
     guidancePoints: [
       "Start with Ethereum-style hubs when ERC20 compatibility or DeFi access matters most.",
       "Use Tron and other lower-cost rails when transfer efficiency matters before app compatibility.",
@@ -2544,5 +2700,6 @@ export function getNetworkDirectoryData(): NetworkDirectoryData {
 }
 
 export { getPriorityLabel, getTokenCategoryLabel };
+
 
 

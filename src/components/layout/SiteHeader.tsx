@@ -1,3 +1,4 @@
+import { BrandWordmark } from "@/components/layout/BrandWordmark";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import Link from "next/link";
 
@@ -40,9 +41,9 @@ export function SiteHeader({
         <div className="flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
-            className="theme-text-main font-mono text-sm uppercase tracking-[0.36em]"
+            className="transition hover:opacity-90"
           >
-            ZyroShift
+            <BrandWordmark iconClassName="h-[18px] w-[18px] shrink-0" />
           </Link>
 
           <nav className="hidden flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] lg:flex">

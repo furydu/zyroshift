@@ -1,7 +1,7 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { RecentShiftsPanel } from "@/components/swap/RecentShiftsPanel";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SwapExperience } from "@/components/swap/SwapExperience";
+import { SwapExperience, type SwapExperiencePreset } from "@/components/swap/SwapExperience";
 import { getPairClusterDirectoryCards } from "@/lib/pairs";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -11,8 +11,51 @@ export const metadata: Metadata = {
   description: "Create a variable-rate crypto swap order and track settlement.",
 };
 
-export default function SwapPage() {
+type SwapPageProps = {
+  searchParams?: Promise<{
+    fromCoin?: string | string[];
+    fromNetwork?: string | string[];
+    toCoin?: string | string[];
+    toNetwork?: string | string[];
+  }>;
+};
+
+function pickQueryValue(value?: string | string[]) {
+  return Array.isArray(value) ? value[0] || "" : value || "";
+}
+
+function getPresetFromSearchParams(
+  params: Awaited<NonNullable<SwapPageProps["searchParams"]>>,
+): Partial<SwapExperiencePreset> | undefined {
+  const preset: Partial<SwapExperiencePreset> = {};
+  const fromCoin = pickQueryValue(params.fromCoin);
+  const fromNetwork = pickQueryValue(params.fromNetwork);
+  const toCoin = pickQueryValue(params.toCoin);
+  const toNetwork = pickQueryValue(params.toNetwork);
+
+  if (fromCoin) {
+    preset.fromCoin = fromCoin;
+  }
+
+  if (fromNetwork) {
+    preset.fromNetwork = fromNetwork;
+  }
+
+  if (toCoin) {
+    preset.toCoin = toCoin;
+  }
+
+  if (toNetwork) {
+    preset.toNetwork = toNetwork;
+  }
+
+  return Object.keys(preset).length > 0 ? preset : undefined;
+}
+
+export default async function SwapPage({ searchParams }: SwapPageProps) {
   const routeFamilies = getPairClusterDirectoryCards();
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const preset = getPresetFromSearchParams(resolvedSearchParams);
 
   return (
     <main className="relative overflow-hidden">
@@ -20,7 +63,7 @@ export default function SwapPage() {
         <SiteHeader activeKey="swap" ctaHref="#swap-builder" />
 
         <div id="swap-builder">
-          <SwapExperience showThemeToggle={false} />
+          <SwapExperience showThemeToggle={false} preset={preset} />
         </div>
 
         <RecentShiftsPanel limit={8} />
@@ -28,10 +71,12 @@ export default function SwapPage() {
         <section className="theme-panel mt-6 rounded-[28px] px-5 py-5 md:px-6">
           <div className="max-w-3xl">
             <p className="theme-accent-cyan font-mono text-[11px] uppercase tracking-[0.28em]">
-              Route families
+              Browse by route goal
             </p>
             <p className="theme-text-muted mt-3 text-sm leading-7 md:text-[15px]">
-              These internal parent pages group routes by intent family instead of by one pair only. Use them to review which families are strongest before deciding what should eventually be published more broadly.
+              Use these pages when you want to compare a type of swap before
+              choosing one exact pair. They group common goals, such as
+              stablecoins into Bitcoin or Bitcoin into another ecosystem.
             </p>
           </div>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -48,7 +93,8 @@ export default function SwapPage() {
                   {item.summary}
                 </p>
                 <p className="theme-text-soft mt-3 font-mono text-[10px] uppercase tracking-[0.18em]">
-                  {item.totalRoutes} routes · {item.indexRoutes} launch-ready · {item.noindexRoutes} render-only
+                  {item.totalRoutes} total routes | {item.indexRoutes} featured now |{" "}
+                  {item.noindexRoutes} more in this family
                 </p>
               </Link>
             ))}

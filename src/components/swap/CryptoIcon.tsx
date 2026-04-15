@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 type CryptoIconProps = {
   alt: string;
@@ -16,8 +16,17 @@ export function CryptoIcon({
   size,
   sources,
 }: CryptoIconProps) {
-  const [sourceIndex, setSourceIndex] = useState(0);
-  const safeIndex = Math.min(sourceIndex, Math.max(sources.length - 1, 0));
+  const [state, setState] = useState(() => ({
+    signature: sources.join("|"),
+    sourceIndex: 0,
+  }));
+  const sourceSignature = useMemo(() => sources.join("|"), [sources]);
+  const effectiveSourceIndex =
+    state.signature === sourceSignature ? state.sourceIndex : 0;
+  const safeIndex = Math.min(
+    effectiveSourceIndex,
+    Math.max(sources.length - 1, 0),
+  );
   const source = sources[safeIndex];
 
   return (
@@ -30,9 +39,16 @@ export function CryptoIcon({
         className="h-full w-full object-contain"
         height={size}
         onError={() => {
-          setSourceIndex((current) =>
-            current < sources.length - 1 ? current + 1 : current,
-          );
+          setState((current) => {
+            const currentIndex =
+              current.signature === sourceSignature ? current.sourceIndex : 0;
+
+            return {
+              signature: sourceSignature,
+              sourceIndex:
+                currentIndex < sources.length - 1 ? currentIndex + 1 : currentIndex,
+            };
+          });
         }}
         src={source}
         unoptimized
