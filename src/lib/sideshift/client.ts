@@ -97,12 +97,12 @@ async function requestJson<T>(
     userIp?: string | null;
   },
 ) {
-  const liveConfig = requireLiveConfig();
   const headers: HeadersInit = {
     "Content-Type": "application/json",
   };
 
   if (options?.includeSecret !== false) {
+    const liveConfig = requireLiveConfig();
     headers["x-sideshift-secret"] = liveConfig.secret;
   }
 
