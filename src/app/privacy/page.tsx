@@ -106,11 +106,7 @@ export default function PrivacyPage() {
       title="Privacy Policy"
       intro="This policy explains what ZyroShift collects when you use the service, why the data is used, how it may be shared, and what blockchain visibility means for a direct-to-wallet crypto route."
       effectiveDate="April 16, 2026"
-      sections={PRIVACY_SECTIONS.map((section) => ({
-        ...section,
-        paragraphs: [...section.paragraphs],
-        bullets: section.bullets ? [...section.bullets] : undefined,
-      }))}
+      sections={PRIVACY_SECTIONS}
     />
   );
 }

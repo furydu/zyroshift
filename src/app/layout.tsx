@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const themeInitScript = `
@@ -22,12 +22,19 @@ const themeInitScript = `
 `;
 
 export const metadata: Metadata = {
+  applicationName: "ZyroShift",
   title: {
     default: "ZyroShift",
     template: "%s | ZyroShift",
   },
   description:
     "Non-custodial crypto swap routes with direct-to-wallet settlement, live quotes, and dedicated tracking on ZyroShift.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "ZyroShift",
+  },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -35,6 +42,10 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon.png", sizes: "192x192", type: "image/png" }],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#090611",
 };
 
 export default function RootLayout({

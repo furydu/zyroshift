@@ -81,11 +81,7 @@ export default function TermsPage() {
       title="Terms & Conditions"
       intro="These terms explain how ZyroShift works, what you are responsible for when using direct-to-wallet swap routes, and how the service may handle pricing, risk review, and route availability."
       effectiveDate="April 16, 2026"
-      sections={TERMS_SECTIONS.map((section) => ({
-        ...section,
-        paragraphs: [...section.paragraphs],
-        bullets: section.bullets ? [...section.bullets] : undefined,
-      }))}
+      sections={TERMS_SECTIONS}
     />
   );
 }

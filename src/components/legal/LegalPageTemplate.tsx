@@ -4,8 +4,8 @@ import Link from "next/link";
 
 type LegalSection = {
   title: string;
-  paragraphs: string[];
-  bullets?: string[];
+  paragraphs: readonly string[];
+  bullets?: readonly string[];
 };
 
 export function LegalPageTemplate({
@@ -19,7 +19,7 @@ export function LegalPageTemplate({
   title: string;
   intro: string;
   effectiveDate: string;
-  sections: LegalSection[];
+  sections: readonly LegalSection[];
 }) {
   return (
     <main className="relative overflow-hidden">
