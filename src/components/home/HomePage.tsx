@@ -262,7 +262,15 @@ export function HomePage() {
           </div>
 
           <div id="swap-builder" className="relative mt-4">
-            <SwapExperience embedded />
+            <SwapExperience
+              embedded
+              preset={{
+                fromCoin: "USDT",
+                fromNetwork: "tron",
+                toCoin: "BTC",
+                toNetwork: "bitcoin",
+              }}
+            />
           </div>
         </section>
 
