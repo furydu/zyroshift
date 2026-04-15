@@ -322,8 +322,9 @@ export function SwapExperience({
 
   const assets = directoryState.data?.assets ?? EMPTY_ASSETS;
   const permissionGranted = directoryState.data?.permission.createShift ?? false;
+  const executionReady = directoryState.data?.executionReady ?? false;
   const directoryReady =
-    directoryState.status === "success" && permissionGranted;
+    directoryState.status === "success" && assets.length > 0;
   const mockMode =
     directoryState.data?.mockMode ||
     variableQuoteState.data?.mockMode ||
@@ -331,6 +332,8 @@ export function SwapExperience({
     false;
   const showPermissionWarning =
     directoryState.status === "success" && !mockMode && !permissionGranted;
+  const showExecutionWarning =
+    directoryState.status === "success" && !executionReady;
 
   const normalizedForm = normalizeFormForMode(form, assets, rateMode, preset);
   const fromAsset = getAssetByCoin(assets, normalizedForm.fromCoin);
@@ -714,6 +717,7 @@ export function SwapExperience({
 
   const disableSubmit =
     !permissionGranted ||
+    !executionReady ||
     submitState.status === "loading" ||
     isFlipping ||
     !normalizedForm.fromCoin ||
@@ -939,6 +943,12 @@ ${minMaxWarning}`}
           <p className="mt-4 rounded-2xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-100">
             SideShift permissions are blocked for this user IP, so order creation is
             disabled.
+          </p>
+        ) : null}
+
+        {showExecutionWarning ? (
+          <p className="mt-4 rounded-2xl border border-amber-400/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-50">
+            Live rates are available, but shift creation is temporarily unavailable.
           </p>
         ) : null}
 

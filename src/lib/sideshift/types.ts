@@ -41,6 +41,7 @@ export type CoinsApiResponse = {
   assets: SwapAssetOption[];
   permission: SideShiftPermissionResponse;
   mockMode: boolean;
+  executionReady: boolean;
 };
 
 export type SideShiftPermissionResponse = {

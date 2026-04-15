@@ -32,7 +32,7 @@ function isPrivateOrLoopbackIp(ip: string) {
   return false;
 }
 
-const hasLiveSecrets =
+export const hasLiveSecrets =
   Boolean(readEnv("SIDESHIFT_SECRET")) &&
   Boolean(readEnv("SIDESHIFT_AFFILIATE_ID"));
 

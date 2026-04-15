@@ -1,4 +1,5 @@
 import {
+  hasLiveSecrets,
   requireLiveConfig,
   requireUserIp,
   sideshiftConfig,
@@ -168,7 +169,7 @@ export function toRouteErrorResponse(error: unknown) {
       {
         error: {
           message:
-            "Live quote creation is temporarily unavailable. Please try again shortly.",
+            "Live swap execution is temporarily unavailable. Please try again shortly.",
           code: "LIVE_CONFIG_MISSING",
         },
       },
@@ -196,6 +197,7 @@ export async function fetchCoinsAndPermissions(
       assets: normalizeAssets(getMockCoins()),
       permission: getMockPermissions(),
       mockMode: true,
+      executionReady: true,
     };
   }
 
@@ -215,6 +217,7 @@ export async function fetchCoinsAndPermissions(
     assets: normalizeAssets(coins),
     permission,
     mockMode: false,
+    executionReady: hasLiveSecrets,
   };
 }
 
@@ -270,16 +273,16 @@ export async function fetchQuote(
     };
   }
 
-  const liveConfig = requireLiveConfig();
   const requiredIp = requireUserIp(userIp);
   const quote = await requestJson<SideShiftPairResponse>(
     `/pair/${input.fromCoin}-${input.fromNetwork}/${input.toCoin}-${input.toNetwork}`,
     {
+      includeSecret: false,
       userIp: requiredIp,
       query: {
-        affiliateId: liveConfig.affiliateId,
+        affiliateId: sideshiftConfig.affiliateId || undefined,
         amount: input.amount,
-        commissionRate: liveConfig.commissionRate,
+        commissionRate: sideshiftConfig.commissionRate || undefined,
       },
     },
   );
