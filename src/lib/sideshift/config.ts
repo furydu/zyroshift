@@ -32,6 +32,10 @@ function isPrivateOrLoopbackIp(ip: string) {
   return false;
 }
 
+const hasLiveSecrets =
+  Boolean(readEnv("SIDESHIFT_SECRET")) &&
+  Boolean(readEnv("SIDESHIFT_AFFILIATE_ID"));
+
 export const sideshiftConfig = {
   baseUrl: readEnv("SIDESHIFT_BASE_URL") || DEFAULT_BASE_URL,
   secret: readEnv("SIDESHIFT_SECRET"),
@@ -39,9 +43,8 @@ export const sideshiftConfig = {
   commissionRate: readEnv("SIDESHIFT_COMMISSION_RATE"),
   devUserIp: readEnv("SIDESHIFT_DEV_USER_IP"),
   mockMode:
-    readEnv("SIDESHIFT_MOCK_MODE") === "true" ||
-    !readEnv("SIDESHIFT_SECRET") ||
-    !readEnv("SIDESHIFT_AFFILIATE_ID"),
+    process.env.NODE_ENV !== "production" &&
+    (readEnv("SIDESHIFT_MOCK_MODE") === "true" || !hasLiveSecrets),
 } as const;
 
 export function resolveUserIp(inputIp?: string | null) {

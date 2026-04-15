@@ -746,15 +746,6 @@ export function SwapExperience({
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             {showThemeToggle ? <ThemeToggle /> : null}
-            <span
-              className={`rounded-full px-4 py-2 font-mono text-xs uppercase tracking-[0.24em] ${
-                mockMode
-                  ? "theme-warning-panel theme-accent-amber"
-                  : "theme-success-panel theme-accent-emerald"
-              }`}
-            >
-              {mockMode ? "Mock mode" : "Live mode"}
-            </span>
           </div>
         </div>
       ) : null}

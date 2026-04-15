@@ -160,6 +160,22 @@ export function toRouteErrorResponse(error: unknown) {
     );
   }
 
+  if (
+    error instanceof Error &&
+    error.message.includes("Missing SIDESHIFT_SECRET or SIDESHIFT_AFFILIATE_ID")
+  ) {
+    return Response.json(
+      {
+        error: {
+          message:
+            "Live quote creation is temporarily unavailable. Please try again shortly.",
+          code: "LIVE_CONFIG_MISSING",
+        },
+      },
+      { status: 503 },
+    );
+  }
+
   return Response.json(
     {
       error: {

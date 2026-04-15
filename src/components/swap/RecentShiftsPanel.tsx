@@ -186,14 +186,6 @@ export function RecentShiftsPanel({ limit = 8 }: { limit?: number }) {
       }),
     [state.data?.shifts],
   );
-  const feedLabel = useMemo(() => {
-    if (!state.data) {
-      return null;
-    }
-
-    return state.data.mockMode ? "Mock feed" : "Live feed";
-  }, [state.data]);
-
   return (
     <section className="theme-panel mt-8 rounded-[30px] px-5 py-7 md:px-7 md:py-8">
       <div className="mx-auto max-w-[1120px]">
@@ -206,12 +198,6 @@ export function RecentShiftsPanel({ limit = 8 }: { limit?: number }) {
               Recent Shifts
             </h2>
           </div>
-
-          {feedLabel ? (
-            <span className="theme-chip rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.28em]">
-              {feedLabel}
-            </span>
-          ) : null}
         </div>
 
         <div className="mt-6 hidden grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)_136px] gap-4 px-5 md:grid">
