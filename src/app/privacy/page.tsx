@@ -34,6 +34,18 @@ const PRIVACY_SECTIONS = [
     ],
   },
   {
+    title: "Analytics",
+    paragraphs: [
+      "ZyroShift uses Google Analytics 4 to understand general site traffic, route interest, navigation patterns, and page performance across zyroshift.com.",
+      "Google Analytics may receive page-view and usage information associated with your browser session according to Google's measurement technology and your browser settings.",
+    ],
+    bullets: [
+      "Analytics may measure pages viewed, route flow interactions, and general usage timing",
+      "Technical context such as browser, device, approximate location, and referral source may be collected through Google's analytics infrastructure",
+      "ZyroShift uses this information to understand demand, improve reliability, and evaluate site performance",
+    ],
+  },
+  {
     title: "Public blockchain data",
     paragraphs: [
       "If you use the service to prepare or complete a crypto route, wallet addresses, transaction hashes, transferred amounts, and settlement activity may appear on public blockchains and remain visible there permanently or for as long as the relevant network preserves its history.",
