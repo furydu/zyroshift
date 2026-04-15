@@ -95,8 +95,18 @@ const MOCK_QUOTES: Record<string, { rate: string; min: string; max: string }> = 
     min: "35",
     max: "30000",
   },
+  "USDT:tron->BTC:bitcoin": {
+    rate: "0.00001398",
+    min: "25",
+    max: "30000",
+  },
   "BTC:bitcoin->USDT:ethereum": {
     rate: "71640.22",
+    min: "0.00035",
+    max: "3.1",
+  },
+  "BTC:bitcoin->USDT:tron": {
+    rate: "71582.48",
     min: "0.00035",
     max: "3.1",
   },
