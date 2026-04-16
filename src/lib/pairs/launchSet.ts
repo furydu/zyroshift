@@ -62,6 +62,14 @@ function sortLaunchPairs(a: PairPageSpec, b: PairPageSpec) {
   return b.priorityScore - a.priorityScore;
 }
 
+function applyOptionalLimit<T>(items: T[], limit?: number) {
+  if (typeof limit !== "number" || limit <= 0) {
+    return items;
+  }
+
+  return items.slice(0, limit);
+}
+
 function selectClusterOverrides(
   clusterId: PairLaunchClusterId,
   items: PairInventoryItem[],
@@ -281,17 +289,18 @@ export function isPairLaunchSlug(slug: string) {
   return getPairLaunchSlugSet().has(slug.trim().toLowerCase());
 }
 
-function getLaunchSpecs(limit = 80) {
+function getLaunchSpecs(limit?: number) {
   const { selectedSlugs } = buildExpandedLaunchInventory();
 
-  return [...selectedSlugs]
+  const specs = [...selectedSlugs]
     .map((slug) => resolvePairPageSpec(slug))
     .filter((spec): spec is PairPageSpec => Boolean(spec))
-    .sort(sortLaunchPairs)
-    .slice(0, limit);
+    .sort(sortLaunchPairs);
+
+  return applyOptionalLimit(specs, limit);
 }
 
-export function getPairLaunchSet(limit = 80): PairLaunchSetItem[] {
+export function getPairLaunchSet(limit?: number): PairLaunchSetItem[] {
   const { launchScopes } = buildExpandedLaunchInventory();
 
   return getLaunchSpecs(limit).map((spec) => ({
@@ -360,17 +369,17 @@ export function getPairLaunchSetSummary() {
   };
 }
 
-export function getPairLaunchSpecs(limit = 80): PairPageSpec[] {
+export function getPairLaunchSpecs(limit?: number): PairPageSpec[] {
   return getLaunchSpecs(limit);
 }
 
-export function getPairLaunchStaticParams(limit = 80) {
+export function getPairLaunchStaticParams(limit?: number) {
   return getPairLaunchSpecs(limit).map((spec) => ({
     pair: spec.slug,
   }));
 }
 
-export function getPairLaunchSitemapEntries(limit = 80) {
+export function getPairLaunchSitemapEntries(limit?: number) {
   return getPairLaunchSpecs(limit).map((spec) => ({
     url: `${SITE_URL}/swap/${spec.slug}`,
     lastModified: new Date(),

@@ -155,7 +155,7 @@ const ALT_LAUNCH_PREFERRED_TOKENS = buildPreferredTokenList(
     !isWrappedBitcoinSymbol(entry.symbol) &&
     !isDerivativeAsset(entry),
   CURATED_ALT_FALLBACKS,
-  12,
+  24,
 );
 const STABLE_LAUNCH_PREFERRED_TOKEN_SET = new Set(STABLE_LAUNCH_PREFERRED_TOKENS);
 const ALT_LAUNCH_PREFERRED_TOKEN_SET = new Set(ALT_LAUNCH_PREFERRED_TOKENS);
@@ -280,7 +280,7 @@ function createClusterRule(
 const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
   "stable-to-btc": createClusterRule({
     id: "stable-to-btc",
-    quota: 12,
+    quota: 27,
     overrideSlugs: [],
     preferredTokens: STABLE_LAUNCH_PREFERRED_TOKENS,
     candidate: (item) =>
@@ -297,7 +297,7 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
   }),
   "btc-to-stable": createClusterRule({
     id: "btc-to-stable",
-    quota: 11,
+    quota: 14,
     overrideSlugs: [
       "btc-to-dai",
       "btc-to-usdc-base",
@@ -311,18 +311,20 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
       item.fromNetworkId === "bitcoin" &&
       !isWrappedBitcoinSymbol(item.fromToken) &&
       isPreferredStableToken(item.toToken) &&
-      isPreferredSettlementNetwork(item.toToken, item.toNetworkId),
+      TRUSTED_STABLE_ROUTE_NETWORKS.has(item.toNetworkId),
     preferenceScore: (item) =>
       getPreferredTokenScore(STABLE_LAUNCH_PREFERRED_TOKENS, item.toToken) +
-      (["tron", "ethereum", "base", "arbitrum"].includes(item.toNetworkId)
-        ? 3
-        : 0) +
+      getStableSourceNetworkScore(item.toNetworkId) +
+      (isPreferredSettlementNetwork(item.toToken, item.toNetworkId) ? 3 : 0) +
       (item.curated ? 100 : 0),
     diversityKey: (item) => item.toToken,
+    secondaryDiversityKey: (item) => `${item.toToken}-${item.toNetworkId}`,
+    bucketKey: (item) => item.toToken,
+    bucketLimit: 7,
   }),
   "btc-to-alt": createClusterRule({
     id: "btc-to-alt",
-    quota: 11,
+    quota: 22,
     overrideSlugs: ["btc-to-ton", "btc-to-xrp", "btc-to-ada", "btc-to-avax", "btc-to-trx"],
     preferredTokens: ALT_LAUNCH_PREFERRED_TOKENS,
     candidate: (item) =>
@@ -340,7 +342,7 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
   }),
   "stable-to-alt": createClusterRule({
     id: "stable-to-alt",
-    quota: 12,
+    quota: 26,
     overrideSlugs: [],
     preferredTokens: ALT_LAUNCH_PREFERRED_TOKENS,
     candidate: (item) =>
@@ -362,7 +364,7 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
   }),
   "alt-to-btc": createClusterRule({
     id: "alt-to-btc",
-    quota: 8,
+    quota: 14,
     overrideSlugs: ["trx-to-btc", "xrp-to-btc", "ton-to-btc", "ada-to-btc"],
     preferredTokens: ALT_LAUNCH_PREFERRED_TOKENS,
     candidate: (item) =>
@@ -378,7 +380,7 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
   }),
   "alt-to-stable": createClusterRule({
     id: "alt-to-stable",
-    quota: 11,
+    quota: 23,
     overrideSlugs: [],
     preferredTokens: ALT_LAUNCH_PREFERRED_TOKENS,
     candidate: (item) =>
