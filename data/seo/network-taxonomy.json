@@ -1,0 +1,151 @@
+{
+  "defaults": {
+    "railType": "compatibility_first",
+    "feeTier": "medium",
+    "speedTier": "medium",
+    "traits": ["compatibility_first"],
+    "bestFor": ["general wallet compatibility"]
+  },
+  "networks": {
+    "bitcoin": {
+      "railType": "native_settlement",
+      "feeTier": "medium",
+      "speedTier": "medium",
+      "traits": ["native_settlement", "confirmation_sensitive"],
+      "bestFor": ["native BTC settlement", "long-term BTC landing"]
+    },
+    "ethereum": {
+      "railType": "compatibility_first",
+      "feeTier": "high",
+      "speedTier": "medium",
+      "traits": ["compatibility_first", "wallet_format_sensitive"],
+      "bestFor": ["ERC20 compatibility", "deep wallet support"]
+    },
+    "tron": {
+      "railType": "lower_cost_transfer",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["fee_first"],
+      "bestFor": ["lower-cost stablecoin transfers", "simple exchange exits"]
+    },
+    "solana": {
+      "railType": "ecosystem_native",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["ecosystem_native", "fee_first"],
+      "bestFor": ["ecosystem entry", "fast settlement"]
+    },
+    "bsc": {
+      "railType": "lower_cost_transfer",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["fee_first", "compatibility_first"],
+      "bestFor": ["lower-cost EVM transfers", "familiar wallet flows"]
+    },
+    "base": {
+      "railType": "compatibility_first",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["compatibility_first", "fee_first"],
+      "bestFor": ["lower-cost EVM settlement", "Base ecosystem access"]
+    },
+    "arbitrum": {
+      "railType": "compatibility_first",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["compatibility_first", "fee_first"],
+      "bestFor": ["lower-cost EVM routes", "DeFi access"]
+    },
+    "optimism": {
+      "railType": "compatibility_first",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["compatibility_first", "fee_first"],
+      "bestFor": ["lower-cost EVM routes", "Optimism ecosystem access"]
+    },
+    "polygon": {
+      "railType": "lower_cost_transfer",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["fee_first", "compatibility_first"],
+      "bestFor": ["lower-cost stable transfers", "EVM wallet compatibility"]
+    },
+    "avax": {
+      "railType": "compatibility_first",
+      "feeTier": "medium",
+      "speedTier": "fast",
+      "traits": ["compatibility_first"],
+      "bestFor": ["Avalanche ecosystem access", "EVM compatibility"]
+    },
+    "ton": {
+      "railType": "ecosystem_native",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["ecosystem_native", "wallet_format_sensitive"],
+      "bestFor": ["TON-native wallets", "Telegram-adjacent flows"]
+    },
+    "ripple": {
+      "railType": "native_settlement",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["native_settlement", "memo_sensitive"],
+      "bestFor": ["XRP-native settlement", "memo-aware transfers"]
+    },
+    "stellar": {
+      "railType": "native_settlement",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["native_settlement", "memo_sensitive"],
+      "bestFor": ["XLM settlement", "memo-aware transfers"]
+    },
+    "cardano": {
+      "railType": "native_settlement",
+      "feeTier": "medium",
+      "speedTier": "medium",
+      "traits": ["native_settlement", "wallet_format_sensitive"],
+      "bestFor": ["native ADA settlement"]
+    },
+    "cosmos": {
+      "railType": "ecosystem_native",
+      "feeTier": "low",
+      "speedTier": "medium",
+      "traits": ["ecosystem_native", "wallet_format_sensitive"],
+      "bestFor": ["Cosmos ecosystem transfers"]
+    },
+    "litecoin": {
+      "railType": "native_settlement",
+      "feeTier": "low",
+      "speedTier": "medium",
+      "traits": ["native_settlement", "confirmation_sensitive"],
+      "bestFor": ["native LTC settlement"]
+    },
+    "doge": {
+      "railType": "native_settlement",
+      "feeTier": "low",
+      "speedTier": "medium",
+      "traits": ["native_settlement", "confirmation_sensitive"],
+      "bestFor": ["native DOGE settlement"]
+    },
+    "rootstock": {
+      "railType": "compatibility_first",
+      "feeTier": "medium",
+      "speedTier": "medium",
+      "traits": ["compatibility_first"],
+      "bestFor": ["Bitcoin-adjacent smart contract flows"]
+    },
+    "liquid": {
+      "railType": "native_settlement",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["native_settlement"],
+      "bestFor": ["Bitcoin sidechain settlement"]
+    },
+    "aptos": {
+      "railType": "ecosystem_native",
+      "feeTier": "low",
+      "speedTier": "fast",
+      "traits": ["ecosystem_native", "wallet_format_sensitive"],
+      "bestFor": ["Aptos ecosystem routes"]
+    }
+  }
+}

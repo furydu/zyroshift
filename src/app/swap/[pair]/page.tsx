@@ -1,6 +1,6 @@
 import { PairPage } from "@/components/pairs/PairPage";
 import {
-  getPairLaunchStaticParams,
+  getFrozenGoldPairStaticParams,
   getPairPageMetadata,
   parsePairSlug,
   resolvePairPageSpec,
@@ -15,7 +15,7 @@ type PairPageProps = {
 };
 
 export async function generateStaticParams() {
-  return getPairLaunchStaticParams();
+  return getFrozenGoldPairStaticParams();
 }
 
 export async function generateMetadata({

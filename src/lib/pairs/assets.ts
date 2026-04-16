@@ -245,6 +245,33 @@ export function pickPreferredAssetNetwork(
   })[0] || null;
 }
 
+export function getSupportedAssetNetworks(
+  symbol: string,
+  direction?: AssetRouteDirection,
+) {
+  const asset = getAssetBySymbol(symbol);
+
+  if (!asset) {
+    return [];
+  }
+
+  const normalizedSymbol = normalizeSymbol(asset.coin);
+
+  return [...asset.networks]
+    .filter((network) => networkMatchesDirection(network, direction))
+    .sort((a, b) => {
+      const rankDiff =
+        getNetworkRank(normalizedSymbol, a.id.trim().toLowerCase()) -
+        getNetworkRank(normalizedSymbol, b.id.trim().toLowerCase());
+
+      if (rankDiff !== 0) {
+        return rankDiff;
+      }
+
+      return a.label.localeCompare(b.label, "en");
+    });
+}
+
 export function formatAssetNetworkLabel(
   network: SwapNetworkOption,
   explicitVariant: boolean,

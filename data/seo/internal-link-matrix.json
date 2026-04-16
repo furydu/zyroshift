@@ -1,0 +1,16 @@
+{
+  "btc_to_stable": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "stable_to_btc": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "btc_to_topcoin": { "reverse": 1, "sameSource": 3, "sameDestination": 1, "sameFamily": 2 },
+  "topcoin_to_btc": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "stable_to_topcoin": { "reverse": 1, "sameSource": 3, "sameDestination": 1, "sameFamily": 2 },
+  "topcoin_to_stable": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "topcoin_to_topcoin": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "btc_to_meme": { "reverse": 1, "sameSource": 2, "sameDestination": 1, "sameFamily": 2 },
+  "meme_to_btc": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "stable_to_meme": { "reverse": 1, "sameSource": 2, "sameDestination": 1, "sameFamily": 2 },
+  "meme_to_stable": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "wrapped_btc_to_btc": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "btc_to_wrapped_btc": { "reverse": 1, "sameSource": 2, "sameDestination": 2, "sameFamily": 2 },
+  "other": { "reverse": 1, "sameSource": 3, "sameDestination": 3, "sameFamily": 0 }
+}

@@ -1,0 +1,16 @@
+{
+  "btc_to_stable": { "networkNotes": 4, "faqCount": 5 },
+  "stable_to_btc": { "networkNotes": 4, "faqCount": 5 },
+  "btc_to_topcoin": { "networkNotes": 4, "faqCount": 5 },
+  "topcoin_to_btc": { "networkNotes": 4, "faqCount": 5 },
+  "stable_to_topcoin": { "networkNotes": 4, "faqCount": 5 },
+  "topcoin_to_stable": { "networkNotes": 4, "faqCount": 5 },
+  "topcoin_to_topcoin": { "networkNotes": 4, "faqCount": 5 },
+  "btc_to_meme": { "networkNotes": 5, "faqCount": 5 },
+  "meme_to_btc": { "networkNotes": 5, "faqCount": 5 },
+  "stable_to_meme": { "networkNotes": 5, "faqCount": 5 },
+  "meme_to_stable": { "networkNotes": 5, "faqCount": 5 },
+  "wrapped_btc_to_btc": { "networkNotes": 5, "faqCount": 5 },
+  "btc_to_wrapped_btc": { "networkNotes": 5, "faqCount": 5 },
+  "other": { "networkNotes": 2, "faqCount": 3 }
+}

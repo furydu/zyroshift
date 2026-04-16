@@ -1,4 +1,11 @@
 import { PairHeroAssetJump } from "@/components/pairs/PairHeroAssetJump";
+import { CryptoIcon } from "@/components/swap/CryptoIcon";
+import {
+  formatAssetNetworkLabel,
+  getSupportedAssetNetworks,
+} from "@/lib/pairs/assets";
+import { isFrozenGoldSnapshotSlug } from "@/lib/pairs/frozenGoldSnapshot";
+import { getNetworkIconSources } from "@/lib/sideshift/display";
 import type { PairHeroBadge, PairPageSpec } from "@/lib/pairs/types";
 
 function badgeClassName(tone: PairHeroBadge["tone"]) {
@@ -13,6 +20,72 @@ function badgeClassName(tone: PairHeroBadge["tone"]) {
   return "theme-pill-info";
 }
 
+function GenericSourceNetworkNote({ spec }: { spec: PairPageSpec }) {
+  const supportedNetworks = getSupportedAssetNetworks(
+    spec.builderPreset.fromCoin,
+    "deposit",
+  );
+
+  if (!supportedNetworks.length) {
+    return null;
+  }
+
+  const presetNetworkId = spec.builderPreset.fromNetwork.trim().toLowerCase();
+  const orderedNetworks = [
+    ...supportedNetworks.filter(
+      (network) => network.id.trim().toLowerCase() === presetNetworkId,
+    ),
+    ...supportedNetworks.filter(
+      (network) => network.id.trim().toLowerCase() !== presetNetworkId,
+    ),
+  ];
+  const visibleNetworks = orderedNetworks.slice(0, 6);
+  const hiddenCount = Math.max(orderedNetworks.length - visibleNetworks.length, 0);
+  const noteText =
+    orderedNetworks.length > 1
+      ? `Route note: this page is prefilled with ${spec.fromLabel} on ${spec.fromNetworkLabel}, while ${spec.fromLabel} is currently supported across ${orderedNetworks.length} send networks on ZyroShift.`
+      : `Route note: this asset is currently supported through a single send network, so the preset shown here reflects the only available source rail: ${spec.fromNetworkLabel}.`;
+
+  return (
+    <div className="mt-3">
+      <p className="mx-auto max-w-3xl text-[12px] leading-6 text-amber-200/90 md:text-[13px]">
+        {noteText}
+      </p>
+      <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
+        {visibleNetworks.map((network) => {
+          const networkId = network.id.trim().toLowerCase();
+          const isPreset = networkId === presetNetworkId;
+
+          return (
+            <span
+              key={network.id}
+              aria-label={formatAssetNetworkLabel(network, true)}
+              className={`inline-flex h-8 w-8 items-center justify-center rounded-full border shadow-[0_10px_24px_rgba(0,0,0,0.14)] ${
+                isPreset
+                  ? "theme-card-elevated border-amber-300/55 ring-1 ring-amber-300/35"
+                  : "theme-card border-[var(--border-soft)]"
+              }`}
+              title={formatAssetNetworkLabel(network, true)}
+            >
+              <CryptoIcon
+                alt={`${network.label} network icon`}
+                className="rounded-full"
+                size={18}
+                sources={getNetworkIconSources(networkId)}
+              />
+            </span>
+          );
+        })}
+        {hiddenCount > 0 ? (
+          <span className="inline-flex min-h-[32px] items-center rounded-full border border-amber-300/25 bg-amber-300/10 px-3 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-100/90">
+            +{hiddenCount} more
+          </span>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 export function PairIntro({
   spec,
   badges,
@@ -20,6 +93,7 @@ export function PairIntro({
   spec: PairPageSpec;
   badges: PairHeroBadge[];
 }) {
+  const isGenericRoute = !isFrozenGoldSnapshotSlug(spec.slug);
   const heroRouteLabel = spec.h1.replace(/^Swap\s+/i, "");
   const [fromRouteLabel, toRouteLabel] =
     heroRouteLabel.split(/\s+to\s+/i).length === 2
@@ -33,7 +107,7 @@ export function PairIntro({
       <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] lg:items-start">
         <div className="mx-auto max-w-4xl text-center">
           <p className="theme-accent-cyan font-mono text-xs uppercase tracking-[0.34em]">
-            Pair route
+            {isGenericRoute ? "Route overview" : "Pair route"}
           </p>
           <div className="mt-3 grid items-center gap-3 md:grid-cols-[92px_minmax(0,1fr)_92px]">
             <PairHeroAssetJump
@@ -82,11 +156,13 @@ export function PairIntro({
               Start swap
             </a>
           </div>
+
+          {isGenericRoute ? <GenericSourceNetworkNote spec={spec} /> : null}
         </div>
 
         <div className="theme-card-strong rounded-[24px] p-4">
           <p className="theme-text-soft font-mono text-[11px] uppercase tracking-[0.28em]">
-            Pair intent
+            {isGenericRoute ? "Route profile" : "Pair intent"}
           </p>
           <p className="theme-text-main mt-3 text-lg font-semibold leading-8">
             {spec.useCase}

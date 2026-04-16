@@ -1,0 +1,86 @@
+{
+  "fee_first": {
+    "noteTemplates": [
+      "{fromNetworkLabel} is commonly selected when transfer cost efficiency is prioritized over maximum protocol compatibility.",
+      "Routes that begin on {fromNetworkLabel} often reflect a lower-cost funding preference before destination settlement completes."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why does the source network matter on this route?",
+        "answer": "Because the funding rail affects transfer cost, wallet compatibility, and sometimes withdrawal behavior before the destination asset settles."
+      }
+    ]
+  },
+  "compatibility_first": {
+    "noteTemplates": [
+      "{fromNetworkLabel} is commonly used when wallet compatibility and standard address behavior are prioritized over the lowest possible transfer cost.",
+      "This route relies on a compatibility-oriented rail, which generally implies broader wallet support and more predictable address handling."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why is this route described as compatibility-first?",
+        "answer": "Because the selected network is chosen primarily for wallet support and address-format predictability rather than for minimum transfer cost alone."
+      }
+    ]
+  },
+  "native_settlement": {
+    "noteTemplates": [
+      "{toNetworkLabel} behaves as a native settlement rail, so the receiving wallet must match the exact chain and asset combination shown in the builder.",
+      "Native settlement routes require close attention because the destination is expected to settle directly on its base network rather than as a wrapped representation."
+    ],
+    "faqTemplates": [
+      {
+        "question": "What does native settlement mean on this route?",
+        "answer": "It means the destination asset is expected to settle on its native network rather than as a wrapped representation on a different chain."
+      }
+    ]
+  },
+  "ecosystem_native": {
+    "noteTemplates": [
+      "{toNetworkLabel} is an ecosystem-native destination, so the received asset is generally intended for use within that chain's wallet and application environment.",
+      "Routes that settle into {toNetworkLabel} are commonly used for ecosystem participation rather than for passive holding alone."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why does the destination ecosystem matter here?",
+        "answer": "Because the receiving asset is generally intended for use within the destination chain's wallet, application, or transfer environment after settlement."
+      }
+    ]
+  },
+  "memo_sensitive": {
+    "noteTemplates": [
+      "This route touches a memo-sensitive rail, so the final destination instructions should be matched exactly before any deposit is sent.",
+      "Additional destination fields may be operationally relevant on this route, which makes the final shift instructions particularly important."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Do memo or tag details matter on this route?",
+        "answer": "They can. If the selected asset or network requires additional destination details, the final shift instructions should be treated as the operational source of truth."
+      }
+    ]
+  },
+  "confirmation_sensitive": {
+    "noteTemplates": [
+      "This route depends on confirmation-sensitive settlement, so completion time can vary with deposit detection, provider routing, and final destination confirmations.",
+      "Confirmation-sensitive settlement can extend total route duration relative to a single fast-transfer path, particularly when native delivery is involved."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why can timing vary on this route?",
+        "answer": "Because completion depends on deposit detection, provider routing, and final chain confirmations rather than on a single transfer event."
+      }
+    ]
+  },
+  "wallet_format_sensitive": {
+    "noteTemplates": [
+      "The receiving wallet format matters on this route, so the destination address should be checked against the exact chain shown in the builder.",
+      "This route depends on wallet-format compatibility, which means the destination address must match the selected chain and asset precisely."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why does wallet format matter on this route?",
+        "answer": "Because the destination asset can settle correctly only when the receiving wallet matches the exact chain and address format required by the selected route."
+      }
+    ]
+  }
+}

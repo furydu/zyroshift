@@ -1,7 +1,7 @@
 import { getNetworkHubStaticParams, getTokenHubStaticParams } from "@/lib/hubs";
 import {
-  getPairLaunchSetSummary,
-  getPairLaunchSitemapEntries,
+  getFrozenGoldPairSetSummary,
+  getFrozenGoldPairSitemapEntries,
 } from "@/lib/pairs";
 import type { MetadataRoute } from "next";
 
@@ -58,14 +58,14 @@ export function getNetworkHubSitemapEntries(): MetadataRoute.Sitemap {
 export function getPhaseOneSitemapEntries(): MetadataRoute.Sitemap {
   return [
     ...getPhaseOneStaticSitemapEntries(),
-    ...getPairLaunchSitemapEntries(),
+    ...getFrozenGoldPairSitemapEntries(),
     ...getTokenHubSitemapEntries(),
     ...getNetworkHubSitemapEntries(),
   ];
 }
 
 export function getPhaseOnePublishSummary() {
-  const pairSummary = getPairLaunchSetSummary();
+  const pairSummary = getFrozenGoldPairSetSummary();
   const tokenHubCount = getTokenHubStaticParams().length;
   const networkHubCount = getNetworkHubStaticParams().length;
   const staticPageCount = PHASE_ONE_STATIC_ROUTES.length;
@@ -83,12 +83,12 @@ export function getPhaseOnePublishSummary() {
       excludedFromSitemap: ["/api/*", "/shift/[id]", "/swap/{family}"],
     },
     counts: {
-      pairPages: pairSummary.launchReadyPairs,
+      pairPages: pairSummary.pairCount,
       tokenPages: tokenHubCount,
       networkPages: networkHubCount,
       staticPages: staticPageCount,
       totalIndexablePages:
-        pairSummary.launchReadyPairs +
+        pairSummary.pairCount +
         tokenHubCount +
         networkHubCount +
         staticPageCount,

@@ -1,0 +1,50 @@
+{
+  "stable_source": {
+    "introSnippets": [
+      "The source asset is a stable-value instrument, so the route begins from capital held in nominally stable form rather than from an already volatile asset position."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with capital deployment from stable liquidity rather than with de-risking from an existing volatile holding."
+    ]
+  },
+  "btc_source": {
+    "introSnippets": [
+      "The source side is native Bitcoin, so the route should be read as a reallocation of BTC-denominated value into a different settlement profile."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with Bitcoin reallocation rather than with conversion from stable liquidity."
+    ]
+  },
+  "topcoin_source": {
+    "introSnippets": [
+      "The source asset is a major ecosystem token, so the route reflects a transfer of value out of an established crypto network position."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with portfolio reallocation or ecosystem rotation from one major asset into another destination."
+    ]
+  },
+  "meme_source": {
+    "introSnippets": [
+      "The source asset is a meme token, so the route begins from a higher-volatility position with a materially more speculative return profile."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with reducing or redirecting speculative exposure after holding a meme-linked asset."
+    ]
+  },
+  "wrapped_btc_source": {
+    "introSnippets": [
+      "The source asset is wrapped BTC exposure rather than native BTC, so the route includes an additional layer of chain-specific representation risk."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with moving BTC-linked value out of wrapped liquidity and into a different settlement context."
+    ]
+  },
+  "other_source": {
+    "introSnippets": [
+      "The source asset does not fall into the primary route families, so the pair should be evaluated as a more specific asset-to-asset conversion."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with a specific transfer or allocation requirement rather than with a broad market-structure trade."
+    ]
+  }
+}

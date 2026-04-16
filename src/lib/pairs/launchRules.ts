@@ -79,10 +79,21 @@ const TEMPLATE_FAMILY_TO_CLUSTER: Record<
   stable_to_btc: "stable-to-btc",
   btc_to_stable: "btc-to-stable",
   btc_to_alt: "btc-to-alt",
+  btc_to_topcoin: "btc-to-alt",
+  btc_to_meme: "btc-to-alt",
   stable_to_alt: "stable-to-alt",
+  stable_to_topcoin: "stable-to-alt",
+  stable_to_meme: "stable-to-alt",
   alt_to_btc: "alt-to-btc",
+  topcoin_to_btc: "alt-to-btc",
+  meme_to_btc: "alt-to-btc",
+  wrapped_btc_to_btc: "alt-to-btc",
   alt_to_stable: "alt-to-stable",
+  topcoin_to_stable: "alt-to-stable",
+  meme_to_stable: "alt-to-stable",
   alt_to_alt: "alt-to-alt",
+  topcoin_to_topcoin: "alt-to-alt",
+  btc_to_wrapped_btc: "alt-to-alt",
 };
 
 function isWrappedBitcoinSymbol(symbol: string) {

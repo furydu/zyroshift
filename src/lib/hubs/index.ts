@@ -250,13 +250,21 @@ const HUB_INTENT_LABELS: Record<PairIntentType, string> = {
   btc_to_stable: "Bitcoin into stablecoins",
   btc_to_alt: "Bitcoin into other ecosystems",
   btc_to_meme: "Bitcoin into meme assets",
+  btc_to_topcoin: "Bitcoin into ecosystem assets",
   stable_to_btc: "Stablecoins into Bitcoin",
   stable_to_alt: "Stablecoins into other ecosystems",
+  stable_to_topcoin: "Stablecoins into ecosystem assets",
+  stable_to_meme: "Stablecoins into meme assets",
   alt_to_btc: "Altcoins into Bitcoin",
   alt_to_stable: "Altcoins into stablecoins",
   alt_to_alt: "Between ecosystem assets",
+  topcoin_to_btc: "Ecosystem assets into Bitcoin",
+  topcoin_to_stable: "Ecosystem assets into stablecoins",
+  topcoin_to_topcoin: "Between ecosystem assets",
   meme_to_stable: "Meme assets into stablecoins",
   meme_to_btc: "Meme assets into Bitcoin",
+  wrapped_btc_to_btc: "Wrapped Bitcoin into Bitcoin",
+  btc_to_wrapped_btc: "Bitcoin into wrapped Bitcoin",
   other: "Other supported route types",
 };
 
@@ -584,18 +592,27 @@ function getIntentDescription(intent: PairIntentType, tokenLabel: string) {
     case "stable_to_btc":
       return `Routes that move ${tokenLabel} into Bitcoin when users want a risk-off destination or a long-term BTC position.`;
     case "stable_to_alt":
+    case "stable_to_topcoin":
       return `Routes that push ${tokenLabel} into another chain or app ecosystem without stopping in a custodial exchange account.`;
+    case "stable_to_meme":
+      return `Routes that use ${tokenLabel} as the funding asset before entering a higher-volatility meme destination.`;
     case "btc_to_stable":
       return `Routes that land Bitcoin value back into ${tokenLabel} when users want to reduce volatility or prepare another transfer.`;
     case "btc_to_alt":
+    case "btc_to_topcoin":
       return `Routes that move BTC into another ecosystem when users need native settlement on the destination chain.`;
     case "btc_to_meme":
       return `Routes that move BTC into higher-volatility assets and need especially careful destination checks.`;
     case "alt_to_btc":
+    case "topcoin_to_btc":
+    case "wrapped_btc_to_btc":
       return `Routes that rotate a non-Bitcoin asset into BTC as a more conservative destination.`;
     case "alt_to_stable":
+    case "topcoin_to_stable":
       return `Routes that exit a volatile asset into ${tokenLabel} for a more stable landing asset.`;
     case "alt_to_alt":
+    case "topcoin_to_topcoin":
+    case "btc_to_wrapped_btc":
       return `Routes that move between ecosystems without using ${tokenLabel} as a stable stop in the middle.`;
     case "meme_to_stable":
       return `Routes that use ${tokenLabel} as the stable destination after leaving a meme-driven position.`;
@@ -818,15 +835,25 @@ function getGenericRouteSummary(
         return getStableToBtcSendSummary(route);
       }
 
-      if (route.pairIntentType === "stable_to_alt") {
+      if (
+        route.pairIntentType === "stable_to_alt" ||
+        route.pairIntentType === "stable_to_topcoin"
+      ) {
         return `Deploy ${entry.symbol} into ${route.toLabel} on ${route.toNetworkLabel} when you want to enter that ecosystem from stable value.`;
+      }
+
+      if (route.pairIntentType === "stable_to_meme") {
+        return `Use ${entry.symbol} as the stable funding asset before rotating into ${route.toLabel} on ${route.toNetworkLabel}.`;
       }
     } else {
       if (route.pairIntentType === "btc_to_stable") {
         return `Land BTC value into ${entry.symbol} without leaving the wallet-native route flow. ${getStableReceiveSummary(route)}`;
       }
 
-      if (route.pairIntentType === "alt_to_stable") {
+      if (
+        route.pairIntentType === "alt_to_stable" ||
+        route.pairIntentType === "topcoin_to_stable"
+      ) {
         return `Exit ${route.fromLabel} into ${entry.symbol} on ${route.toNetworkLabel} when the goal is to preserve value after leaving a more volatile asset.`;
       }
 
@@ -852,15 +879,28 @@ function getGenericRouteSummary(
     return `Rotate ${route.fromLabel} into Bitcoin when the destination needs native BTC settlement and a more conservative landing asset.`;
   }
 
-  if (direction === "send" && route.pairIntentType === "alt_to_stable") {
+  if (
+    direction === "send" &&
+    (route.pairIntentType === "alt_to_stable" ||
+      route.pairIntentType === "topcoin_to_stable")
+  ) {
     return `Use ${entry.symbol} as the source asset when the route should end in a more stable landing asset.`;
   }
 
-  if (direction === "send" && route.pairIntentType === "alt_to_btc") {
+  if (
+    direction === "send" &&
+    (route.pairIntentType === "alt_to_btc" ||
+      route.pairIntentType === "topcoin_to_btc" ||
+      route.pairIntentType === "wrapped_btc_to_btc")
+  ) {
     return `Rotate ${entry.symbol} into Bitcoin when the destination needs native BTC settlement.`;
   }
 
-  if (direction === "receive" && route.pairIntentType === "btc_to_alt") {
+  if (
+    direction === "receive" &&
+    (route.pairIntentType === "btc_to_alt" ||
+      route.pairIntentType === "btc_to_topcoin")
+  ) {
     return `Receive ${entry.symbol} when the route starts in Bitcoin and needs native settlement in the ${entry.name} ecosystem.`;
   }
 

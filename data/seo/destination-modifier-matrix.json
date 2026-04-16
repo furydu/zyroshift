@@ -1,0 +1,50 @@
+{
+  "btc_destination": {
+    "introSnippets": [
+      "The destination asset is native Bitcoin, so the terminal settlement profile is oriented around direct BTC ownership rather than application-layer utility."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with allocating value into native BTC settlement rather than maintaining exposure inside another token environment."
+    ]
+  },
+  "stable_destination": {
+    "introSnippets": [
+      "The destination asset is stable in nominal value, so the terminal position emphasizes capital preservation, treasury use, or lower-volatility settlement."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with reducing volatility, preserving value, or preparing funds for a later transfer."
+    ]
+  },
+  "ecosystem_destination": {
+    "introSnippets": [
+      "The destination asset is a major ecosystem token, so the terminal position is more closely tied to chain access, network participation, or application-layer utility."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with entering or rotating into an ecosystem asset rather than remaining in a preservation-oriented position."
+    ]
+  },
+  "meme_destination": {
+    "introSnippets": [
+      "The destination asset is a meme token, so the terminal position carries a materially higher speculative component than a BTC or stable-value destination."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with taking on higher directional risk rather than with preserving capital or maintaining treasury liquidity."
+    ]
+  },
+  "wrapped_btc_destination": {
+    "introSnippets": [
+      "The destination asset is wrapped BTC exposure, so the route ends in BTC-linked value represented inside another chain environment rather than in native BTC settlement."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with placing BTC-linked value into a smart-contract ecosystem while accepting wrapped-asset handling requirements."
+    ]
+  },
+  "other_destination": {
+    "introSnippets": [
+      "The destination asset is a narrower token target, so the route should be interpreted in terms of the exact asset requirement rather than through a broad market family."
+    ],
+    "useCaseSnippets": [
+      "This profile is generally associated with a specific receiving-asset requirement rather than with a large, repeatable market transition."
+    ]
+  }
+}

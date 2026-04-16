@@ -1,0 +1,7 @@
+.env*
+.next
+node_modules
+tmp
+tmp-*.log
+tmp-*.pid
+tmp_*.json

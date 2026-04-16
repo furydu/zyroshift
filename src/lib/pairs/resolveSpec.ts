@@ -5,6 +5,9 @@ import {
   pickPreferredAssetNetwork,
 } from "@/lib/pairs/assets";
 import { getTokenCatalogEntry } from "@/lib/pairs/classify";
+import { isFrozenGoldSnapshotSlug } from "@/lib/pairs/frozenGoldSnapshot";
+import { buildGenericPairPageSpec } from "@/lib/pairs/genericPairSpec";
+import { isGenericPairRenderEnabled } from "@/lib/pairs/genericRollout";
 import { buildPairPageSpec } from "@/lib/pairs/pairCopy";
 import { parsePairSlug } from "@/lib/pairs/parsePairSlug";
 import { getPairPageSpec as getCuratedPairPageSpec } from "@/lib/pairs/registry";
@@ -211,6 +214,23 @@ function buildDynamicPairSeed(context: ResolvedPairContext): PairPageSeed {
   };
 }
 
+function shouldPromoteGenericDynamicPair(context: ResolvedPairContext) {
+  return (
+    isGenericPairRenderEnabled() &&
+    !context.hasExplicitFromNetwork &&
+    !context.hasExplicitToNetwork &&
+    !isFrozenGoldSnapshotSlug(context.canonicalSlug)
+  );
+}
+
+function isGenericDynamicCandidate(context: ResolvedPairContext) {
+  return (
+    !context.hasExplicitFromNetwork &&
+    !context.hasExplicitToNetwork &&
+    !isFrozenGoldSnapshotSlug(context.canonicalSlug)
+  );
+}
+
 export function resolvePairPageSpec(slug: string): PairPageSpec | null {
   const normalizedSlug = slug.trim().toLowerCase();
   const curatedSpec = getCuratedPairPageSpec(normalizedSlug);
@@ -232,6 +252,14 @@ export function resolvePairPageSpec(slug: string): PairPageSpec | null {
   const canonicalCuratedSpec = getCuratedPairPageSpec(context.canonicalSlug);
   if (canonicalCuratedSpec) {
     return canonicalCuratedSpec;
+  }
+
+  if (shouldPromoteGenericDynamicPair(context)) {
+    return buildGenericPairPageSpec(buildDynamicPairSeed(context));
+  }
+
+  if (isGenericDynamicCandidate(context)) {
+    return null;
   }
 
   const spec = buildPairPageSpec(buildDynamicPairSeed(context));

@@ -1,0 +1,52 @@
+{
+  "weights": {
+    "tokenPriority": 0.35,
+    "familyValue": 0.25,
+    "searchValue": 0.2,
+    "trustValue": 0.15,
+    "overlapRisk": -0.15
+  },
+  "tierThresholds": {
+    "A": 78,
+    "B": 66,
+    "C": 54
+  },
+  "familyScores": {
+    "btc_to_stable": 92,
+    "stable_to_btc": 94,
+    "btc_to_topcoin": 86,
+    "topcoin_to_btc": 88,
+    "stable_to_topcoin": 84,
+    "topcoin_to_stable": 85,
+    "topcoin_to_topcoin": 70,
+    "btc_to_meme": 64,
+    "meme_to_btc": 72,
+    "stable_to_meme": 60,
+    "meme_to_stable": 70,
+    "wrapped_btc_to_btc": 74,
+    "btc_to_wrapped_btc": 68,
+    "other": 46
+  },
+  "roleScores": {
+    "btc": 100,
+    "stable": 92,
+    "topcoin": 78,
+    "meme": 58,
+    "wrapped_btc": 68,
+    "other": 42
+  },
+  "trustScores": {
+    "btc_destination": 95,
+    "stable_destination": 88,
+    "ecosystem_destination": 72,
+    "meme_destination": 45,
+    "wrapped_btc_destination": 62,
+    "other_destination": 50
+  },
+  "overlapPenalties": {
+    "sameRolePair": 6,
+    "otherFamily": 14,
+    "memeDestination": 6,
+    "wrappedBtcRoute": 2
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "btc_to_stable": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | BTC to stable-value route",
+      "Swap {fromLabel} to {toLabel} | Reallocate BTC into stable settlement"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts BTC exposure into a stable-value destination.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} with a lower-volatility destination profile."
+    ],
+    "introAngles": [
+      "This route converts Bitcoin-denominated value into a stable-value destination, shifting the terminal position from native BTC exposure into a lower-volatility settlement profile.",
+      "The route begins with Bitcoin and ends in a stable-value asset, which changes the position from a market-sensitive BTC holding into a more preservation-oriented destination."
+    ],
+    "useCaseAngles": [
+      "Use this route when BTC-denominated value needs to be reallocated into a stable settlement asset for preservation, treasury use, or a subsequent transfer."
+    ],
+    "warningAngles": [
+      "The destination asset remains network-specific, so the receiving wallet and settlement rail should be matched exactly before the shift is created."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when value held in BTC needs to settle into a stable-value asset with lower day-to-day price variability."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "stable_to_btc": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Stable-value route into BTC",
+      "Swap {fromLabel} to {toLabel} | Convert stable liquidity into BTC"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts stable-value liquidity into native Bitcoin exposure.",
+      "Use this route when capital held in {fromLabel} needs to settle into {toLabel} and assume native BTC exposure."
+    ],
+    "introAngles": [
+      "This route converts stable-value liquidity into native Bitcoin, moving the terminal position from nominally stable capital into direct BTC exposure.",
+      "The route begins with a stable-value source and settles into Bitcoin, which changes the end state from preservation-oriented liquidity into a native BTC position."
+    ],
+    "useCaseAngles": [
+      "Use this route when capital held in stable form needs to be allocated into native BTC without introducing a custodial exchange step."
+    ],
+    "warningAngles": [
+      "The funding rail still affects cost, wallet compatibility, and completion timing before BTC settlement is finalized."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when capital is already held in stable form and the target exposure is native BTC rather than continued stablecoin settlement."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "btc_to_topcoin": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | BTC into a major ecosystem asset",
+      "Swap {fromLabel} to {toLabel} | Reallocate BTC into ecosystem exposure"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts BTC value into a major ecosystem asset.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} for chain or application-level exposure."
+    ],
+    "introAngles": [
+      "This route reallocates Bitcoin-denominated value into a major ecosystem asset, shifting the terminal position away from native BTC settlement and into another chain's asset layer.",
+      "The route begins with Bitcoin and settles into a major ecosystem token, which changes the end state from native BTC ownership into application- or chain-linked exposure."
+    ],
+    "useCaseAngles": [
+      "Use this route when BTC value needs to be deployed into a major ecosystem asset for chain participation, transfer utility, or portfolio reallocation."
+    ],
+    "warningAngles": [
+      "The receiving wallet must match the destination asset and chain exactly because the route ends in an ecosystem-specific token rather than in native BTC."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when BTC-denominated value is being reallocated into a major ecosystem asset rather than remaining in native BTC settlement."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "topcoin_to_btc": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Major ecosystem asset into BTC",
+      "Swap {fromLabel} to {toLabel} | Reallocate ecosystem exposure into Bitcoin"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts a major ecosystem asset into native Bitcoin.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} as a native BTC destination."
+    ],
+    "introAngles": [
+      "This route converts a major ecosystem asset into native Bitcoin, shifting the terminal position away from chain-specific token exposure and back into direct BTC settlement.",
+      "The route begins with a major ecosystem token and ends in Bitcoin, which changes the end state from application- or chain-linked exposure into native BTC ownership."
+    ],
+    "useCaseAngles": [
+      "Use this route when a major ecosystem position needs to be reallocated into native BTC rather than retained inside another chain environment."
+    ],
+    "warningAngles": [
+      "The destination wallet must be compatible with native BTC settlement rather than with a wrapped or ecosystem-specific BTC representation."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when a major ecosystem token position is being reallocated into native BTC settlement."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "stable_to_topcoin": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Stable-value route into a major ecosystem asset",
+      "Swap {fromLabel} to {toLabel} | Convert stable liquidity into ecosystem exposure"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts stable-value liquidity into a major ecosystem asset.",
+      "Use this route when capital held in {fromLabel} needs to settle into {toLabel} for ecosystem exposure."
+    ],
+    "introAngles": [
+      "This route converts stable-value liquidity into a major ecosystem asset, moving the terminal position from preservation-oriented capital into chain- or application-linked exposure.",
+      "The route begins with a stable-value source and settles into a major ecosystem token, which changes the end state from nominal stability into ecosystem participation."
+    ],
+    "useCaseAngles": [
+      "Use this route when capital held in stable form needs to be allocated into a major ecosystem asset without leaving the wallet-native swap flow."
+    ],
+    "warningAngles": [
+      "The destination token remains network-specific, so the final settlement rail and receiving wallet should be checked carefully before funds are sent."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when stable-value liquidity is being deployed into a major ecosystem asset for chain participation or portfolio allocation."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "topcoin_to_stable": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Major ecosystem asset into stable value",
+      "Swap {fromLabel} to {toLabel} | Reduce ecosystem exposure into stable settlement"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts a major ecosystem asset into a stable-value destination.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} with a lower-volatility destination profile."
+    ],
+    "introAngles": [
+      "This route converts a major ecosystem asset into stable value, changing the terminal position from chain-linked exposure into a lower-volatility settlement asset.",
+      "The route begins with a major ecosystem token and ends in stable value, which shifts the end state from application-layer exposure into preservation-oriented liquidity."
+    ],
+    "useCaseAngles": [
+      "Use this route when a major ecosystem position needs to settle into stable-value liquidity for preservation, treasury use, or later redeployment."
+    ],
+    "warningAngles": [
+      "The destination stable asset remains network-specific, particularly where the same symbol exists across multiple supported rails."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when a major ecosystem asset position is being reallocated into stable-value settlement."
+      }
+    ],
+    "indexBias": "high"
+  },
+  "topcoin_to_topcoin": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Rebalance between major ecosystem assets",
+      "Swap {fromLabel} to {toLabel} | Major ecosystem asset rotation"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that rotates between major ecosystem assets.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} as part of an ecosystem reallocation."
+    ],
+    "introAngles": [
+      "This route reallocates value from one major ecosystem asset into another, changing the terminal position without first moving through fiat or a custodial balance.",
+      "The route begins with one major ecosystem token and settles into another, which makes it a direct ecosystem-rotation route rather than a preservation trade."
+    ],
+    "useCaseAngles": [
+      "Use this route when capital needs to be rebalanced between major ecosystem assets or moved from one chain environment into another."
+    ],
+    "warningAngles": [
+      "Both sides of the route remain ecosystem-specific, so the send rail, receive rail, and destination wallet should all be verified before the shift is opened."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when capital is being reallocated between major ecosystem assets rather than preserved in BTC or stable-value form."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "btc_to_meme": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | BTC into meme-token exposure",
+      "Swap {fromLabel} to {toLabel} | Reallocate BTC into a meme asset"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts BTC value into a meme-token destination.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} with a higher-volatility, more speculative destination profile."
+    ],
+    "introAngles": [
+      "This route converts Bitcoin-denominated value into a meme-token destination, moving the terminal position from native BTC settlement into a materially more speculative asset profile.",
+      "The route begins with Bitcoin and ends in a meme asset, which changes the end state from native BTC ownership into a higher-volatility, sentiment-sensitive destination."
+    ],
+    "useCaseAngles": [
+      "Use this route when BTC-denominated value is being reallocated into a meme-token position rather than preserved in native BTC."
+    ],
+    "warningAngles": [
+      "The destination asset introduces materially higher price sensitivity and a less stable valuation profile than the BTC source."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when BTC-denominated value is being redirected into a meme-token position with a more speculative risk profile."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "meme_to_btc": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Meme-token exposure into BTC",
+      "Swap {fromLabel} to {toLabel} | Reallocate meme exposure into Bitcoin"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts meme-token exposure into native Bitcoin.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} with a more established destination profile."
+    ],
+    "introAngles": [
+      "This route converts meme-token exposure into native Bitcoin, shifting the terminal position from a highly speculative asset profile into direct BTC settlement.",
+      "The route begins with a meme asset and ends in Bitcoin, which changes the end state from a sentiment-driven token into a more established crypto settlement asset."
+    ],
+    "useCaseAngles": [
+      "Use this route when meme-token exposure is being reduced and value needs to settle into native BTC rather than remain in a speculative asset."
+    ],
+    "warningAngles": [
+      "The receiving wallet must still be correct for native BTC settlement even when the transaction objective is to reduce meme-linked volatility."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when meme-token exposure is being reallocated into native BTC settlement."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "stable_to_meme": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Stable-value route into meme-token exposure",
+      "Swap {fromLabel} to {toLabel} | Convert stable liquidity into a meme asset"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts stable-value liquidity into a meme-token destination.",
+      "Use this route when capital held in {fromLabel} needs to settle into {toLabel} with a materially more speculative destination profile."
+    ],
+    "introAngles": [
+      "This route converts stable-value liquidity into meme-token exposure. The source side is stable in nominal value, while the destination introduces materially higher volatility and a more speculative return profile.",
+      "The route begins with a stable-value asset and ends in a meme token, which changes the terminal position from preservation-oriented liquidity into a higher-risk speculative asset."
+    ],
+    "useCaseAngles": [
+      "Use this route when capital held in stable form is being allocated into a meme-token position rather than preserved in stable or BTC settlement."
+    ],
+    "warningAngles": [
+      "The destination asset has a materially more volatile and sentiment-sensitive profile than the stable-value source."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when stable-value liquidity is being allocated into a meme-token destination with a higher speculative risk profile."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "meme_to_stable": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Meme-token exposure into stable value",
+      "Swap {fromLabel} to {toLabel} | Reduce meme exposure into stable settlement"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts meme-token exposure into a stable-value destination.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} with a lower-volatility terminal profile."
+    ],
+    "introAngles": [
+      "This route converts meme-token exposure into stable value, changing the terminal position from a highly speculative asset into a lower-volatility settlement asset.",
+      "The route begins with a meme token and ends in stable value, which shifts the end state from sentiment-sensitive exposure into preservation-oriented liquidity."
+    ],
+    "useCaseAngles": [
+      "Use this route when meme-token exposure is being reduced and value needs to settle into stable-value liquidity."
+    ],
+    "warningAngles": [
+      "The destination asset is more stable in nominal value, but the receiving rail and wallet still need to match the selected route exactly."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when meme-token exposure is being reallocated into stable-value settlement."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "wrapped_btc_to_btc": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Wrapped BTC representation into native BTC",
+      "Swap {fromLabel} to {toLabel} | Convert wrapped BTC exposure into Bitcoin"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts wrapped BTC exposure into native Bitcoin settlement.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} as native BTC rather than as a chain-specific BTC representation."
+    ],
+    "introAngles": [
+      "This route converts wrapped BTC exposure into native Bitcoin, changing the terminal position from chain-specific BTC representation into direct BTC settlement.",
+      "The route begins with a wrapped BTC asset and ends in native Bitcoin, which changes the end state from a represented BTC form into base-layer BTC ownership."
+    ],
+    "useCaseAngles": [
+      "Use this route when wrapped BTC exposure needs to be unwound into native BTC settlement rather than retained inside another chain environment."
+    ],
+    "warningAngles": [
+      "Wrapped BTC assets do not settle like native BTC on every rail, so both the send context and the BTC destination details should be verified carefully."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when a wrapped BTC representation is being converted back into native BTC settlement."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "btc_to_wrapped_btc": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Native BTC into wrapped BTC representation",
+      "Swap {fromLabel} to {toLabel} | Convert BTC into wrapped BTC liquidity"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a non-custodial route that converts native Bitcoin into wrapped BTC exposure.",
+      "Use this route when value held in {fromLabel} needs to settle into {toLabel} for chain-specific BTC-linked utility."
+    ],
+    "introAngles": [
+      "This route converts native Bitcoin into wrapped BTC exposure, changing the terminal position from base-layer BTC settlement into a chain-specific BTC representation.",
+      "The route begins with Bitcoin and ends in a wrapped BTC asset, which changes the end state from native BTC ownership into BTC-linked value represented inside another ecosystem."
+    ],
+    "useCaseAngles": [
+      "Use this route when BTC-linked value needs to settle into a wrapped representation for chain-specific or smart-contract use."
+    ],
+    "warningAngles": [
+      "Wrapped BTC destinations are operationally distinct from native BTC settlement, so the destination asset and chain context should be verified carefully."
+    ],
+    "faqTemplates": [
+      {
+        "question": "Why do users swap {fromLabel} to {toLabel}?",
+        "answer": "This route is commonly used when native BTC is being converted into a wrapped BTC representation for chain-specific utility."
+      }
+    ],
+    "indexBias": "medium"
+  },
+  "other": {
+    "titlePatterns": [
+      "Swap {fromLabel} to {toLabel} | Direct crypto conversion route",
+      "Swap {fromLabel} to {toLabel} | Asset-specific wallet-native route"
+    ],
+    "metaPatterns": [
+      "Swap {fromLabel} to {toLabel} with a direct non-custodial route and verify the exact send asset, receive asset, and network path before creating the shift.",
+      "Use this route when you need an asset-specific conversion from {fromLabel} to {toLabel} and want the builder to confirm the exact funding and settlement path."
+    ],
+    "introAngles": [
+      "This route connects two specific crypto assets through the wallet-native swap flow, and the exact asset-plus-network combination remains more informative than a broader family label.",
+      "This is a direct asset-to-asset route where the operational route definition matters more than forcing the pair into a stronger narrative family."
+    ],
+    "useCaseAngles": [
+      "Use this route when the exact asset pair matters more than broad BTC, stable-value, or meme-family positioning.",
+      "This route is generally more relevant as a specific asset conversion than as a repeatable macro-style allocation pattern."
+    ],
+    "warningAngles": [
+      "The send asset, destination asset, and receiving network should all be matched against the live builder before any transfer is initiated.",
+      "Because this is a long-tail direct route, the live builder and final shift page remain the authoritative source for route definition before funds are sent."
+    ],
+    "faqTemplates": [
+      {
+        "question": "What should I verify before swapping {fromLabel} to {toLabel}?",
+        "answer": "Verify the send asset, receive asset, destination wallet, and exact network path shown by the live builder, because the route definition is pair-specific."
+      },
+      {
+        "question": "Why is {fromLabel} to {toLabel} treated as a direct route?",
+        "answer": "Some token pairs are more accurately described as exact asset-to-asset conversions than as members of a stronger route family. In those cases, the pair definition itself carries the most relevant context."
+      }
+    ],
+    "indexBias": "low"
+  }
+}
