@@ -1,4 +1,5 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from "@/lib/site/contact";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import Link from "next/link";
 
@@ -91,26 +92,31 @@ export function LegalPageTemplate({
               Legal contact
             </p>
             <p className="theme-text-muted mt-3 text-sm leading-7 md:text-[15px]">
-              For legal, privacy, or route-related questions, contact ZyroShift
-              using the addresses below. Replace these addresses before
-              publishing if your final operational inboxes differ.
+              For legal, privacy, or route-related questions, contact
+              ZyroShift through the operational support inbox below.
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               <div className="theme-card rounded-[18px] px-4 py-4">
                 <p className="theme-text-main text-sm font-semibold">
                   General support
                 </p>
-                <p className="theme-text-muted mt-2 text-sm">
-                  hello@zyroshift.com
-                </p>
+                <a
+                  href={SUPPORT_MAILTO}
+                  className="theme-text-muted mt-2 inline-flex text-sm transition hover:text-[var(--foreground)]"
+                >
+                  {SUPPORT_EMAIL}
+                </a>
               </div>
               <div className="theme-card rounded-[18px] px-4 py-4">
                 <p className="theme-text-main text-sm font-semibold">
                   Legal and privacy
                 </p>
-                <p className="theme-text-muted mt-2 text-sm">
-                  legal@zyroshift.com
-                </p>
+                <a
+                  href={SUPPORT_MAILTO}
+                  className="theme-text-muted mt-2 inline-flex text-sm transition hover:text-[var(--foreground)]"
+                >
+                  {SUPPORT_EMAIL}
+                </a>
               </div>
             </div>
           </div>
