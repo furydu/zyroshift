@@ -1,5 +1,6 @@
 import { isGenericPairIndexLaunchSlug } from "@/lib/pairs/genericRollout";
 import { isFrozenGoldPairSlug } from "@/lib/pairs/goldSet";
+import { isStableNetworkPairIndexLaunchSlug } from "@/lib/pairs/stableNetworkRollout";
 import type { PairPageSpec } from "@/lib/pairs/types";
 import type { Metadata } from "next";
 
@@ -12,7 +13,9 @@ export function getPairCanonicalUrl(spec: PairPageSpec) {
 export function getPairPageMetadata(spec: PairPageSpec): Metadata {
   const canonical = getPairCanonicalUrl(spec);
   const shouldIndex =
-    isFrozenGoldPairSlug(spec.slug) || isGenericPairIndexLaunchSlug(spec.slug);
+    isFrozenGoldPairSlug(spec.slug) ||
+    isGenericPairIndexLaunchSlug(spec.slug) ||
+    isStableNetworkPairIndexLaunchSlug(spec.slug);
 
   return {
     title: spec.title,

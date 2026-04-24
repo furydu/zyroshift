@@ -20,5 +20,7 @@ export * from "@/lib/pairs/qa";
 export * from "@/lib/pairs/registry";
 export * from "@/lib/pairs/relatedRoutes";
 export * from "@/lib/pairs/resolveSpec";
+export * from "@/lib/pairs/stableNetworkExpansion";
+export * from "@/lib/pairs/stableNetworkRollout";
 
 export type * from "@/lib/pairs/types";

@@ -10,6 +10,7 @@ export type PairLaunchClusterId =
   | "btc-to-stable"
   | "btc-to-alt"
   | "stable-to-alt"
+  | "stable-to-stable"
   | "alt-to-btc"
   | "alt-to-stable"
   | "alt-to-alt";
@@ -66,6 +67,7 @@ export const LAUNCH_CLUSTER_PRIORITY: PairLaunchClusterId[] = [
   "btc-to-stable",
   "btc-to-alt",
   "stable-to-alt",
+  "stable-to-stable",
   "alt-to-btc",
   "alt-to-stable",
   "alt-to-alt",
@@ -82,6 +84,7 @@ const TEMPLATE_FAMILY_TO_CLUSTER: Record<
   btc_to_topcoin: "btc-to-alt",
   btc_to_meme: "btc-to-alt",
   stable_to_alt: "stable-to-alt",
+  stable_to_stable: "stable-to-stable",
   stable_to_topcoin: "stable-to-alt",
   stable_to_meme: "stable-to-alt",
   alt_to_btc: "alt-to-btc",
@@ -220,7 +223,11 @@ function hasRedundantExplicitSource(
   clusterId: PairLaunchClusterId,
   item: PairInventoryItem,
 ) {
-  if (clusterId === "stable-to-btc" || clusterId === "stable-to-alt") {
+  if (
+    clusterId === "stable-to-btc" ||
+    clusterId === "stable-to-alt" ||
+    clusterId === "stable-to-stable"
+  ) {
     return false;
   }
 
@@ -372,6 +379,29 @@ const CLUSTER_RULES: Record<PairLaunchClusterId, PairLaunchClusterRule> = {
     secondaryDiversityKey: (item) => `${item.fromToken}-${item.toToken}`,
     bucketKey: (item) => item.fromNetworkId,
     bucketLimit: 4,
+  }),
+  "stable-to-stable": createClusterRule({
+    id: "stable-to-stable",
+    quota: 12,
+    overrideSlugs: [],
+    preferredTokens: STABLE_LAUNCH_PREFERRED_TOKENS,
+    candidate: (item) =>
+      passesSharedGuardrails("stable-to-stable", item) &&
+      isPreferredStableToken(item.fromToken) &&
+      isPreferredStableToken(item.toToken) &&
+      TRUSTED_STABLE_ROUTE_NETWORKS.has(item.fromNetworkId) &&
+      TRUSTED_STABLE_ROUTE_NETWORKS.has(item.toNetworkId) &&
+      item.fromNetworkId !== item.toNetworkId,
+    preferenceScore: (item) =>
+      getPreferredTokenScore(STABLE_LAUNCH_PREFERRED_TOKENS, item.fromToken) +
+      getPreferredTokenScore(STABLE_LAUNCH_PREFERRED_TOKENS, item.toToken) +
+      getStableSourceNetworkScore(item.fromNetworkId) +
+      getStableSourceNetworkScore(item.toNetworkId) +
+      (item.curated ? 100 : 0),
+    diversityKey: (item) => `${item.fromToken}-${item.toToken}`,
+    secondaryDiversityKey: (item) => `${item.fromNetworkId}-${item.toNetworkId}`,
+    bucketKey: (item) => item.fromToken,
+    bucketLimit: 6,
   }),
   "alt-to-btc": createClusterRule({
     id: "alt-to-btc",

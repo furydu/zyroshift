@@ -2,6 +2,7 @@ import {
   hasLiveSecrets,
   requireLiveConfig,
   requireUserIp,
+  resolveUserIp,
   sideshiftConfig,
 } from "@/lib/sideshift/config";
 import {
@@ -93,7 +94,12 @@ async function requestJson<T>(
   options?: {
     method?: "GET" | "POST";
     body?: unknown;
+    cache?: RequestCache;
     includeSecret?: boolean;
+    next?: {
+      revalidate?: number;
+      tags?: string[];
+    };
     query?: Record<string, string | undefined>;
     userIp?: string | null;
   },
@@ -111,12 +117,23 @@ async function requestJson<T>(
     headers["x-user-ip"] = options.userIp;
   }
 
-  const response = await fetch(buildUrl(path, options?.query), {
+  const fetchOptions: RequestInit & {
+    next?: {
+      revalidate?: number;
+      tags?: string[];
+    };
+  } = {
     method: options?.method ?? "GET",
     headers,
     body: options?.body ? JSON.stringify(options.body) : undefined,
-    cache: "no-store",
-  });
+    cache: options?.cache ?? "no-store",
+  };
+
+  if (options?.next) {
+    fetchOptions.next = options.next;
+  }
+
+  const response = await fetch(buildUrl(path, options?.query), fetchOptions);
 
   const payload = await parseJsonResponse(response);
 
@@ -205,7 +222,10 @@ export async function fetchCoinsAndPermissions(
   const [coins, permission] = await Promise.all([
     requestJson<SideShiftCoin[]>("/coins", {
       includeSecret: false,
-      userIp: requiredIp,
+      cache: "force-cache",
+      next: {
+        revalidate: 3600,
+      },
     }),
     requestJson<SideShiftPermissionResponse>("/permissions", {
       includeSecret: false,
@@ -218,6 +238,42 @@ export async function fetchCoinsAndPermissions(
     permission,
     mockMode: false,
     executionReady: hasLiveSecrets,
+  };
+}
+
+export async function fetchQuotePreview(
+  input: QuoteInput,
+  userIp?: string | null,
+): Promise<QuoteApiResponse> {
+  if (sideshiftConfig.mockMode) {
+    return {
+      quote: getMockQuote(input),
+      mockMode: true,
+    };
+  }
+
+  const quote = await requestJson<SideShiftPairResponse>(
+    `/pair/${input.fromCoin}-${input.fromNetwork}/${input.toCoin}-${input.toNetwork}`,
+    {
+      includeSecret: false,
+      cache: "force-cache",
+      userIp: resolveUserIp(userIp),
+      next: {
+        revalidate: 600,
+        tags: [
+          `rate-preview:${input.fromCoin}:${input.fromNetwork}:${input.toCoin}:${input.toNetwork}`.toLowerCase(),
+        ],
+      },
+      query: {
+        affiliateId: sideshiftConfig.affiliateId || undefined,
+        commissionRate: sideshiftConfig.commissionRate || undefined,
+      },
+    },
+  );
+
+  return {
+    quote: normalizeQuote(quote, input),
+    mockMode: false,
   };
 }
 

@@ -75,6 +75,10 @@ export function getPairIntentType(
   fromCategory: TokenCategory,
   toCategory: TokenCategory,
 ): PairIntentType {
+  if (fromCategory === "stable" && toCategory === "stable") {
+    return "stable_to_stable";
+  }
+
   if (fromCategory === "btc" && toCategory === "stable") {
     return "btc_to_stable";
   }
@@ -194,6 +198,10 @@ export function getPairTemplateFamily(
 
   if (pairIntentType === "stable_to_btc") {
     return "stable_to_btc";
+  }
+
+  if (pairIntentType === "stable_to_stable") {
+    return "stable_to_stable";
   }
 
   if (pairIntentType === "btc_to_stable") {

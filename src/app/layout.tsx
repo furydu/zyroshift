@@ -7,21 +7,57 @@ const GA_MEASUREMENT_ID =
 
 const themeInitScript = `
   (() => {
+    const STORAGE_KEY = "crypto-swap-theme";
+
     const resolveAutoTheme = () => {
       const hour = new Date().getHours();
       return hour >= 6 && hour < 18 ? "light" : "dark";
     };
 
-    try {
-      const savedTheme = localStorage.getItem("crypto-swap-theme");
-      const theme =
-        savedTheme === "light" || savedTheme === "dark"
+    const resolvePreference = () => {
+      try {
+        const savedTheme = localStorage.getItem(STORAGE_KEY);
+        return savedTheme === "light" || savedTheme === "dark" || savedTheme === "auto"
           ? savedTheme
+          : "auto";
+      } catch {
+        return "auto";
+      }
+    };
+
+    const applyTheme = (themePreference) => {
+      const theme =
+        themePreference === "light" || themePreference === "dark"
+          ? themePreference
           : resolveAutoTheme();
       document.documentElement.dataset.theme = theme;
-    } catch {
-      document.documentElement.dataset.theme = resolveAutoTheme();
-    }
+    };
+
+    applyTheme(resolvePreference());
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const toggle = target.closest("[data-theme-toggle]");
+      if (!toggle) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const currentTheme =
+        document.documentElement.dataset.theme === "light" ? "light" : "dark";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+      document.documentElement.dataset.theme = nextTheme;
+
+      try {
+        localStorage.setItem(STORAGE_KEY, nextTheme);
+      } catch {}
+    });
   })();
 `;
 
@@ -39,14 +75,6 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     title: "ZyroShift",
   },
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    shortcut: [{ url: "/icon-512.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", sizes: "192x192", type: "image/png" }],
-  },
 };
 
 export const viewport: Viewport = {
@@ -61,6 +89,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="theme-page min-h-full flex flex-col">

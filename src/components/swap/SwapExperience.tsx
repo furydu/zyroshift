@@ -64,7 +64,7 @@ async function fetchJson<T>(input: string, init?: RequestInit) {
       "Content-Type": "application/json",
       ...(init?.headers || {}),
     },
-    cache: "no-store",
+    cache: init?.cache ?? "no-store",
   });
 
   const payload = (await response.json().catch(() => null)) as
@@ -279,6 +279,10 @@ function createRequestKey(...parts: Array<string | null | undefined>) {
   return parts.join(":");
 }
 
+function buildRatePreviewSlug(form: SwapExperiencePreset) {
+  return `${form.fromCoin}-${form.fromNetwork}-to-${form.toCoin}-${form.toNetwork}`.toLowerCase();
+}
+
 function getScopedState<T>(
   state: RemoteState<T>,
   requestKey: string | null,
@@ -353,12 +357,19 @@ export function SwapExperience({
     (network) => network.id === normalizedForm.toNetwork,
   );
 
+  const variableQuoteAmount =
+    rateMode === "variable" &&
+    normalizedForm.amount &&
+    Number(normalizedForm.amount) > 0
+      ? normalizedForm.amount
+      : "";
   const variableQuoteRequestKey = directoryReady
     ? createRequestKey(
         normalizedForm.fromCoin,
         normalizedForm.fromNetwork,
         normalizedForm.toCoin,
         normalizedForm.toNetwork,
+        variableQuoteAmount || "preview",
       )
     : null;
   const fixedQuoteRequestKey =
@@ -499,16 +510,28 @@ export function SwapExperience({
 
     void (async () => {
       try {
-        const payload = await fetchJson<QuoteApiResponse>("/api/quote", {
-          method: "POST",
-          body: JSON.stringify({
-            fromCoin: normalizedForm.fromCoin,
-            fromNetwork: normalizedForm.fromNetwork,
-            toCoin: normalizedForm.toCoin,
-            toNetwork: normalizedForm.toNetwork,
-          }),
-          signal: controller.signal,
-        });
+        const quoteInput = {
+          fromCoin: normalizedForm.fromCoin,
+          fromNetwork: normalizedForm.fromNetwork,
+          toCoin: normalizedForm.toCoin,
+          toNetwork: normalizedForm.toNetwork,
+          ...(variableQuoteAmount ? { amount: variableQuoteAmount } : {}),
+        };
+        const payload = variableQuoteAmount
+          ? await fetchJson<QuoteApiResponse>("/api/quote", {
+              method: "POST",
+              body: JSON.stringify(quoteInput),
+              signal: controller.signal,
+            })
+          : await fetchJson<QuoteApiResponse>(
+              `/api/rate-preview/${encodeURIComponent(
+                buildRatePreviewSlug(normalizedForm),
+              )}`,
+              {
+                cache: "force-cache",
+                signal: controller.signal,
+              },
+            );
 
         if (!ignore) {
           setVariableQuoteState({
@@ -541,6 +564,7 @@ export function SwapExperience({
     normalizedForm.fromNetwork,
     normalizedForm.toCoin,
     normalizedForm.toNetwork,
+    variableQuoteAmount,
     variableQuoteRequestKey,
   ]);
 
@@ -685,6 +709,25 @@ export function SwapExperience({
     setSubmitState({ status: "loading" });
 
     try {
+      if (rateMode !== "fixed") {
+        const refreshedQuote = await fetchJson<QuoteApiResponse>("/api/quote", {
+          method: "POST",
+          body: JSON.stringify({
+            fromCoin: normalizedForm.fromCoin,
+            fromNetwork: normalizedForm.fromNetwork,
+            toCoin: normalizedForm.toCoin,
+            toNetwork: normalizedForm.toNetwork,
+            ...(normalizedForm.amount ? { amount: normalizedForm.amount } : {}),
+          }),
+        });
+
+        setVariableQuoteState({
+          status: "success",
+          data: refreshedQuote,
+          requestKey: variableQuoteRequestKey ?? undefined,
+        });
+      }
+
       const payload =
         rateMode === "fixed"
           ? await fetchJson<{ order: { id: string } }>("/api/create-fixed-order", {

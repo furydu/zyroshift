@@ -1,7 +1,6 @@
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { RecentShiftsPanel } from "@/components/swap/RecentShiftsPanel";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SwapExperience, type SwapExperiencePreset } from "@/components/swap/SwapExperience";
+import { SwapPageExperience } from "@/components/swap/SwapPageExperience";
 import { getPairClusterDirectoryCards } from "@/lib/pairs";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -11,51 +10,10 @@ export const metadata: Metadata = {
   description: "Create a variable-rate crypto swap order and track settlement.",
 };
 
-type SwapPageProps = {
-  searchParams?: Promise<{
-    fromCoin?: string | string[];
-    fromNetwork?: string | string[];
-    toCoin?: string | string[];
-    toNetwork?: string | string[];
-  }>;
-};
+export const dynamic = "force-static";
 
-function pickQueryValue(value?: string | string[]) {
-  return Array.isArray(value) ? value[0] || "" : value || "";
-}
-
-function getPresetFromSearchParams(
-  params: Awaited<NonNullable<SwapPageProps["searchParams"]>>,
-): Partial<SwapExperiencePreset> | undefined {
-  const preset: Partial<SwapExperiencePreset> = {};
-  const fromCoin = pickQueryValue(params.fromCoin);
-  const fromNetwork = pickQueryValue(params.fromNetwork);
-  const toCoin = pickQueryValue(params.toCoin);
-  const toNetwork = pickQueryValue(params.toNetwork);
-
-  if (fromCoin) {
-    preset.fromCoin = fromCoin;
-  }
-
-  if (fromNetwork) {
-    preset.fromNetwork = fromNetwork;
-  }
-
-  if (toCoin) {
-    preset.toCoin = toCoin;
-  }
-
-  if (toNetwork) {
-    preset.toNetwork = toNetwork;
-  }
-
-  return Object.keys(preset).length > 0 ? preset : undefined;
-}
-
-export default async function SwapPage({ searchParams }: SwapPageProps) {
+export default function SwapPage() {
   const routeFamilies = getPairClusterDirectoryCards();
-  const resolvedSearchParams = searchParams ? await searchParams : {};
-  const preset = getPresetFromSearchParams(resolvedSearchParams);
 
   return (
     <main className="relative overflow-hidden">
@@ -63,10 +21,8 @@ export default async function SwapPage({ searchParams }: SwapPageProps) {
         <SiteHeader activeKey="swap" ctaHref="#swap-builder" />
 
         <div id="swap-builder">
-          <SwapExperience showThemeToggle={false} preset={preset} />
+          <SwapPageExperience />
         </div>
-
-        <RecentShiftsPanel limit={8} />
 
         <section className="theme-panel mt-6 rounded-[28px] px-5 py-5 md:px-6">
           <div className="max-w-3xl">

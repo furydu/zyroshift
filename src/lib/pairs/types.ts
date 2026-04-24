@@ -24,6 +24,7 @@ export type PairIntentType =
   | "btc_to_alt"
   | "btc_to_meme"
   | "stable_to_btc"
+  | "stable_to_stable"
   | "stable_to_alt"
   | "alt_to_btc"
   | "alt_to_stable"
@@ -43,6 +44,7 @@ export type PairIntentType =
 export type PairTemplateFamily =
   | "stable_network_specific_to_btc"
   | "stable_to_btc"
+  | "stable_to_stable"
   | "btc_to_stable"
   | "stable_to_alt"
   | "btc_to_alt"

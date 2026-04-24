@@ -10,13 +10,15 @@ import Link from "next/link";
 export function PairRelatedRoutes({
   spec,
   routes,
+  forceIconLabels = false,
 }: {
   spec: PairPageSpec;
   routes: PairPageSpec[];
+  forceIconLabels?: boolean;
 }) {
   const reverseRoute = getReverseRouteSpec(spec);
   const routeCards = routes.filter((route) => route.slug !== reverseRoute?.slug);
-  const showIconLabels = !isFrozenGoldPairSlug(spec.slug);
+  const showIconLabels = forceIconLabels || !isFrozenGoldPairSlug(spec.slug);
 
   return (
     <section className="theme-panel rounded-[28px] px-5 py-5 md:px-6">

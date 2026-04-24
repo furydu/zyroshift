@@ -27,6 +27,8 @@ const DEFAULT_DESCRIPTION_TEMPLATE =
 export const TITLE_TEMPLATES: Partial<Record<PairIntentType, string>> = {
   stable_to_btc:
     "Swap {fromDisplay} to {toDisplay} | Fast Non-Custodial Crypto Swap",
+  stable_to_stable:
+    "Swap {fromDisplay} to {toDisplay} | Stablecoin Network Transfer Route",
   stable_to_alt:
     "Swap {fromDisplay} to {toDisplay} | Fast Ecosystem Entry Route",
   btc_to_stable:
@@ -46,6 +48,8 @@ export const TITLE_TEMPLATES: Partial<Record<PairIntentType, string>> = {
 export const DESCRIPTION_TEMPLATES: Partial<Record<PairIntentType, string>> = {
   stable_to_btc:
     "Swap {fromDisplay} to {toDisplay} with a non-custodial flow. Check live rates, deposit limits, and receiving details before you send funds.",
+  stable_to_stable:
+    "Swap {fromDisplay} to {toDisplay} with a non-custodial stablecoin route. Review the selected send and receive networks, deposit instructions, and destination wallet details before sending funds.",
   stable_to_alt:
     "Swap {fromDisplay} to {toDisplay} with a non-custodial route. Review the selected network, live quote, and deposit instructions before sending funds.",
   btc_to_stable:
@@ -61,6 +65,8 @@ export const DESCRIPTION_TEMPLATES: Partial<Record<PairIntentType, string>> = {
 export const INTRO_BUILDERS: Partial<Record<PairIntentType, StringBuilder>> = {
   stable_to_btc: (context) =>
     `This route is built for users moving from ${context.seed.fromLabel} on ${context.seed.fromNetworkLabel} into ${context.seed.toLabel} on ${context.seed.toNetworkLabel} without relying on a custodial account flow.`,
+  stable_to_stable: (context) =>
+    `This route is built for users moving from ${context.seed.fromLabel} on ${context.seed.fromNetworkLabel} into ${context.seed.toLabel} on ${context.seed.toNetworkLabel} when they want to preserve stable value while changing the settlement rail or destination stablecoin network.`,
   stable_to_alt: (context) =>
     `This route is built for users moving from ${context.seed.fromLabel} on ${context.seed.fromNetworkLabel} into ${context.seed.toLabel} on ${context.seed.toNetworkLabel} when they want to enter the destination ecosystem without using a custodial exchange account.`,
   btc_to_stable: (context) =>
@@ -84,6 +90,8 @@ export const INTRO_BUILDERS: Partial<Record<PairIntentType, StringBuilder>> = {
 export const USE_CASE_BUILDERS: Partial<Record<PairIntentType, StringBuilder>> = {
   stable_to_btc: (context) =>
     `Useful when the user wants to rotate from ${context.seed.fromLabel} into ${context.seed.toLabel} as a more durable store-of-value route while keeping the flow wallet-native.`,
+  stable_to_stable: (context) =>
+    `Useful when the user wants to move stable value from ${context.seed.fromNetworkLabel} into ${context.seed.toLabel} on ${context.seed.toNetworkLabel} without first leaving the non-custodial flow.`,
   stable_to_alt: (context) =>
     `Useful when the user wants to deploy stablecoin value into native ${context.seed.toLabel} on ${context.seed.toNetworkLabel} for activity in the destination ecosystem.`,
   btc_to_stable: () =>
@@ -111,6 +119,11 @@ export const INTENT_FAQ_BUILDERS: Partial<
     question: `Why do users swap ${context.routeName}?`,
     answer:
       "This route is often used to move from a dollar-pegged asset into Bitcoin quickly without opening a custodial exchange position.",
+  }),
+  stable_to_stable: (context) => ({
+    question: `Why do users swap ${context.routeName}?`,
+    answer:
+      "This route is often used when the goal is to keep value in a stable asset while switching the settlement network, destination wallet environment, or stablecoin rail.",
   }),
   stable_to_alt: (context) => ({
     question: `Why move ${context.routeName} instead of holding stablecoins?`,
@@ -153,6 +166,11 @@ export const BASE_NOTE_RULES: Rule<string>[] = [
     when: (context) => context.classification.pairIntentType === "stable_to_btc",
     build: (context) =>
       `This route is commonly used to convert ${context.seed.fromLabel} into a native Bitcoin position without relying on a custodial exchange account.`,
+  },
+  {
+    when: (context) => context.classification.pairIntentType === "stable_to_stable",
+    build: (context) =>
+      `This route is commonly used when stable value needs to move from ${context.seed.fromNetworkLabel} into ${context.seed.toLabel} on ${context.seed.toNetworkLabel} without leaving a wallet-native flow.`,
   },
   {
     when: (context) => context.classification.pairIntentType === "btc_to_stable",

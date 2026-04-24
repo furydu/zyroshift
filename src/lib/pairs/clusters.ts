@@ -75,6 +75,13 @@ const CLUSTER_DEFINITIONS: PairClusterDefinition[] = [
     templateFamilies: ["stable_to_alt"],
   },
   {
+    id: "stable-to-stable",
+    title: "Stablecoin rail-switch routes",
+    summary:
+      "Routes that keep value in stable assets while changing the destination stablecoin rail or settlement network.",
+    templateFamilies: ["stable_to_stable"],
+  },
+  {
     id: "alt-to-btc",
     title: "Altcoin to BTC routes",
     summary:
@@ -158,6 +165,7 @@ function countIntents(items: PairInventoryItem[]) {
     btc_to_meme: 0,
     btc_to_topcoin: 0,
     stable_to_btc: 0,
+    stable_to_stable: 0,
     stable_to_alt: 0,
     stable_to_topcoin: 0,
     stable_to_meme: 0,

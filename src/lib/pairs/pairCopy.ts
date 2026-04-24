@@ -88,6 +88,8 @@ function getTemplateFamilyLabel(templateFamily: PairTemplateFamily) {
       return "Stable network-specific to BTC";
     case "stable_to_btc":
       return "Stable to BTC";
+    case "stable_to_stable":
+      return "Stable to stable";
     case "btc_to_stable":
       return "BTC to stable";
     case "stable_to_alt":

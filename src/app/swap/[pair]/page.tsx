@@ -2,6 +2,7 @@ import { PairPage } from "@/components/pairs/PairPage";
 import {
   getFrozenGoldPairStaticParams,
   getPairPageMetadata,
+  getStableNetworkExpansionStaticParams,
   parsePairSlug,
   resolvePairPageSpec,
 } from "@/lib/pairs";
@@ -14,8 +15,28 @@ type PairPageProps = {
   }>;
 };
 
+function shouldIncludeStableNetworkStaticParams() {
+  return process.env.NODE_ENV === "production";
+}
+
 export async function generateStaticParams() {
-  return getFrozenGoldPairStaticParams();
+  const staticParams = [
+    ...getFrozenGoldPairStaticParams(),
+    ...(shouldIncludeStableNetworkStaticParams()
+      ? getStableNetworkExpansionStaticParams()
+      : []),
+  ];
+  const seen = new Set<string>();
+
+  return staticParams.filter((item) => {
+    const normalized = item.pair.trim().toLowerCase();
+    if (seen.has(normalized)) {
+      return false;
+    }
+
+    seen.add(normalized);
+    return true;
+  });
 }
 
 export async function generateMetadata({

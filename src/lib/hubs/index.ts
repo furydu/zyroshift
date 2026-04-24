@@ -252,6 +252,7 @@ const HUB_INTENT_LABELS: Record<PairIntentType, string> = {
   btc_to_meme: "Bitcoin into meme assets",
   btc_to_topcoin: "Bitcoin into ecosystem assets",
   stable_to_btc: "Stablecoins into Bitcoin",
+  stable_to_stable: "Stablecoins between settlement rails",
   stable_to_alt: "Stablecoins into other ecosystems",
   stable_to_topcoin: "Stablecoins into ecosystem assets",
   stable_to_meme: "Stablecoins into meme assets",

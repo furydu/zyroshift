@@ -32,6 +32,8 @@ function getIntentStrengthScore(templateFamily: PairTemplateFamily) {
       return 30;
     case "stable_to_btc":
       return 28;
+    case "stable_to_stable":
+      return 24;
     case "btc_to_stable":
       return 27;
     case "btc_to_alt":
