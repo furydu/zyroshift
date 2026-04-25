@@ -15,7 +15,7 @@ import type {
 } from "@/lib/sideshift/types";
 import { formatCountdown, formatTokenAmount } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { useDeferredValue, useEffect, useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 
 type RemoteState<T> = {
   status: AsyncStatus;
@@ -52,9 +52,79 @@ const DEFAULT_FROM_COIN = "USDT";
 const DEFAULT_FROM_NETWORK = "tron";
 const DEFAULT_TO_COIN = "BTC";
 const DEFAULT_TO_NETWORK = "bitcoin";
+const RATE_PREVIEW_DELAY_MS = 3000;
+const RATE_PREVIEW_CACHE_TTL_MS = 90 * 1000;
+const RATE_PREVIEW_REFRESH_THROTTLE_MS = 10 * 1000;
+const QUOTE_INPUT_DEBOUNCE_MS = 650;
+const LIVE_RATE_UNAVAILABLE_TEXT =
+  "Live rate unavailable. Tap refresh to try again.";
+
+type RatePreviewCacheEntry = {
+  data: QuoteApiResponse;
+  expiresAt: number;
+};
+
+const ratePreviewSessionCache = new Map<string, RatePreviewCacheEntry>();
 
 function normalizeId(value: string | null | undefined) {
   return (value || "").trim().toLowerCase();
+}
+
+function getCachedRatePreview(requestKey: string) {
+  const cached = ratePreviewSessionCache.get(requestKey);
+
+  if (!cached) {
+    return null;
+  }
+
+  if (cached.expiresAt <= Date.now()) {
+    ratePreviewSessionCache.delete(requestKey);
+    return null;
+  }
+
+  return cached.data;
+}
+
+function cacheRatePreview(requestKey: string, data: QuoteApiResponse) {
+  ratePreviewSessionCache.set(requestKey, {
+    data,
+    expiresAt: Date.now() + RATE_PREVIEW_CACHE_TTL_MS,
+  });
+}
+
+function documentIsVisible() {
+  return typeof document === "undefined" || document.visibilityState === "visible";
+}
+
+function PreparingLiveRate({ countdown }: { countdown: number }) {
+  return (
+    <>
+      Preparing live rate
+      <span className="inline-block w-[1.1em] animate-pulse">...</span>
+      {countdown > 0 ? <span className="ml-1">{countdown}</span> : null}
+    </>
+  );
+}
+
+function RatePreviewRefreshButton({
+  disabled,
+  onClick,
+}: {
+  disabled: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label="Refresh live rate"
+      title="Refresh live rate"
+      disabled={disabled}
+      onClick={onClick}
+      className="theme-outline-button inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[13px] leading-none transition hover:border-cyan-400/70 hover:text-cyan-200 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <span aria-hidden="true">{"\u21bb"}</span>
+    </button>
+  );
 }
 
 async function fetchJson<T>(input: string, init?: RequestInit) {
@@ -322,7 +392,11 @@ export function SwapExperience({
   });
   const [form, setForm] = useState<BuilderFormState>(INITIAL_FORM);
   const [isFlipping, startFlipTransition] = useTransition();
-  const deferredAmount = useDeferredValue(form.amount);
+  const [debouncedAmount, setDebouncedAmount] = useState(form.amount);
+  const [ratePreviewCountdown, setRatePreviewCountdown] = useState(3);
+  const [ratePreviewRefreshRequest, setRatePreviewRefreshRequest] =
+    useState<{ id: number; requestKey: string } | null>(null);
+  const ratePreviewRefreshRef = useRef<Record<string, number>>({});
 
   const assets = directoryState.data?.assets ?? EMPTY_ASSETS;
   const permissionGranted = directoryState.data?.permission.createShift ?? false;
@@ -356,6 +430,16 @@ export function SwapExperience({
   const selectedToNetwork = toNetworks.find(
     (network) => network.id === normalizedForm.toNetwork,
   );
+  const quoteFromCoin = normalizedForm.fromCoin;
+  const quoteFromNetwork = normalizedForm.fromNetwork;
+  const quoteToCoin = normalizedForm.toCoin;
+  const quoteToNetwork = normalizedForm.toNetwork;
+  const ratePreviewSlug = buildRatePreviewSlug({
+    fromCoin: quoteFromCoin,
+    fromNetwork: quoteFromNetwork,
+    toCoin: quoteToCoin,
+    toNetwork: quoteToNetwork,
+  });
 
   const variableQuoteAmount =
     rateMode === "variable" &&
@@ -375,14 +459,14 @@ export function SwapExperience({
   const fixedQuoteRequestKey =
     rateMode === "fixed" &&
     directoryReady &&
-    deferredAmount &&
-    Number(deferredAmount) > 0
+    debouncedAmount &&
+    Number(debouncedAmount) > 0
       ? createRequestKey(
           normalizedForm.fromCoin,
           normalizedForm.fromNetwork,
           normalizedForm.toCoin,
           normalizedForm.toNetwork,
-          deferredAmount,
+          debouncedAmount,
         )
       : null;
 
@@ -413,27 +497,65 @@ export function SwapExperience({
     ? formatCountdown(fixedQuoteMsRemaining)
     : "--:--";
 
-  const activeRateText =
+  const variablePreviewQuote = currentVariableQuoteState.data?.quote;
+  const variablePreviewLoading =
+    !variableQuoteAmount &&
+    currentVariableQuoteState.status === "loading" &&
+    !variablePreviewQuote;
+  const variablePreviewError =
+    !variableQuoteAmount && currentVariableQuoteState.status === "error";
+  const ratePreviewRefreshDisabled =
+    !variableQuoteRequestKey ||
+    Boolean(variableQuoteAmount) ||
+    (currentVariableQuoteState.status === "loading" &&
+      ratePreviewCountdown === 0);
+  const activeRateContent =
     rateMode === "fixed"
       ? currentFixedQuoteState.data?.quote
         ? `LOCKED 1 ${currentFixedQuoteState.data.quote.depositCoin} = ${formatTokenAmount(
             currentFixedQuoteState.data.quote.rate,
           )} ${currentFixedQuoteState.data.quote.settleCoin}`
-        : currentVariableQuoteState.data?.quote
-          ? `1 ${currentVariableQuoteState.data.quote.depositCoin} ~ ${formatTokenAmount(
-              currentVariableQuoteState.data.quote.rate,
-            )} ${currentVariableQuoteState.data.quote.settleCoin}`
+        : variablePreviewQuote
+          ? `1 ${variablePreviewQuote.depositCoin} ~ ${formatTokenAmount(
+              variablePreviewQuote.rate,
+            )} ${variablePreviewQuote.settleCoin}`
+          : variablePreviewLoading
+            ? <PreparingLiveRate countdown={ratePreviewCountdown} />
+          : variablePreviewError
+            ? LIVE_RATE_UNAVAILABLE_TEXT
         : "Enter an amount to lock a fixed quote"
-      : currentVariableQuoteState.data?.quote
-        ? `1 ${currentVariableQuoteState.data.quote.depositCoin} ~ ${formatTokenAmount(
-            currentVariableQuoteState.data.quote.rate,
-          )} ${currentVariableQuoteState.data.quote.settleCoin}`
+      : variablePreviewQuote
+        ? `1 ${variablePreviewQuote.depositCoin} ~ ${formatTokenAmount(
+            variablePreviewQuote.rate,
+          )} ${variablePreviewQuote.settleCoin}`
+        : variablePreviewLoading
+          ? <PreparingLiveRate countdown={ratePreviewCountdown} />
+        : variablePreviewError
+          ? LIVE_RATE_UNAVAILABLE_TEXT
         : "Select a valid pair to fetch a live variable rate";
+  const liveUnitRateContent =
+    rateMode === "fixed"
+      ? currentFixedQuoteState.data?.quote
+        ? `${formatTokenAmount(currentFixedQuoteState.data.quote.settleAmount)} ${currentFixedQuoteState.data.quote.settleCoin}`
+        : currentFixedQuoteState.status === "loading"
+          ? "Loading..."
+        : currentFixedQuoteState.error
+          ? "Quote unavailable"
+        : "--"
+      : variablePreviewQuote
+        ? `${formatTokenAmount(variablePreviewQuote.rate)} ${variablePreviewQuote.settleCoin}`
+        : variablePreviewLoading
+          ? <PreparingLiveRate countdown={ratePreviewCountdown} />
+        : variablePreviewError
+          ? LIVE_RATE_UNAVAILABLE_TEXT
+        : "--";
 
   const activeQuoteError =
     rateMode === "fixed"
       ? currentFixedQuoteState.error
-      : currentVariableQuoteState.error;
+      : variableQuoteAmount
+        ? currentVariableQuoteState.error
+        : undefined;
 
   const minMaxWarning =
     rateMode === "fixed"
@@ -487,13 +609,24 @@ export function SwapExperience({
   }, []);
 
   useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setDebouncedAmount(normalizedForm.amount);
+    }, QUOTE_INPUT_DEBOUNCE_MS);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [normalizedForm.amount]);
+
+  useEffect(() => {
     if (!variableQuoteRequestKey) {
       return;
     }
 
     let ignore = false;
     const controller = new AbortController();
-    const loadingTimer = window.setTimeout(() => {
+
+    const markLoading = () => {
       if (ignore) {
         return;
       }
@@ -506,64 +639,170 @@ export function SwapExperience({
             ? current.data
             : undefined,
       }));
-    }, 0);
+    };
 
-    void (async () => {
-      try {
-        const quoteInput = {
-          fromCoin: normalizedForm.fromCoin,
-          fromNetwork: normalizedForm.fromNetwork,
-          toCoin: normalizedForm.toCoin,
-          toNetwork: normalizedForm.toNetwork,
-          ...(variableQuoteAmount ? { amount: variableQuoteAmount } : {}),
-        };
-        const payload = variableQuoteAmount
-          ? await fetchJson<QuoteApiResponse>("/api/quote", {
+    const quoteInput = {
+      fromCoin: quoteFromCoin,
+      fromNetwork: quoteFromNetwork,
+      toCoin: quoteToCoin,
+      toNetwork: quoteToNetwork,
+      ...(variableQuoteAmount ? { amount: variableQuoteAmount } : {}),
+    };
+
+    const handleError = (message: string) => {
+      if (!ignore && !controller.signal.aborted) {
+        setVariableQuoteState({
+          status: "error",
+          requestKey: variableQuoteRequestKey,
+          error: message,
+        });
+      }
+    };
+
+    const handleSuccess = (payload: QuoteApiResponse) => {
+      if (!ignore) {
+        setVariableQuoteState({
+          status: "success",
+          data: payload,
+          requestKey: variableQuoteRequestKey,
+        });
+      }
+    };
+
+    if (variableQuoteAmount) {
+      const quoteTimer = window.setTimeout(() => {
+        markLoading();
+
+        void (async () => {
+          try {
+            const payload = await fetchJson<QuoteApiResponse>("/api/quote", {
               method: "POST",
               body: JSON.stringify(quoteInput),
               signal: controller.signal,
-            })
-          : await fetchJson<QuoteApiResponse>(
-              `/api/rate-preview/${encodeURIComponent(
-                buildRatePreviewSlug(normalizedForm),
-              )}`,
-              {
-                cache: "force-cache",
-                signal: controller.signal,
-              },
-            );
+            });
 
-        if (!ignore) {
-          setVariableQuoteState({
-            status: "success",
-            data: payload,
-            requestKey: variableQuoteRequestKey,
-          });
-        }
-      } catch (error) {
-        if (!ignore && !controller.signal.aborted) {
-          setVariableQuoteState({
-            status: "error",
-            requestKey: variableQuoteRequestKey,
-            error:
+            handleSuccess(payload);
+          } catch (error) {
+            handleError(
               error instanceof Error
                 ? error.message
                 : "Unable to refresh variable quote.",
+            );
+          }
+        })();
+      }, QUOTE_INPUT_DEBOUNCE_MS);
+
+      return () => {
+        ignore = true;
+        window.clearTimeout(quoteTimer);
+        controller.abort();
+      };
+    }
+
+    const refreshId =
+      ratePreviewRefreshRequest?.requestKey === variableQuoteRequestKey
+        ? ratePreviewRefreshRequest.id
+        : 0;
+    const cachedPayload = refreshId
+      ? null
+      : getCachedRatePreview(variableQuoteRequestKey);
+
+    if (cachedPayload) {
+      const cacheTimer = window.setTimeout(() => {
+        if (!ignore) {
+          setRatePreviewCountdown(0);
+          setVariableQuoteState({
+            status: "success",
+            data: cachedPayload,
+            requestKey: variableQuoteRequestKey,
           });
         }
+      }, 0);
+
+      return () => {
+        ignore = true;
+        window.clearTimeout(cacheTimer);
+        controller.abort();
+      };
+    }
+
+    let previewStarted = false;
+    let delayElapsed = Boolean(refreshId);
+
+    const fetchRatePreview = async () => {
+      if (ignore || previewStarted || !documentIsVisible()) {
+        return;
       }
-    })();
+
+      previewStarted = true;
+      setRatePreviewCountdown(0);
+      markLoading();
+
+      try {
+        const payload = await fetchJson<QuoteApiResponse>(
+          `/api/rate-preview/${encodeURIComponent(ratePreviewSlug)}`,
+          {
+            cache: "force-cache",
+            signal: controller.signal,
+          },
+        );
+
+        cacheRatePreview(variableQuoteRequestKey, payload);
+        handleSuccess(payload);
+      } catch {
+        handleError(LIVE_RATE_UNAVAILABLE_TEXT);
+      }
+    };
+
+    markLoading();
+
+    if (refreshId) {
+      void fetchRatePreview();
+
+      return () => {
+        ignore = true;
+        controller.abort();
+      };
+    }
+
+    const startCountdownTimer = window.setTimeout(() => {
+      if (!ignore) {
+        setRatePreviewCountdown(3);
+      }
+    }, 0);
+
+    const countdownTimer = window.setInterval(() => {
+      setRatePreviewCountdown((current) => Math.max(current - 1, 1));
+    }, 1000);
+    const delayTimer = window.setTimeout(() => {
+      delayElapsed = true;
+      window.clearInterval(countdownTimer);
+      void fetchRatePreview();
+    }, RATE_PREVIEW_DELAY_MS);
+    const handleVisibilityChange = () => {
+      if (delayElapsed && documentIsVisible()) {
+        void fetchRatePreview();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       ignore = true;
-      window.clearTimeout(loadingTimer);
+      window.clearTimeout(startCountdownTimer);
+      window.clearTimeout(delayTimer);
+      window.clearInterval(countdownTimer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       controller.abort();
     };
   }, [
-    normalizedForm.fromCoin,
-    normalizedForm.fromNetwork,
-    normalizedForm.toCoin,
-    normalizedForm.toNetwork,
+    quoteFromCoin,
+    quoteFromNetwork,
+    quoteToCoin,
+    quoteToNetwork,
+    ratePreviewSlug,
+    ratePreviewRefreshRequest?.id,
+    ratePreviewRefreshRequest?.requestKey,
     variableQuoteAmount,
     variableQuoteRequestKey,
   ]);
@@ -597,7 +836,7 @@ export function SwapExperience({
             fromNetwork: normalizedForm.fromNetwork,
             toCoin: normalizedForm.toCoin,
             toNetwork: normalizedForm.toNetwork,
-            amount: deferredAmount,
+            amount: debouncedAmount,
           }),
           signal: controller.signal,
         });
@@ -633,7 +872,7 @@ export function SwapExperience({
     normalizedForm.fromNetwork,
     normalizedForm.toCoin,
     normalizedForm.toNetwork,
-    deferredAmount,
+    debouncedAmount,
     fixedQuoteRequestKey,
   ]);
 
@@ -676,6 +915,27 @@ export function SwapExperience({
         toCoin: normalizedForm.fromCoin,
         toNetwork: normalizedForm.fromNetwork,
       }));
+    });
+  }
+
+  function handleRatePreviewRefresh() {
+    if (!variableQuoteRequestKey || variableQuoteAmount) {
+      return;
+    }
+
+    const now = Date.now();
+    const lastRefreshAt =
+      ratePreviewRefreshRef.current[variableQuoteRequestKey] ?? 0;
+
+    if (now - lastRefreshAt < RATE_PREVIEW_REFRESH_THROTTLE_MS) {
+      return;
+    }
+
+    ratePreviewRefreshRef.current[variableQuoteRequestKey] = now;
+    ratePreviewSessionCache.delete(variableQuoteRequestKey);
+    setRatePreviewRefreshRequest({
+      id: now,
+      requestKey: variableQuoteRequestKey,
     });
   }
 
@@ -820,9 +1080,17 @@ export function SwapExperience({
             <p className="theme-text-soft font-mono text-xs uppercase tracking-[0.28em]">
               Current rate
             </p>
-            <p className="theme-text-main mt-2 max-w-[28rem] text-base font-semibold leading-7">
-              {activeRateText}
-            </p>
+            <div className="mt-2 flex max-w-[28rem] items-center justify-end gap-2">
+              <p className="theme-text-main min-w-0 text-base font-semibold leading-7">
+                {activeRateContent}
+              </p>
+              {rateMode === "variable" ? (
+                <RatePreviewRefreshButton
+                  disabled={ratePreviewRefreshDisabled}
+                  onClick={handleRatePreviewRefresh}
+                />
+              ) : null}
+            </div>
             {rateMode === "fixed" && currentFixedQuoteState.data?.quote ? (
               <p className="theme-accent-cyan mt-1 text-sm">
                 Quote expires in {fixedQuoteCountdownLabel}
@@ -897,19 +1165,17 @@ export function SwapExperience({
                 <p className="theme-text-soft font-mono text-[11px] uppercase tracking-[0.28em]">
                   {rateMode === "fixed" ? "Locked receive" : "Live unit rate"}
                 </p>
-                <p className="theme-text-main mt-1.5 text-[1.35rem] font-semibold leading-tight">
-                  {rateMode === "fixed"
-                    ? currentFixedQuoteState.data?.quote
-                      ? `${formatTokenAmount(currentFixedQuoteState.data.quote.settleAmount)} ${currentFixedQuoteState.data.quote.settleCoin}`
-                      : currentFixedQuoteState.status === "loading"
-                        ? "Loading..."
-                      : currentFixedQuoteState.error
-                        ? "Quote unavailable"
-                      : "--"
-                    : currentVariableQuoteState.data?.quote
-                      ? `${formatTokenAmount(currentVariableQuoteState.data.quote.rate)} ${currentVariableQuoteState.data.quote.settleCoin}`
-                      : "--"}
-                </p>
+                <div className="mt-1.5 flex items-center gap-2">
+                  <p className="theme-text-main min-w-0 text-[1.35rem] font-semibold leading-tight">
+                    {liveUnitRateContent}
+                  </p>
+                  {rateMode === "variable" ? (
+                    <RatePreviewRefreshButton
+                      disabled={ratePreviewRefreshDisabled}
+                      onClick={handleRatePreviewRefresh}
+                    />
+                  ) : null}
+                </div>
                 <p className="theme-text-soft mt-1.5 text-[11px] leading-5">
                   {rateMode === "fixed"
                     ? currentFixedQuoteState.error

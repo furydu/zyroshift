@@ -4,13 +4,17 @@ import {
   SwapExperience,
   type SwapExperiencePreset,
 } from "@/components/swap/SwapExperience";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 function getQueryValue(params: URLSearchParams, key: string) {
   return params.get(key)?.trim() || "";
 }
 
 function getPresetFromLocation() {
+  if (typeof window === "undefined") {
+    return undefined;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const preset: Partial<SwapExperiencePreset> = {};
   const fromCoin = getQueryValue(params, "fromCoin");
@@ -37,12 +41,20 @@ function getPresetFromLocation() {
   return Object.keys(preset).length > 0 ? preset : undefined;
 }
 
-export function SwapPageExperience() {
-  const [preset, setPreset] = useState<Partial<SwapExperiencePreset> | undefined>();
+function subscribeToLocation() {
+  return () => {};
+}
 
-  useEffect(() => {
-    setPreset(getPresetFromLocation());
-  }, []);
+function getServerPresetSnapshot() {
+  return undefined;
+}
+
+export function SwapPageExperience() {
+  const preset = useSyncExternalStore(
+    subscribeToLocation,
+    getPresetFromLocation,
+    getServerPresetSnapshot,
+  );
 
   return <SwapExperience showThemeToggle={false} preset={preset} />;
 }

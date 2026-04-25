@@ -259,7 +259,7 @@ export async function fetchQuotePreview(
       cache: "force-cache",
       userIp: resolveUserIp(userIp),
       next: {
-        revalidate: 600,
+        revalidate: 120,
         tags: [
           `rate-preview:${input.fromCoin}:${input.fromNetwork}:${input.toCoin}:${input.toNetwork}`.toLowerCase(),
         ],
