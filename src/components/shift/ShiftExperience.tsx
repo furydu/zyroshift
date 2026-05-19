@@ -412,7 +412,7 @@ export function ShiftExperience({ orderId }: { orderId: string }) {
 
   return (
     <div className="mx-auto w-full max-w-[1500px] px-3 py-4 md:px-6 md:py-7 lg:px-8">
-      <div className="mb-3 flex items-start justify-between gap-3 md:mb-4">
+      <div className="mb-3 flex items-start justify-between gap-3 md:mb-4 md:flex-wrap md:items-center">
         <div className="zyro-shift-step-stack min-w-0">
           <Link
             href="/swap"

@@ -3487,200 +3487,227 @@ html[data-theme="light"] .theme-network-pill {
   color: var(--network-pill-fg-light);
 }
 
-.zyro-asset-coin-icon {
-  transform: scale(0.62);
-}
-
-.zyro-asset-network-icon {
-  transform: scale(0.72);
-}
-
-.zyro-asset-pill-icon {
-  transform: scale(0.88);
-}
-
 .zyro-mobile-rate-summary {
-  text-align: center;
+  text-align: right;
 }
 
-.zyro-mobile-rate-row,
+.zyro-mobile-rate-row {
+  justify-content: flex-end;
+}
+
 .zyro-mobile-live-unit-row {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.zyro-asset-selector-row {
-  justify-content: center;
+.zyro-asset-coin-icon,
+.zyro-asset-network-icon,
+.zyro-asset-pill-icon {
+  transform: none;
 }
 
 .zyro-asset-selector-copy {
-  flex: 1 1 0;
-  max-width: 12rem;
+  max-width: none;
 }
 
 .zyro-asset-selector-button {
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  transform: translateY(-0.2rem);
-  width: min(100%, 10.75rem);
-}
-
-.zyro-network-selector-wrap {
-  justify-content: center;
+  transform: none;
 }
 
 .zyro-mobile-fixed-amount,
 .zyro-mobile-live-unit-rate {
-  align-items: center;
-  text-align: center;
+  align-items: stretch;
+  text-align: left;
 }
 
 .zyro-mobile-fixed-amount input {
-  text-align: center;
-}
-
-.zyro-flip-arrow-desktop {
-  display: none;
+  text-align: left;
 }
 
 .zyro-flip-arrow-mobile {
+  display: none;
+}
+
+.zyro-flip-arrow-desktop {
   display: inline;
 }
 
-@media (min-width: 48rem) {
-  .zyro-asset-coin-icon,
-  .zyro-asset-network-icon,
-  .zyro-asset-pill-icon {
-    transform: none;
-  }
-
-  .zyro-mobile-rate-summary {
-    text-align: right;
-  }
-
-  .zyro-mobile-rate-row {
-    justify-content: flex-end;
-  }
-
-  .zyro-asset-selector-row {
-    display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
-    justify-content: initial;
-  }
-
-  .zyro-asset-selector-copy {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: none;
-  }
-
-  .zyro-asset-selector-button {
-    justify-content: center;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-    transform: none;
-    width: 100%;
-  }
-
-  .zyro-network-selector-wrap {
-    justify-content: center;
-  }
-
-  .zyro-mobile-fixed-amount {
-    align-items: stretch;
-    text-align: left;
-  }
-
-  .zyro-mobile-fixed-amount input {
-    text-align: left;
-  }
-
-  .zyro-mobile-live-unit-rate {
-    align-items: stretch;
-    text-align: left;
-  }
-
-  .zyro-mobile-live-unit-row {
-    justify-content: flex-start;
-  }
-
-  .zyro-flip-arrow-desktop {
-    display: inline;
-  }
-
-  .zyro-flip-arrow-mobile {
-    display: none;
-  }
-}
-
 .zyro-shift-flow-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
 }
 
-.zyro-shift-status-panel {
-  order: 1;
-}
-
-.zyro-shift-deposit-panel {
-  order: 2;
+.zyro-shift-desktop-status-details {
+  display: block;
 }
 
 .zyro-shift-mobile-detail-panel {
-  order: 3;
-}
-
-.zyro-shift-desktop-status-details {
   display: none;
 }
 
 .zyro-shift-step-stack {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-}
-
-.zyro-shift-step-stack > a,
-.zyro-shift-breadcrumb > span {
-  line-height: 1.15;
+  gap: 0.625rem;
 }
 
 .zyro-shift-breadcrumb {
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 0.45rem;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.625rem;
 }
 
 .zyro-shift-step-separator {
-  display: none;
+  display: inline;
 }
 
 .zyro-shift-active-step {
-  animation: zyro-step-soft-blink 1.6s ease-in-out infinite;
+  animation: none;
 }
 
-.zyro-shift-theme-toggle {
-  display: none;
+.zyro-shift-theme-toggle,
+.zyro-shift-status-orb-panel,
+.zyro-shift-status-chip {
+  display: block;
 }
 
 .zyro-shift-mobile-status-orb {
-  display: block;
-  margin-top: 0.1rem;
+  display: none;
 }
 
-.zyro-shift-status-chip {
-  display: none;
-  margin-top: 0.35rem;
-  padding: 0.45rem 0.8rem;
+@media (min-width: 64rem) {
+  .zyro-shift-flow-grid {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  }
+
+  .zyro-shift-status-panel {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .zyro-shift-deposit-panel {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }
 
-.zyro-shift-status-orb-panel {
-  display: none;
+@media (max-width: 47.999rem) {
+  .zyro-asset-coin-icon {
+    transform: scale(0.62);
+  }
+
+  .zyro-asset-network-icon {
+    transform: scale(0.72);
+  }
+
+  .zyro-asset-pill-icon {
+    transform: scale(0.88);
+  }
+
+  .zyro-mobile-rate-summary {
+    text-align: center;
+  }
+
+  .zyro-mobile-rate-row,
+  .zyro-mobile-live-unit-row {
+    justify-content: center;
+  }
+
+  .zyro-asset-selector-row {
+    justify-content: center;
+  }
+
+  .zyro-asset-selector-copy {
+    flex: 1 1 0;
+    max-width: 12rem;
+  }
+
+  .zyro-asset-selector-button {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transform: translateY(-0.2rem);
+    width: min(100%, 10.75rem);
+  }
+
+  .zyro-network-selector-wrap {
+    justify-content: center;
+  }
+
+  .zyro-mobile-fixed-amount,
+  .zyro-mobile-live-unit-rate {
+    align-items: center;
+    text-align: center;
+  }
+
+  .zyro-mobile-fixed-amount input {
+    text-align: center;
+  }
+
+  .zyro-flip-arrow-desktop {
+    display: none;
+  }
+
+  .zyro-flip-arrow-mobile {
+    display: inline;
+  }
+
+  .zyro-shift-flow-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .zyro-shift-status-panel {
+    order: 1;
+  }
+
+  .zyro-shift-deposit-panel {
+    order: 2;
+  }
+
+  .zyro-shift-mobile-detail-panel {
+    display: block;
+    order: 3;
+  }
+
+  .zyro-shift-desktop-status-details {
+    display: none;
+  }
+
+  .zyro-shift-step-stack {
+    gap: 0.45rem;
+  }
+
+  .zyro-shift-step-stack > a,
+  .zyro-shift-breadcrumb > span {
+    line-height: 1.15;
+  }
+
+  .zyro-shift-breadcrumb {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .zyro-shift-step-separator {
+    display: none;
+  }
+
+  .zyro-shift-active-step {
+    animation: zyro-step-soft-blink 1.6s ease-in-out infinite;
+  }
+
+  .zyro-shift-theme-toggle,
+  .zyro-shift-status-chip,
+  .zyro-shift-status-orb-panel {
+    display: none;
+  }
+
+  .zyro-shift-mobile-status-orb {
+    display: block;
+    margin-top: 0.1rem;
+  }
 }
 
 @keyframes zyro-step-soft-blink {
@@ -3693,69 +3720,6 @@ html[data-theme="light"] .theme-network-pill {
     opacity: 0.58;
   }
 }
-
-@media (min-width: 64rem) {
-  .zyro-shift-flow-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
-  }
-
-  .zyro-shift-status-panel {
-    grid-column: 2;
-    grid-row: 1;
-    order: initial;
-  }
-
-  .zyro-shift-deposit-panel {
-    grid-column: 1;
-    grid-row: 1;
-    order: initial;
-  }
-}
-
-@media (min-width: 48rem) {
-  .zyro-shift-step-stack {
-    gap: 0.625rem;
-  }
-
-  .zyro-shift-breadcrumb {
-    align-items: center;
-    flex-direction: row;
-    gap: 0.625rem;
-  }
-
-  .zyro-shift-step-separator {
-    display: inline;
-  }
-
-  .zyro-shift-active-step {
-    animation: none;
-  }
-
-  .zyro-shift-theme-toggle,
-  .zyro-shift-status-orb-panel {
-    display: block;
-  }
-
-  .zyro-shift-mobile-status-orb {
-    display: none;
-  }
-
-  .zyro-shift-status-chip {
-    display: block;
-    margin-top: 0;
-    padding: 0.5rem 1rem;
-  }
-
-  .zyro-shift-mobile-detail-panel {
-    display: none;
-  }
-
-  .zyro-shift-desktop-status-details {
-    display: block;
-  }
-}
-
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;

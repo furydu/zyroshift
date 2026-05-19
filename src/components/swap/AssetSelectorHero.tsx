@@ -39,7 +39,7 @@ export function AssetSelectorHero({
         {label}
       </p>
 
-      <div className="zyro-asset-selector-row mt-3 flex items-center gap-3 md:mt-4 md:grid md:grid-cols-[112px_minmax(0,1fr)]">
+      <div className="zyro-asset-selector-row mt-3 flex items-center gap-3 md:mt-4 md:grid md:grid-cols-[112px_minmax(0,1fr)] md:items-center">
         <div className="shrink-0 md:mx-auto">
           <div className="relative h-16 w-16 md:h-[104px] md:w-[104px]">
             <div className="theme-card flex h-full w-full items-center justify-center rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
