@@ -3591,6 +3591,142 @@ html[data-theme="light"] .theme-network-pill {
 }
 
 @media (max-width: 47.999rem) {
+  .zyro-swap-panel {
+    border-radius: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .zyro-swap-rate-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .zyro-swap-tab {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    padding-bottom: 0.5rem;
+  }
+
+  .zyro-swap-card-grid {
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .zyro-swap-card-shell {
+    border-radius: 1.25rem;
+    padding: 0.75rem;
+  }
+
+  .zyro-swap-amount-box {
+    border-radius: 1rem;
+    min-height: 88px;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .zyro-swap-amount-input {
+    border-radius: 0.875rem;
+    font-size: 15px;
+    height: 2.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .zyro-swap-input {
+    border-radius: 1rem;
+    font-size: 15px;
+    height: 2.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .zyro-swap-variable-note {
+    font-size: 13px;
+    line-height: 1.25rem;
+  }
+
+  .zyro-swap-flip-button {
+    font-size: 1rem;
+    height: 2.75rem;
+    width: 2.75rem;
+  }
+
+  .zyro-swap-address-row {
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .zyro-swap-address-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .zyro-swap-submit-button {
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    height: 2.75rem;
+    letter-spacing: 0.2em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .zyro-swap-info-grid {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .zyro-swap-deposit-rule,
+  .zyro-swap-status-note {
+    border-radius: 1rem;
+    padding: 0.75rem;
+  }
+
+  .zyro-swap-info-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .zyro-swap-warning-copy,
+  .zyro-swap-status-copy {
+    font-size: 12px;
+    line-height: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .zyro-asset-card {
+    border-radius: 1.125rem;
+    padding: 0.75rem;
+  }
+
+  .zyro-asset-label {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+  }
+
+  .zyro-asset-selector-row {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .zyro-asset-icon-column {
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .zyro-asset-icon-shell {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .zyro-asset-network-badge {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
   .zyro-asset-coin-icon {
     transform: scale(0.62);
   }
@@ -3619,19 +3755,50 @@ html[data-theme="light"] .theme-network-pill {
   .zyro-asset-selector-copy {
     flex: 1 1 0;
     max-width: 12rem;
+    min-width: 0;
+    row-gap: 0.5rem;
   }
 
   .zyro-asset-selector-button {
+    border-radius: 0.875rem;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    padding: 0.625rem 0.75rem;
     text-align: center;
     transform: translateY(-0.2rem);
     width: min(100%, 10.75rem);
   }
 
+  .zyro-asset-symbol {
+    font-size: 1.15rem;
+  }
+
+  .zyro-asset-name {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
   .zyro-network-selector-wrap {
     justify-content: center;
+  }
+
+  .zyro-network-tag {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .zyro-network-pill {
+    max-width: min(100%, 180px);
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .zyro-network-pill-icon-wrap {
+    height: 1.25rem;
+    width: 1.25rem;
   }
 
   .zyro-mobile-fixed-amount,
@@ -3642,6 +3809,20 @@ html[data-theme="light"] .theme-network-pill {
 
   .zyro-mobile-fixed-amount input {
     text-align: center;
+  }
+
+  .zyro-mobile-live-unit-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .zyro-mobile-live-unit-value {
+    font-size: 1.1rem;
+  }
+
+  .zyro-mobile-live-unit-note {
+    font-size: 10px;
+    line-height: 1rem;
   }
 
   .zyro-flip-arrow-desktop {
