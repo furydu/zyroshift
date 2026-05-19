@@ -149,7 +149,7 @@ async function fetchJson<T>(input: string, init?: RequestInit) {
 }
 
 function cardShellClassName(active: boolean) {
-  return `rounded-[24px] border p-4 transition ${
+  return `rounded-[20px] border p-3 transition md:rounded-[24px] md:p-4 ${
     active
       ? "theme-panel-strong border-cyan-300/50 shadow-[0_30px_100px_rgba(13,190,215,0.12)]"
       : "theme-card"
@@ -157,7 +157,7 @@ function cardShellClassName(active: boolean) {
 }
 
 function tabClassName(active: boolean) {
-  return `border-b-2 px-1 pb-2.5 font-mono text-[15px] uppercase tracking-[0.24em] transition ${
+  return `border-b-2 px-1 pb-2 font-mono text-[13px] uppercase tracking-[0.2em] transition md:pb-2.5 md:text-[15px] md:tracking-[0.24em] ${
     active
       ? "border-cyan-300 text-[var(--foreground)]"
       : "border-transparent text-[var(--soft-text)] hover:text-[var(--foreground)]"
@@ -165,15 +165,15 @@ function tabClassName(active: boolean) {
 }
 
 function inputClassName() {
-  return "theme-input h-12 w-full rounded-[18px] border-[var(--border-strong)] px-4 text-base font-semibold text-[color:var(--foreground)] outline-none transition placeholder:font-semibold placeholder:text-[color:var(--soft-text-strong)] focus:border-cyan-300/75 focus:shadow-[0_0_0_1px_rgba(143,232,255,0.18)]";
+  return "theme-input h-11 w-full rounded-[16px] border-[var(--border-strong)] px-3 text-[15px] font-semibold text-[color:var(--foreground)] outline-none transition placeholder:font-semibold placeholder:text-[color:var(--soft-text-strong)] focus:border-cyan-300/75 focus:shadow-[0_0_0_1px_rgba(143,232,255,0.18)] md:h-12 md:rounded-[18px] md:px-4 md:text-base";
 }
 
 function amountBoxClassName() {
-  return "theme-card-strong min-h-[112px] rounded-[18px] px-4 py-3";
+  return "theme-card-strong min-h-[88px] rounded-[16px] px-3 py-2.5 md:min-h-[112px] md:rounded-[18px] md:px-4 md:py-3";
 }
 
 function amountInputClassName() {
-  return "theme-input h-11 w-full rounded-[16px] px-4 text-base outline-none transition focus:border-cyan-400/70";
+  return "theme-input h-10 w-full rounded-[14px] px-3 text-[15px] outline-none transition focus:border-cyan-400/70 md:h-11 md:rounded-[16px] md:px-4 md:text-base";
 }
 
 function getAssetByCoin(assets: SwapAssetOption[], coin: string) {
@@ -1057,8 +1057,8 @@ export function SwapExperience({
         </div>
       ) : null}
 
-      <section className="theme-panel rounded-[30px] p-5 backdrop-blur md:p-6">
-        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--border-color)] pb-4">
+      <section className="theme-panel rounded-[24px] p-3 backdrop-blur md:rounded-[30px] md:p-6">
+        <div className="flex flex-col items-stretch justify-between gap-3 border-b border-[var(--border-color)] pb-3 md:flex-row md:flex-wrap md:items-end md:gap-4 md:pb-4">
           <div className="flex gap-8">
             <button
               type="button"
@@ -1076,12 +1076,12 @@ export function SwapExperience({
             </button>
           </div>
 
-          <div className="text-right">
-            <p className="theme-text-soft font-mono text-xs uppercase tracking-[0.28em]">
+          <div className="zyro-mobile-rate-summary text-left md:text-right">
+            <p className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.22em] md:text-xs md:tracking-[0.28em]">
               Current rate
             </p>
-            <div className="mt-2 flex max-w-[28rem] items-center justify-end gap-2">
-              <p className="theme-text-main min-w-0 text-base font-semibold leading-7">
+            <div className="zyro-mobile-rate-row mt-1.5 flex max-w-[28rem] items-center justify-start gap-2 md:mt-2 md:justify-end">
+              <p className="theme-text-main min-w-0 text-[15px] font-semibold leading-6 md:text-base md:leading-7">
                 {activeRateContent}
               </p>
               {rateMode === "variable" ? (
@@ -1103,9 +1103,9 @@ export function SwapExperience({
           </div>
         </div>
 
-        <div className="mt-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_56px_minmax(0,1fr)] lg:items-center">
+        <div className="mt-3 grid gap-2 md:mt-5 md:gap-3 lg:grid-cols-[minmax(0,1fr)_56px_minmax(0,1fr)] lg:items-center">
           <div className={cardShellClassName(true)}>
-            <div className="grid gap-3">
+            <div className="grid gap-2 md:gap-3">
               <AssetSelectorHero
                 accentClassName="theme-accent-cyan"
                 asset={fromAsset}
@@ -1117,7 +1117,7 @@ export function SwapExperience({
               />
 
               {rateMode === "fixed" ? (
-                <div className={amountBoxClassName()}>
+                <div className={`${amountBoxClassName()} zyro-mobile-fixed-amount`}>
                   <p className="theme-text-soft font-mono text-[11px] uppercase tracking-[0.28em]">
                     Fixed amount
                   </p>
@@ -1132,7 +1132,7 @@ export function SwapExperience({
                   </div>
                 </div>
               ) : (
-                <div className={`${amountBoxClassName()} theme-text-muted flex items-center text-sm leading-6`}>
+                <div className={`${amountBoxClassName()} theme-text-muted flex items-center text-[13px] leading-5 md:text-sm md:leading-6`}>
                   Variable rate creates the shift first. The shift page shows the
                   deposit range before funds are sent.
                 </div>
@@ -1143,14 +1143,19 @@ export function SwapExperience({
           <button
             type="button"
             onClick={handleFlipPair}
-            className="theme-outline-button mx-auto flex h-14 w-14 items-center justify-center rounded-full text-lg transition hover:border-cyan-400/70 hover:text-cyan-200"
+            className="theme-outline-button mx-auto flex h-11 w-11 items-center justify-center rounded-full text-base transition hover:border-cyan-400/70 hover:text-cyan-200 md:h-14 md:w-14 md:text-lg"
             aria-label="Flip selected pair"
           >
-            -&gt;
+            <span className="zyro-flip-arrow-mobile" aria-hidden="true">
+              &#8595;
+            </span>
+            <span className="zyro-flip-arrow-desktop" aria-hidden="true">
+              -&gt;
+            </span>
           </button>
 
           <div className={cardShellClassName(false)}>
-            <div className="grid gap-3">
+            <div className="grid gap-2 md:gap-3">
               <AssetSelectorHero
                 accentClassName="theme-accent-amber"
                 asset={toAsset}
@@ -1161,12 +1166,12 @@ export function SwapExperience({
                 onOpenAssetPicker={() => setPickerTarget("to")}
               />
 
-              <div className={`${amountBoxClassName()} flex flex-col justify-between`}>
-                <p className="theme-text-soft font-mono text-[11px] uppercase tracking-[0.28em]">
+              <div className={`${amountBoxClassName()} zyro-mobile-live-unit-rate flex flex-col justify-between`}>
+                <p className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.22em] md:text-[11px] md:tracking-[0.28em]">
                   {rateMode === "fixed" ? "Locked receive" : "Live unit rate"}
                 </p>
-                <div className="mt-1.5 flex items-center gap-2">
-                  <p className="theme-text-main min-w-0 text-[1.35rem] font-semibold leading-tight">
+                <div className="zyro-mobile-live-unit-row mt-1.5 flex items-center gap-2">
+                  <p className="theme-text-main min-w-0 text-[1.1rem] font-semibold leading-tight md:text-[1.35rem]">
                     {liveUnitRateContent}
                   </p>
                   {rateMode === "variable" ? (
@@ -1176,7 +1181,7 @@ export function SwapExperience({
                     />
                   ) : null}
                 </div>
-                <p className="theme-text-soft mt-1.5 text-[11px] leading-5">
+                <p className="theme-text-soft mt-1.5 text-[10px] leading-4 md:text-[11px] md:leading-5">
                   {rateMode === "fixed"
                     ? currentFixedQuoteState.error
                       ? currentFixedQuoteState.error
@@ -1190,9 +1195,9 @@ export function SwapExperience({
           </div>
         </div>
 
-        <div className="mt-4 grid gap-3 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
+        <div className="mt-3 grid gap-2 md:mt-4 md:gap-3 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
           <label className="grid gap-2">
-            <span className="theme-text-muted font-mono text-[13px] font-semibold uppercase tracking-[0.24em]">
+            <span className="theme-text-muted font-mono text-[11px] font-semibold uppercase tracking-[0.2em] md:text-[13px] md:tracking-[0.24em]">
               Receiving address
             </span>
             <input
@@ -1207,28 +1212,28 @@ export function SwapExperience({
             type="button"
             onClick={handleSubmit}
             disabled={disableSubmit}
-            className="h-12 rounded-[18px] border border-cyan-200/24 bg-[linear-gradient(135deg,rgba(116,255,244,0.96),rgba(97,204,255,0.92),rgba(118,155,255,0.9))] px-5 font-mono text-[15px] font-extrabold uppercase tracking-[0.22em] text-[#04121b] shadow-[0_16px_36px_rgba(64,184,255,0.28)] transition hover:-translate-y-0.5 hover:brightness-[1.04] disabled:cursor-not-allowed disabled:border-cyan-200/14 disabled:bg-[linear-gradient(135deg,rgba(67,95,132,0.94),rgba(76,103,146,0.9),rgba(66,86,120,0.9))] disabled:text-white/90 disabled:shadow-[0_12px_24px_rgba(22,34,58,0.18)]"
+            className="h-11 rounded-[16px] border border-cyan-200/24 bg-[linear-gradient(135deg,rgba(116,255,244,0.96),rgba(97,204,255,0.92),rgba(118,155,255,0.9))] px-4 font-mono text-sm font-extrabold uppercase tracking-[0.2em] text-[#04121b] shadow-[0_16px_36px_rgba(64,184,255,0.28)] transition hover:-translate-y-0.5 hover:brightness-[1.04] disabled:cursor-not-allowed disabled:border-cyan-200/14 disabled:bg-[linear-gradient(135deg,rgba(67,95,132,0.94),rgba(76,103,146,0.9),rgba(66,86,120,0.9))] disabled:text-white/90 disabled:shadow-[0_12px_24px_rgba(22,34,58,0.18)] md:h-12 md:rounded-[18px] md:px-5 md:text-[15px] md:tracking-[0.22em]"
           >
             {submitState.status === "loading" ? "Creating..." : "Shift"}
           </button>
         </div>
 
-        <div className="mt-5 grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.75fr)]">
-          <div className="theme-warning-panel rounded-[20px] p-4">
-            <p className="theme-accent-amber font-mono text-xs uppercase tracking-[0.26em]">
+        <div className="mt-4 grid gap-2 md:mt-5 md:gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.75fr)]">
+          <div className="theme-warning-panel rounded-[16px] p-3 md:rounded-[20px] md:p-4">
+            <p className="theme-accent-amber font-mono text-[10px] uppercase tracking-[0.22em] md:text-xs md:tracking-[0.26em]">
               Deposit rule
             </p>
-            <pre className="theme-accent-amber mt-2.5 whitespace-pre-wrap font-mono text-sm leading-6">
+            <pre className="theme-accent-amber mt-2 whitespace-pre-wrap font-mono text-[12px] leading-5 md:mt-2.5 md:text-sm md:leading-6">
 {`[warning]
 ${minMaxWarning}`}
             </pre>
           </div>
 
-          <div className="theme-card rounded-[20px] p-4">
-            <p className="theme-text-soft font-mono text-xs uppercase tracking-[0.26em]">
+          <div className="theme-card rounded-[16px] p-3 md:rounded-[20px] md:p-4">
+            <p className="theme-text-soft font-mono text-[10px] uppercase tracking-[0.22em] md:text-xs md:tracking-[0.26em]">
               Status note
             </p>
-            <p className="theme-text-muted mt-2.5 text-sm leading-6">
+            <p className="theme-text-muted mt-2 text-[12px] leading-5 md:mt-2.5 md:text-sm md:leading-6">
               After you create the order, the app redirects to a dedicated shift
               screen with the QR code, countdown, waiting state, and live status
               polling.
